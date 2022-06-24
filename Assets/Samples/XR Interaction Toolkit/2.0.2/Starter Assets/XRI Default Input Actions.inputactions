@@ -1075,7 +1075,7 @@
             ]
         },
         {
-            "name": "Oculus Velocity",
+            "name": "Oculus Controller",
             "id": "84e40692-5676-4f2f-af8c-4e664e69a844",
             "actions": [
                 {
@@ -1095,6 +1095,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Menu Button",
+                    "type": "Button",
+                    "id": "774f95ea-bf1d-41a9-9cdb-a8a8807e018d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1117,6 +1126,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Right Controller Velocity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "71be865e-7fe6-4bcf-88fe-5d5d1dddb09a",
+                    "path": "<OculusTouchController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

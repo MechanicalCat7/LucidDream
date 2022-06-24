@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // 싱글톤 오브젝트
+    /// GameManager 오브젝트 인스턴스
     public static GameManager Instance { get; private set; }
     
     // 첫 Update 호출 전 수행
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    // 데이터 매니저
+    /// 데이터 매니저
     public Transform DataManager { get; private set; }
 
     public void RegisterDataManager(Transform target)
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
         DataManager = target;
     }
     
-    // 씬 이벤트
+    /// 씬 이벤트
     public BaseSceneEvent SceneEvent { get; private set; }
     
     /// GameManager에 씬 이벤트를 등록한다.
@@ -41,21 +42,30 @@ public class GameManager : MonoBehaviour
         Debug.Log($"SceneEvent registered: {target}");
     }
     
-    // 플레이어 오브젝트
-    public PlayerBase.PlayerObject Player { get; private set; }
+    /// 플레이어 오브젝트
+    public PlayerBase Player { get; private set; }
 
     /// GameManager에 플레이어 오브젝트를 등록한다.
-    public void RegisterPlayer(PlayerBase.PlayerObject target)
+    public void RegisterPlayer(PlayerBase target)
     {
         Player = target;
         Debug.Log($"Player object in {SceneManager.GetActiveScene().name} registered.");
     }
     
-    // TODO: 별도 플레이어 클래스로 분리
-    /// 플레이어의 이동 상태를 반환한다.
-    public static bool IsPlayerMoving()
+    // 컨트롤러 입력
+    [SerializeField] private InputActionProperty moveAction;
+    public bool IsMoving { get; private set; }
+    [SerializeField] private InputActionProperty turnAction;
+    public bool IsTurning { get; private set; }
+    [SerializeField] private InputActionProperty menuButtonAction;
+    public bool MenuButtonPressed { get; private set; }
+    
+    // 매 프레임마다 호출
+    private void Update()
     {
-        var input = Instance.Player.moveInput.action.ReadValue<Vector2>();
-        return input != Vector2.zero;
+        // 컨트롤러 입력 감지
+        IsMoving = moveAction.action.ReadValue<Vector2>() != Vector2.zero;
+        IsTurning = turnAction.action.ReadValue<Vector2>() != Vector2.zero;
+        MenuButtonPressed = menuButtonAction.action.ReadValue<float>() > 0;
     }
 }

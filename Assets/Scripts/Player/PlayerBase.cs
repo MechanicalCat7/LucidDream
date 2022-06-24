@@ -1,38 +1,49 @@
-using System;
 using Unity.XR.CoreUtils;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlayerBase : MonoBehaviour
 {
-    // 플레이어 오브젝트 구성 요소
-    [SerializeField] private PlayerObject player;
-
-    [Serializable]
-    public class PlayerObject
-    {
-        public XROrigin xROrigin;
-        public CharacterController character;
-        public Transform head;
-        public PlayerHand leftHand;
-        public PlayerHand rightHand;
-        [Space]
-        public InputActionProperty moveInput;
-        public InputActionProperty turnInput;
-    }
-
-    [SerializeField] private LayerMask raycastLayer;
-
-    public bool Movable { get; private set; }       // 이동 가능 상태
+    //// 플레이어 오브젝트 구성 요소 ////
+    public bool foldOutPlayer;
+    public XROrigin XROrigin => xROrigin;
+    [SerializeField] private XROrigin xROrigin;
+    public CharacterController Character => character;
+    [SerializeField] private CharacterController character;
+    public Transform Head => head;
+    [SerializeField] private Transform head;
+    public PlayerHand LeftHand => leftHand;
+    [SerializeField] private PlayerHand leftHand;
+    public PlayerHand RightHand => rightHand;
+    [SerializeField] private PlayerHand rightHand;
     
+
+    [SerializeField] private LayerMask raycastLayer;    // 충돌 감지 레이어
+    
+    // 컴포넌트
     private CharacterControllerDriver _driver;
+    
     private RaycastHit _raycastHit;
 
-    // 첫 Update 호출 전에 수행
+    public Transform testObject;
+    
+    /// 플레이어의 이동 가능 상태
+    public bool Movable { get; private set; }
+    
+    /// 월드 좌표계에서 Character Controller의 위치
+    public Vector3 CharacterPosInWorldSpace
+    {
+        get
+        {
+            var origin = xROrigin.transform;
+            return origin.position + origin.TransformDirection(character.center);
+        }
+    }
+
+    // 스크립트 로드 시 수행
     private void Awake()
     {
-        GameManager.Instance.RegisterPlayer(player);
+        GameManager.Instance.RegisterPlayer(this);
 
         _driver = GetComponent<CharacterControllerDriver>();
     }
@@ -44,22 +55,25 @@ public class PlayerBase : MonoBehaviour
         Movable = CheckMovable();
     }
     
+    /// XR Origin의 위치를 갱신한다.
+    public void UpdateOriginPosition()
+    {
+        var v = CharacterPosInWorldSpace - head.position;
+        v.y = 0;
+        
+        xROrigin.transform.Translate(v);
+    }
+    
     /// Character Controller의 위치를 갱신한다.
     public void UpdateCharacterController()
     {
-        // 이동해야할 방향 계산
-        var origin = player.xROrigin.transform;
-        var character = origin.position + player.character.center;
-        var direction = character - player.head.position;
-        direction.y = 0;
-        direction.Normalize();
+        var height = Mathf.Clamp(xROrigin.CameraInOriginSpaceHeight, _driver.minHeight, _driver.maxHeight);
 
-        var height = Mathf.Clamp(player.xROrigin.CameraInOriginSpaceHeight, _driver.minHeight, _driver.maxHeight);
-        var center =  origin.InverseTransformPoint(_raycastHit.point) + direction * player.character.radius;
-        center.y = height / 2f + player.character.skinWidth;
+        Vector3 center = xROrigin.CameraInOriginSpacePos;
+        center.y = height / 2f + character.skinWidth;
 
-        player.character.center = center;
-        player.character.height = height;
+        character.height = height;
+        character.center = center;
     }
 
     /// 플레이어의 이동 가능 상태를 확인한다.
@@ -71,10 +85,10 @@ public class PlayerBase : MonoBehaviour
     // 중간 장애물 검사
     private bool IsBlocked()
     {
-        var originPos = player.xROrigin.transform.position;
-        var start = originPos + player.character.center;
-        start.y = originPos.y + player.character.stepOffset;
-        var end = player.head.position;
+        var origin = xROrigin.transform;
+        var start = CharacterPosInWorldSpace;
+        start.y = origin.position.y + character.stepOffset;
+        var end = head.position;
         end.y = start.y;
 
         var v = end - start;
@@ -84,11 +98,13 @@ public class PlayerBase : MonoBehaviour
     // 충돌 검사
     private bool IsCollided()
     {
-        var start = player.head.position;
+        var start = head.position;
         var end = start;
-        end.y -= player.character.height - player.character.skinWidth;
+        end.y = xROrigin.transform.position.y + character.stepOffset;
 
         var v = end - start;
         return Physics.Raycast(start, v.normalized, out _raycastHit, v.magnitude, raycastLayer, QueryTriggerInteraction.Ignore);
     }
+    
+    
 }

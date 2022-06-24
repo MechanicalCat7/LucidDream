@@ -35,7 +35,7 @@ public class PlayerHand : MonoBehaviour
     // 첫 Update 호출 전 수행
     private void Start()
     {
-        _origin = GameManager.Instance.Player.xROrigin.transform;
+        _origin = GameManager.Instance.Player.XROrigin.transform;
     }
 
     // 매 프레임마다 수행
@@ -58,12 +58,12 @@ public class PlayerHand : MonoBehaviour
         {
             var v = controllerVelocity.action.ReadValue<Vector3>();
             if(CheckVectorValid(v.x))
-                _rigidbody.velocity = v;
+                _rigidbody.velocity = _origin.TransformDirection(v);
             
             RotateHand();
         }
         // 이동 중일 경우
-        else if (GameManager.IsPlayerMoving())
+        else if (GameManager.Instance.IsMoving)
         {
             MoveHandWhileMoving();
         }
@@ -95,8 +95,10 @@ public class PlayerHand : MonoBehaviour
     /// 이동 중일 때 손의 이동
     private void MoveHandWhileMoving()
     {
+        // 이동 중일 경우에는 손이 항상 지형 위에 위치하게 한다.
+        
         // Raycast 시작 위치
-        var characterPos = _origin.position + GameManager.Instance.Player.character.center;
+        var characterPos = GameManager.Instance.Player.CharacterPosInWorldSpace;
         characterPos.y = controller.position.y;
     
         // 컨트롤러가 지형 속에 있는지 확인
