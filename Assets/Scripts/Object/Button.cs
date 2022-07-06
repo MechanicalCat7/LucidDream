@@ -1,102 +1,146 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Button : SerializableObject
 {
-    // Range일 경우 0은 눌림, 1은 풀림
-    [SerializeField] private ConfigurableJoint button;  // 버튼
-    [SerializeField] private Transform anchorPoint;     // 풀렸을 때 기준 위치
+    // ==================================================
+    //  Editor-assigned Variables
+    // ==================================================
+    
+    [Tooltip("버튼 오브젝트")]
+    [SerializeField] private ConfigurableJoint _button;
+    
+    [Tooltip("버튼의 기준 위치. 버튼이 눌리지 않은 상태일 때의 위치")]
+    [SerializeField] private Transform _anchorPoint;
+    
+    [Header("Toggle")]
+    [Tooltip("토글 버튼인지 여부")]
+    [SerializeField] private bool _toggle;
+    
+    [Tooltip("토글 버튼이 눌린 상태일 때 복귀 지점. 0은 초기 위치")]
+    [SerializeField] [Range(0, 1)] private float _toggleReturnPoint;
+    
+    [Tooltip("토글 버튼이 눌린 후 재인식 상태로 돌아오는 지점. 0은 초기 위치")]
+    [SerializeField] [Range(0, 1)] private float _threshold;
+    
+    [Tooltip("버튼의 잠김 상태. 잠긴 상태에서는 버튼이 움직이지 않는다.")]
+    [SerializeField] private bool _locked;
+    
+    [Tooltip("버튼의 눌림 상태. 토글 버튼일 경우 눌린 상태로 고정된다.")]
+    [SerializeField] private bool _pressed;
     
     [Space]
-    [SerializeField] private bool toggle;               // 토글 버튼 여부
-    [SerializeField] [Range(0, 1)] private float toggleReturnPoint;     // 토글 버튼의 복귀 위치
-    [SerializeField] [Range(0, 1)] private float threshold;
-    [SerializeField] private bool locked;               // 잠김 상태
-    public bool Locked
+    [Tooltip("버튼이 눌리는 것으로 인식하는 지점. 0은 초기 위치")]
+    [SerializeField] [Range(0, 1)] private float _pressPoint;
+    
+    [Tooltip("버튼이 풀리는 것으로 인식하는 지점. 0은 초기 위치")]
+    [SerializeField] [Range(0, 1)] private float _releasePoint;
+    
+    [Space]
+    [Tooltip("버튼이 눌릴 때 이벤트")]
+    [SerializeField] private UnityEvent _buttonPressedEvent;
+    
+    [Tooltip("버튼이 풀릴 때 이벤트")]
+    [SerializeField] private UnityEvent _buttonReleasedEvent;
+    
+    // ==================================================
+    //  Variables
+    // ==================================================
+    
+    private Rigidbody _buttonRigid;
+
+    private Vector3 _anchorPosition;    // 버튼의 기준 위치
+    private float _limitDistance;       // 버튼의 최대 깊이
+    private bool _toggleCheck;          // 토글 버튼이 이중으로 눌리는 것을 방지하기 위한 변수
+    
+    // ==================================================
+    //  Properties
+    // ==================================================
+    
+    /// <summary>
+    /// 버튼의 잠김 상태. 잠긴 상태에서는 버튼이 움직이지 않는다.
+    /// </summary>
+    public bool locked
     {
-        get => locked;
+        get => _locked;
         set
         {
-            locked = value;
+            _locked = value;
             _buttonRigid.constraints = value ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
         }
     }
-    [SerializeField] private bool pressed;              // 버튼 눌림 상태
-    public bool Pressed
+    
+    /// <summary>
+    /// 버튼의 눌림 상태. 토글 버튼일 경우 눌린 상태로 고정된다.
+    /// </summary>
+    public bool pressed
     {
-        get => pressed;
+        get => _pressed;
         set
         {
-            pressed = value;
+            _pressed = value;
             // 토글 버튼일 경우 복귀 지점 변경
-            if (toggle)
+            if (_toggle)
             {
-                var tp = new Vector3(0, _limitDistance * (1 -toggleReturnPoint), 0);
-                button.targetPosition = value ? tp : Vector3.zero;
+                var tp = new Vector3(0, _limitDistance * (1 -_toggleReturnPoint), 0);
+                _button.targetPosition = value ? tp : Vector3.zero;
             }
         }
     }
-
-    [Space]
-    [SerializeField] [Range(0, 1)] private float pressPoint;        // 버튼 눌림 기준
-    [SerializeField] [Range(0, 1)] private float releasePoint;      // 버튼 풀림 기준
-    [Space]
-    [SerializeField] private UnityEvent buttonPressedEvent;             // 버튼이 눌릴 때 이벤트
-    [SerializeField] private UnityEvent buttonReleasedEvent;            // 버튼이 풀릴 때 이벤트
     
-    // 컴포넌트
-    private Rigidbody _buttonRigid;
-
-    private Vector3 _anchorPoint;
-    private float _limitDistance;
-    private bool _toggleCheck;                          // 토글 버튼 재입력 방지
-
-    // 스크립트 로드 시 수행
+    // ==================================================
+    //  Unity Functions
+    // ==================================================
+    
     private void Awake()
     {
-        _buttonRigid = button.transform.GetComponent<Rigidbody>();
+        _buttonRigid = _button.transform.GetComponent<Rigidbody>();
 
-        _anchorPoint = anchorPoint.position;
-        _limitDistance = button.linearLimit.limit;
+        _anchorPosition = _anchorPoint.position;
+        _limitDistance = _button.linearLimit.limit;
         
-        _buttonRigid.constraints = locked ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
+        _buttonRigid.constraints = _locked ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
         
         // 버튼 초기 위치
-        var tp = anchorPoint.localPosition;
-        tp.y -= _limitDistance * (1 -toggleReturnPoint);
-        button.transform.localPosition = pressed ? tp : anchorPoint.localPosition;
-        Pressed = pressed;
+        var togglePosition = _anchorPoint.localPosition;
+        togglePosition.y -= _limitDistance * (1 -_toggleReturnPoint);
+        _button.transform.localPosition = _pressed ? togglePosition : _anchorPoint.localPosition;
+        pressed = _pressed;
     }
     
-    // 매 프레임마다 수행
     private void Update()
     {
-        var distance = 1 - Vector3.Distance(_anchorPoint, button.transform.position) / _limitDistance;
+        var distance = 1 - Vector3.Distance(_anchorPosition, _button.transform.position) / _limitDistance;
         
         UpdateButtonPressState(distance);
     }
-
+    
+    // ==================================================
+    //  Button Functions
+    // ==================================================
+    
+    /// <summary>
+    /// 버튼의 상태를 갱신한다.
+    /// </summary>
+    /// <param name="distance">현재 버튼의 위치</param>
     private void UpdateButtonPressState(float distance)
     {
         // 토글 버튼
-        if (toggle)
+        if (_toggle)
         {
-            if (!_toggleCheck && distance < pressPoint)
+            if (!_toggleCheck && distance < _pressPoint)
             {
-                Pressed = !pressed;
+                pressed = !_pressed;
                 _toggleCheck = true;
                 
-                if(pressed)
-                    buttonPressedEvent.Invoke();
+                if(_pressed)
+                    _buttonPressedEvent.Invoke();
                 else
-                    buttonReleasedEvent.Invoke();
+                    _buttonReleasedEvent.Invoke();
             }
-            if (distance > pressPoint + threshold)
+            if (distance > _threshold)
             {
                 _toggleCheck = false;
             }
@@ -104,20 +148,23 @@ public class Button : SerializableObject
         // 일반 버튼
         else
         {
-            if (!pressed && distance < pressPoint)
+            if (!_pressed && distance < _pressPoint)
             {
-                Pressed = true;
-                buttonPressedEvent.Invoke();
+                pressed = true;
+                _buttonPressedEvent.Invoke();
             }
-            if (pressed && distance > releasePoint)
+            if (_pressed && distance > _releasePoint)
             {
-                Pressed = false;
-                buttonReleasedEvent.Invoke();
+                pressed = false;
+                _buttonReleasedEvent.Invoke();
             }
         }
     }
-
-    //// 데이터 저장 ////
+    
+    // ==================================================
+    //  Data Management
+    // ==================================================
+    
     [Serializable]
     private class ObjectData
     {
@@ -135,10 +182,10 @@ public class Button : SerializableObject
         {
             index = transform.GetSiblingIndex(),
             name = transform.name,
-            buttonPos = Vector3ToFloat(button.transform.position),
-            buttonRot = QuaternionToFloat(button.transform.rotation),
-            locked = locked,
-            pressed = pressed
+            buttonPos = Vector3ToFloat(_button.transform.position),
+            buttonRot = QuaternionToFloat(_button.transform.rotation),
+            locked = _locked,
+            pressed = _pressed
         };
         
         jArray.Add(JToken.FromObject(od));
@@ -148,9 +195,9 @@ public class Button : SerializableObject
     {
         var od = jObject.ToObject<ObjectData>();
 
-        button.transform.position = FloatToVector3(od.buttonPos);
-        button.transform.rotation = FloatToQuaternion(od.buttonRot);
-        Locked = od.locked;
-        Pressed = od.pressed;
+        _button.transform.position = FloatToVector3(od.buttonPos);
+        _button.transform.rotation = FloatToQuaternion(od.buttonRot);
+        locked = od.locked;
+        pressed = od.pressed;
     }
 }

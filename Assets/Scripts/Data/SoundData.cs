@@ -2,17 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "NewSoundData", menuName = "Data/Sound", order = 1)]
 public class SoundData : ScriptableObject
 {
-    // 오디오 리스트
-    public List<AudioClip> walking;
-    public List<AudioClip> running;
-    public List<AudioClip> impact;
-    public List<AudioClip> breaking;
+    // ==================================================
+    //  Audio List
+    // ==================================================
     
-    // 리스트에서 오디오를 랜덤으로 선택
-    public AudioClip Walking => walking[Random.Range(0, walking.Count - 1)];
-    public AudioClip Running => running[Random.Range(0, running.Count - 1)];
-    public AudioClip Impact => impact[Random.Range(0, impact.Count - 1)];
-    public AudioClip Breaking => breaking[Random.Range(0, breaking.Count - 1)];
+    /// <summary>
+    /// 걸어다닐 때 소리 리스트
+    /// </summary>
+    [SerializeField] private List<AudioClip> _walking;
+    
+    /// <summary>
+    /// 달릴 때 소리 리스트
+    /// </summary>
+    [SerializeField] private List<AudioClip> _running;
+    
+    /// <summary>
+    /// 충격을 받았을 때 소리 리스트
+    /// </summary>
+    [SerializeField] private List<AudioClip> _impact;
+    
+    /// <summary>
+    /// 파괴될 때 소리 리스트
+    /// </summary>
+    [SerializeField] private List<AudioClip> _breaking;
+    
+    // ==================================================
+    //  Properties
+    // ==================================================
+    
+    /// <summary>
+    /// 걸어다닐 때 소리를 무작위로 출력
+    /// </summary>
+    public AudioClip walking => _walking[Random.Range(0, _walking.Count - 1)];
+    
+    /// <summary>
+    /// 달릴 때 소리를 무작위로 출력
+    /// </summary>
+    public AudioClip running => _running[Random.Range(0, _running.Count - 1)];
+    
+    /// <summary>
+    /// 충격을 받았을 때 소리를 무작위로 출력
+    /// </summary>
+    public AudioClip impact => _impact[Random.Range(0, _impact.Count - 1)];
+    
+    /// <summary>
+    /// 파괴될 때 소리를 무작위로 출력
+    /// </summary>
+    public AudioClip breaking => _breaking[Random.Range(0, _breaking.Count - 1)];
 }

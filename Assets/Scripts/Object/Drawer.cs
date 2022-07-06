@@ -6,82 +6,122 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Drawer : SerializableObject
 {
-    [SerializeField] private ConfigurableJoint drawer;  // 서랍
-    [SerializeField] private XRGrabInteractable handle; // 손잡이
-    [SerializeField] private Transform anchorPoint;     // 닫혔을 때 기준 위치
+    // ==================================================
+    //  Editor-assigned Variables
+    // ==================================================
+    
+    [Tooltip("서랍 오브젝트")]
+    [SerializeField] private ConfigurableJoint _drawer;
+    
+    [Tooltip("손잡이 오브젝트")]
+    [SerializeField] private XRGrabInteractable _handle;
+    
+    [Tooltip("서랍의 기준 위치. 서랍이 완전히 닫혀있을 때의 위치")]
+    [SerializeField] private Transform _anchorPoint;
     
     [Space]
-    [SerializeField] private bool locked;               // 잠김 상태
-    public bool Locked
+    [Tooltip("서랍의 잠김 상태. 잠겨있을 경우 서랍이 움직이지 않는다.")]
+    [SerializeField] private bool _locked;
+    
+    [Tooltip("서랍이 닫히는 것으로 인식하는 지점. 0은 초기 위치")]
+    [SerializeField] [Range(0, 1)] private float _closePoint;
+    
+    [Tooltip("서랍이 열리는 것으로 인식하는 지점. 0은 초기 위치")]
+    [SerializeField] [Range(0, 1)] private float _openPoint;
+    
+    [Space]
+    [Tooltip("서랍이 닫힐 때 이벤트")]
+    [SerializeField] private UnityEvent _drawerClosedEvent;
+    
+    [Tooltip("서랍이 열릴 때 이벤트")]
+    [SerializeField] private UnityEvent _drawerOpenedEvent;
+    
+    // ==================================================
+    //  Variables
+    // ==================================================
+
+    private Rigidbody _drawerRigid;
+
+    private Vector3 _anchorPosition;
+    private float _limitDistance;
+    
+    // ==================================================
+    //  Properties
+    // ==================================================
+    
+    /// <summary>
+    /// 서랍의 잠김 상태. 잠겨있을 경우 서랍이 움직이지 않는다.
+    /// </summary>
+    public bool locked
     {
-        get => locked; 
+        get => _locked; 
         set
         {
-            locked = value;
+            _locked = value;
             _drawerRigid.constraints = value ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
         }
     }
     
-    [Space]
-    [SerializeField] [Range(0, 1)] private float closePoint;        // 서랍 닫힘 기준 (0-1)
-    [SerializeField] [Range(0, 1)] private float openPoint;         // 서랍 열림 기준 (0-1)
-    [Space]
-    [SerializeField] private UnityEvent drawerClosedEvent;          // 서랍이 닫힐 때 이벤트
-    [SerializeField] private UnityEvent drawerOpenedEvent;          // 서랍이 열릴 때 이벤트
+    /// <summary>
+    /// 현재 서랍이 열려있는가?
+    /// </summary>
+    public bool isOpened { get; private set; }
     
-    // 컴포넌트
-    private Rigidbody _drawerRigid;
-
-    private Vector3 _anchorPoint;
-    private float _limitDistance;
-    
-    /// 서랍 열림 상태
-    public bool Opened { get; private set; }
-    
-    /// 서랍의 열린 정도 (0-1 사이의 값)
+    /// <summary>
+    /// 서랍의 열림 정도. 0은 닫힌 상태
+    /// </summary>
     public float DrawDistance { get; private set; }
-
-    // 스크립트 로드 시 수행
+    
+    // ==================================================
+    //  Unity Functions
+    // ==================================================
+    
     private void Awake()
     {
-        _drawerRigid = drawer.GetComponent<Rigidbody>();
+        _drawerRigid = _drawer.GetComponent<Rigidbody>();
         
-        _drawerRigid.constraints = locked ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
+        _drawerRigid.constraints = _locked ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
         
-        _anchorPoint = anchorPoint.position;
-        _limitDistance = drawer.linearLimit.limit * 2;
-        var distance = Vector3.Distance(_anchorPoint, drawer.transform.position) / _limitDistance;
-        Opened = distance > openPoint;
+        // 서랍의 열림 상태
+        _anchorPosition = _anchorPoint.position;
+        _limitDistance = _drawer.linearLimit.limit * 2;
+        DrawDistance = Vector3.Distance(_anchorPosition, _drawer.transform.position) / _limitDistance;
+        isOpened = DrawDistance > _openPoint;
     }
     
-    // 매 프레임마다 수행
     private void Update()
     {
-        float distance = Vector3.Distance(_anchorPoint, drawer.transform.position) / _limitDistance;
-        DrawDistance = distance;
+        DrawDistance = Vector3.Distance(_anchorPosition, _drawer.transform.position) / _limitDistance;
 
-        UpdateDrawerFreezeState(distance);
+        UpdateDrawerFreezeState(DrawDistance);
         
         // 서랍 닫힘 이벤트
-        if (distance < closePoint && Opened)
+        if (DrawDistance < _closePoint && isOpened)
         {
-            Opened = false;
-            drawerClosedEvent.Invoke();
+            isOpened = false;
+            _drawerClosedEvent.Invoke();
         }
         // 서랍 열림 이벤트
-        if (distance > openPoint && !Opened)
+        if (DrawDistance > _openPoint && !isOpened)
         {
-            Opened = true;
-            drawerOpenedEvent.Invoke();
+            isOpened = true;
+            _drawerOpenedEvent.Invoke();
         }
     }
     
+    // ==================================================
+    //  Drawer Functions
+    // ==================================================
+    
+    /// <summary>
     /// 서랍의 고정 상태를 갱신한다.
+    /// </summary>
+    /// <param name="distance">서랍의 현재 위치</param>
     private void UpdateDrawerFreezeState(float distance)
     {
-        bool isClosed = distance < closePoint;
+        bool isClosed = distance < _closePoint;
         
-        if (locked)
+        if (_locked)
         {
             _drawerRigid.constraints = isClosed ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
         }
@@ -90,8 +130,11 @@ public class Drawer : SerializableObject
             _drawerRigid.constraints = RigidbodyConstraints.None;
         }
     }
-
-    //// 데이터 저장 ////
+    
+    // ==================================================
+    //  Data Management
+    // ==================================================
+    
     [Serializable]
     private class ObjectData
     {
@@ -102,6 +145,7 @@ public class Drawer : SerializableObject
         public float[] handlePos;
         public float[] handleRot;
         public bool locked;
+        public bool isOpened;
     }
     
     public override void SaveData(JArray jArray)
@@ -110,11 +154,12 @@ public class Drawer : SerializableObject
         {
             index = transform.GetSiblingIndex(),
             name = transform.name,
-            drawerPos = Vector3ToFloat(drawer.transform.position),
-            drawerRot = QuaternionToFloat(drawer.transform.rotation),
-            handlePos = Vector3ToFloat(handle.transform.position),
-            handleRot = QuaternionToFloat(handle.transform.rotation),
-            locked = locked
+            drawerPos = Vector3ToFloat(_drawer.transform.position),
+            drawerRot = QuaternionToFloat(_drawer.transform.rotation),
+            handlePos = Vector3ToFloat(_handle.transform.position),
+            handleRot = QuaternionToFloat(_handle.transform.rotation),
+            locked = _locked,
+            isOpened = isOpened
         };
         
         jArray.Add(JToken.FromObject(od));
@@ -124,10 +169,11 @@ public class Drawer : SerializableObject
     {
         var od = jObject.ToObject<ObjectData>();
 
-        drawer.transform.position = FloatToVector3(od.drawerPos);
-        drawer.transform.rotation = FloatToQuaternion(od.drawerRot);
-        handle.transform.position = FloatToVector3(od.handlePos);
-        handle.transform.rotation = FloatToQuaternion(od.handleRot);
-        Locked = od.locked;
+        _drawer.transform.position = FloatToVector3(od.drawerPos);
+        _drawer.transform.rotation = FloatToQuaternion(od.drawerRot);
+        _handle.transform.position = FloatToVector3(od.handlePos);
+        _handle.transform.rotation = FloatToQuaternion(od.handleRot);
+        locked = od.locked;
+        isOpened = od.isOpened;
     }
 }

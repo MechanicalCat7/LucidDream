@@ -1,20 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class CustomContinuousMoveProvider : ActionBasedContinuousMoveProvider
 {
+    // ==================================================
+    //  Variables
+    // ==================================================
+    
+    private PlayerManager _player;
+    private PlayerBody _body;
+    
+    // ==================================================
+    //  Unity Functions
+    // ==================================================
+    
+    private void Start()
+    {
+        _player = GameManager.instance.playerManager;
+        _body = _player.body;
+    }
+    
+    // ==================================================
+    //  Override Functions
+    // ==================================================
+
     protected override Vector2 ReadInput()
     {
-        if (GameManager.Instance.IsMoving)
+        if (_player.isMoving)
         {
-            var player = GameManager.Instance.Player;
-            if (!player.Movable)
-            {
-                player.UpdateOriginPosition();
-            }
-            player.UpdateCharacterController();
+            if (!_body.isMovable)
+                _player.ResetCameraPosition();
+            
+            _player.UpdateCharacterController();
+            
             return base.ReadInput();
         }
 

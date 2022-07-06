@@ -1,19 +1,19 @@
 using UnityEditor;
-using UnityEngine;
 
-[CustomEditor(typeof(PlayerBase))]
 public class PlayerBaseEditor : Editor
 {
+    private bool _foldOutPlayer;
+    
     private SerializedProperty _xROrigin;
     private SerializedProperty _character;
     private SerializedProperty _head;
     private SerializedProperty _leftHand;
     private SerializedProperty _rightHand;
 
+    private SerializedProperty _walkingThreshold;
+    private SerializedProperty _footstepPeriod;
     private SerializedProperty _raycastLayer;
 
-    private SerializedProperty _testObject;
-    
     private void OnEnable()
     {
         _xROrigin = serializedObject.FindProperty("xROrigin");
@@ -22,17 +22,17 @@ public class PlayerBaseEditor : Editor
         _leftHand = serializedObject.FindProperty("leftHand");
         _rightHand = serializedObject.FindProperty("rightHand");
 
+        _walkingThreshold = serializedObject.FindProperty("walkingThreshold");
+        _footstepPeriod = serializedObject.FindProperty("footstepPeriod");
         _raycastLayer = serializedObject.FindProperty("raycastLayer");
-
-        _testObject = serializedObject.FindProperty("testObject");
     }
 
     public override void OnInspectorGUI()
     {
-        var data = target as PlayerBase;
+        var data = target as PlayerBody;
         
-        data.foldOutPlayer = EditorGUILayout.Foldout(data.foldOutPlayer, "Player");
-        if (data.foldOutPlayer)
+        EditorGUILayout.Foldout(_foldOutPlayer, "Player");
+        if (_foldOutPlayer)
         {
             EditorGUILayout.PropertyField(_xROrigin);
             EditorGUILayout.PropertyField(_character);
@@ -41,11 +41,10 @@ public class PlayerBaseEditor : Editor
             EditorGUILayout.PropertyField(_rightHand);
         }
         EditorGUILayout.Space();
-        
+        EditorGUILayout.PropertyField(_walkingThreshold);
+        EditorGUILayout.PropertyField(_footstepPeriod);
         EditorGUILayout.PropertyField(_raycastLayer);
 
-        EditorGUILayout.PropertyField(_testObject);
-        
         serializedObject.ApplyModifiedProperties();
     }
 }

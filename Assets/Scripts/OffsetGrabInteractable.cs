@@ -3,6 +3,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class OffsetGrabInteractable : XRGrabInteractable
 {
+    // ==================================================
+    //  Unity Functions
+    // ==================================================
+    
     protected override void Awake()
     {
         base.Awake();
@@ -12,12 +16,15 @@ public class OffsetGrabInteractable : XRGrabInteractable
         attachTransform = attachPoint.transform;
     }
     
-    // 오브젝트 잡기를 시작할 때 수행
+    // ==================================================
+    //  Override Functions
+    // ==================================================
+    
     protected override void OnSelectEntering(SelectEnterEventArgs args)
     {
         base.OnSelectEntering(args);
         
-        // 오브젝트를 잡은 interactor가 손일 경우
+        // 오브젝트를 잡은 interactor가 손일 경우 velocity move 활성화
         if (args.interactorObject.transform.TryGetComponent(out PlayerHand hand))
         {
             var direct = args.interactorObject as XRDirectInteractor;
@@ -32,10 +39,11 @@ public class OffsetGrabInteractable : XRGrabInteractable
         }
     }
     
-    // 오브젝트 잡기를 끝낼 때 수행
     protected override void OnSelectExiting(SelectExitEventArgs args)
     {
         base.OnSelectExiting(args);
+        
+        // 오브젝트를 놓은 interactor가 손일 경우 velocity move 비활성화
         if (args.interactorObject.transform.TryGetComponent(out PlayerHand hand))
             hand.velocityMove = false;
     }
