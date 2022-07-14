@@ -1,24 +1,22 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
-    public ConfigurableJoint joint;
-
-    private void Start()
+    [SerializeField] private string fileName;
+    
+    public void CallSaveState()
     {
-        StartCoroutine(UpdateJoint());
+        if(Application.isPlaying)
+            DataManager.instance.SaveState();
+        else
+            Debug.LogWarning("Only called in playing mode.");
     }
 
-    private IEnumerator UpdateJoint()
+    public void TestFunc()
     {
-        while (true)
-        {
-            joint.autoConfigureConnectedAnchor = false;
-            yield return new WaitForFixedUpdate();
-            joint.autoConfigureConnectedAnchor = true;
-            yield return null;
-        }
+        if (Application.isPlaying)
+            DataManager.instance.LoadState(DataManager.instance.GetFileInfo(fileName));
+        else
+            Debug.LogWarning("Only called in playing mode.");
     }
 }

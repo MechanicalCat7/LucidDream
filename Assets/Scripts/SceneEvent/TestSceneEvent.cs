@@ -2,18 +2,12 @@ using UnityEngine;
 
 public class TestSceneEvent : BaseSceneEvent
 {
-    protected override void Start()
-    {
-        GameManager.instance.RegisterSceneEvent(this);
-    }
+    // ==================================================
+    //  Scene Event Functions
+    // ==================================================
 
-    public void PrintYes()
-    {
-        Debug.Log("Yes");
-    }
+    // ==================================================
+    //  Data Management
+    // ==================================================
 
-    public void PrintNo()
-    {
-        Debug.Log("No");
-    }
 }

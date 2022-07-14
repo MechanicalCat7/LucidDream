@@ -1,8 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 일시정지 메뉴 오브젝트 스크립트
+/// </summary>
 public class PauseMenu : MonoBehaviour
 {
     // ==================================================
@@ -15,22 +16,26 @@ public class PauseMenu : MonoBehaviour
     //  Editor-assigned Variables
     // ==================================================
     
+    [Tooltip("일시정지 메뉴 이벤트 스크립트")]
+    [SerializeField] private PauseMenuEvent _event;
+    
     [Tooltip("일시정지 시 배경화면")]
     [SerializeField] private Renderer _background;
     
+    [Tooltip("따라오는 속도")]
+    [SerializeField] private float _moveSpeed;
+    
     [Tooltip("화면 전환 속도")]
-    [SerializeField] private float _speed;
-    
-    [Header("Menu")]
-    [Tooltip("메인 메뉴")]
-    [SerializeField] private Canvas _mainMenu;
-    
+    [SerializeField] private float _fadeSpeed = 0.2f;
+
     // ==================================================
     //  Variables
     // ==================================================
 
+    private PlayerManager _player;
     private Transform _head;
-    
+
+    private bool _isDisplaying;         // 메뉴화면이 표시 중인가?
     private Coroutine _coroutine;       // 코루틴
     private bool _isCoroutineRun;       // 코루틴이 실행 중인가?
     private float _currentAlpha;        // 현재 배경화면 알파값
@@ -41,7 +46,21 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        _head = GameManager.instance.playerManager.head.transform;
+        _player = GameManager.instance.playerManager;
+        _head = _player.head.transform;
+        
+        _player.gamePausedEvent.AddListener(OnPauseGame);
+        _player.gameResumedEvent.AddListener(OnResumeGame);
+    }
+
+    private void Update()
+    {
+        if (_isDisplaying)
+        {
+            var speed = Time.deltaTime * _moveSpeed;
+            transform.position = Vector3.Slerp(transform.position, _head.position, speed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, _head.rotation, speed);
+        }
     }
 
     // ==================================================
@@ -75,7 +94,7 @@ public class PauseMenu : MonoBehaviour
         {
             while (_currentAlpha < 1f)
             {
-                _currentAlpha += _speed;
+                _currentAlpha += _fadeSpeed;
                 _background.material.SetFloat(AlphaShaderProperty, _currentAlpha);
                 yield return null;
             }
@@ -85,7 +104,7 @@ public class PauseMenu : MonoBehaviour
         {
             while (_currentAlpha > 0)
             {
-                _currentAlpha -= _speed;
+                _currentAlpha -= _fadeSpeed;
                 _background.material.SetFloat(AlphaShaderProperty, _currentAlpha);
                 yield return null;
             }
@@ -96,9 +115,13 @@ public class PauseMenu : MonoBehaviour
             _background.enabled = false;
         _isCoroutineRun = false;
     }
+
+    // --------------------------------------------------
     
-    /// 게임 일시 정지 시
-    public void OnPauseGame()
+    /// <summary>
+    /// 게임 일시정지 시 수행
+    /// </summary>
+    private void OnPauseGame()
     {
         // 플레이어 머리 위치로 메뉴 이동
         transform.position = _head.position;
@@ -107,21 +130,20 @@ public class PauseMenu : MonoBehaviour
         transform.rotation = Quaternion.Euler(rot);
         
         // 표시
-        _mainMenu.enabled = true;
+        _isDisplaying = true;
+        _event.mainMenu = true;
         UpdateBackground(true);
     }
     
-    /// 게임 재개 시
-    public void OnResumeGame()
+    /// <summary>
+    /// 게임 재개 시 수행
+    /// </summary>
+    private void OnResumeGame()
     {
-        _mainMenu.enabled = false;
+        _isDisplaying = false;
+        _event.mainMenu = false;
         UpdateBackground(false);
     }
     
-    public void ShowMenu(Canvas menu)
-    {
-        _mainMenu.enabled = false;
-
-        menu.enabled = true;
-    }
+    // --------------------------------------------------
 }

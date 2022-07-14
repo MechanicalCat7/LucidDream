@@ -160,10 +160,10 @@ public class Door : SerializableObject
         {
             index = transform.GetSiblingIndex(),
             name = transform.name,
-            doorPos = Vector3ToFloat(_door.transform.position),
-            doorRot = QuaternionToFloat(_door.transform.rotation),
-            handlePos = Vector3ToFloat(_handle.transform.position),
-            handleRot = QuaternionToFloat(_handle.transform.rotation),
+            doorPos = Support.Vector3ToFloat(_door.transform.position),
+            doorRot = Support.QuaternionToFloat(_door.transform.rotation),
+            handlePos = Support.Vector3ToFloat(_handle.transform.position),
+            handleRot = Support.QuaternionToFloat(_handle.transform.rotation),
             locked = _locked,
             isOpened = isOpened
         };
@@ -175,10 +175,10 @@ public class Door : SerializableObject
     {
         var od = jObject.ToObject<ObjectData>();
 
-        _door.transform.position = FloatToVector3(od.doorPos);
-        _door.transform.rotation = FloatToQuaternion(od.doorRot);
-        _handle.transform.position = FloatToVector3(od.handlePos);
-        _handle.transform.rotation = FloatToQuaternion(od.handleRot);
+        _door.transform.position = Support.FloatToVector3(od.doorPos);
+        _door.transform.rotation = Support.FloatToQuaternion(od.doorRot);
+        _handle.transform.position = Support.FloatToVector3(od.handlePos);
+        _handle.transform.rotation = Support.FloatToQuaternion(od.handleRot);
         locked = od.locked;
         isOpened = od.isOpened;
     }

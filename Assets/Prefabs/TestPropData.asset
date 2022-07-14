@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3658e1e3a0dd04e9166a31714ccbfa, type: 3}
   m_Name: TestPropData
   m_EditorClassIdentifier: 
+  prefab: Test
   soundData: {fileID: 11400000, guid: 3ef92db71ac35404595161ae3d0cd11f, type: 2}
-  storable: 0
-  breakable: 1
-  durability: 1000
+  collisionDistance: 0.1
+  storable: 1
+  breakable: 0
+  durability: 0
   damageThreshold: 0
   createFragmentOnBreak: 0
-  fragmentObjects: []
+  fragmentObjectList: []

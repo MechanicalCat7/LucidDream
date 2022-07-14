@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public enum HandType
 {
+    None,
     Left,
     Right
 }
@@ -30,6 +31,10 @@ public class PlayerHand : MonoBehaviour
     
     [Tooltip("XR Direct Interactor")]
     [SerializeField] private XRDirectInteractor _interactor;
+    
+    [Tooltip("인벤토리 오브젝트")]
+    [SerializeField] private InventoryInteractor _inventory;
+    public InventoryInteractor inventory => _inventory;
     
     [Tooltip("어느 쪽 손인지 결정")]
     [SerializeField] private HandType _handType;
@@ -66,8 +71,6 @@ public class PlayerHand : MonoBehaviour
 
     private PlayerManager _player;
     private Transform _xrOrigin;
-    
-    private Prop _storedItem;
 
     // ==================================================
     //  Properties
@@ -77,6 +80,11 @@ public class PlayerHand : MonoBehaviour
     /// 컨트롤러 속도를 이용한 이동 상태를 설정
     /// </summary>
     public bool velocityMove { get; set; }
+    
+    /// <summary>
+    /// 인벤토리에 저장된 오브젝트
+    /// </summary>
+    public Transform storedItem { get; set; }
 
     // ==================================================
     //  Unity Functions
@@ -94,8 +102,11 @@ public class PlayerHand : MonoBehaviour
     {
         _player = GameManager.instance.playerManager;
         _xrOrigin = _player.xrOrigin.transform;
+        
+        _player.gamePausedEvent.AddListener(OnPauseGame);
+        _player.gameResumedEvent.AddListener(OnResumeGame);
     }
-    
+
     private void Update()
     {
         UpdateAnimation();
@@ -258,8 +269,33 @@ public class PlayerHand : MonoBehaviour
     /// <param name="state">컨트롤러 모델 표시 여부</param>
     public void ShowControllerModel(bool state)
     {
+        _inventory.visible = !state;
         _renderer.enabled = !state;
         _controllerModel.enabled = state;
     }
-
+    
+    // --------------------------------------------------
+    
+    /// <summary>
+    /// 게임 일시정지 시 수행
+    /// </summary>
+    private void OnPauseGame()
+    {
+        var lineRenderer = _controller.GetComponent<XRInteractorLineVisual>();
+        lineRenderer.enabled = true;
+        
+        ShowControllerModel(true);
+    }
+    
+    /// <summary>
+    /// 게임 재개 시 수행
+    /// </summary>
+    private void OnResumeGame()
+    {
+        var lineRenderer = _controller.GetComponent<XRInteractorLineVisual>();
+        lineRenderer.enabled = false;
+        
+        ResetHandPosition();
+        ShowControllerModel(false);
+    }
 }

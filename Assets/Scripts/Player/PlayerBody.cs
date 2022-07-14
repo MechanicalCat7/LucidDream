@@ -53,6 +53,7 @@ public class PlayerBody : MonoBehaviour
         _player = GameManager.instance.playerManager;
         _xrOrigin = _player.xrOrigin.transform;
         _character = _player.character;
+        _head = _player.head.transform;
     }
 
     private void Update()

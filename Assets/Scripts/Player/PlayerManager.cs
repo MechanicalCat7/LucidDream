@@ -1,5 +1,8 @@
+using System;
+using Newtonsoft.Json.Linq;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -39,10 +42,20 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private InputActionProperty _menuAction;
     public InputActionProperty menuAction => _menuAction;
     
+    /// <summary>
+    /// 게임 일시정지 시 수행하는 이벤트
+    /// </summary>
+    public UnityEvent gamePausedEvent;
+    
+    /// <summary>
+    /// 게임 재개 시 수행하는 이벤트
+    /// </summary>
+    public UnityEvent gameResumedEvent;
+    
     // ==================================================
     //  Variables
     // ==================================================
-
+    
     private CharacterControllerDriver _driver;
     
     private float _menuPressedTime;
@@ -73,6 +86,8 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         GameManager.instance.RegisterPlayerManager(this);
+
+        _driver = GetComponent<CharacterControllerDriver>();
     }
 
     private void Update()
@@ -91,7 +106,7 @@ public class PlayerManager : MonoBehaviour
         if (_menuPressedTime > 2f)
         {
             _menuPressedTime = 0;
-            // Pause Game
+            GameManager.instance.PauseGame();
         }
     }
     
@@ -123,8 +138,52 @@ public class PlayerManager : MonoBehaviour
         _character.height = height;
         _character.center = center;
     }
-    
+
     // ==================================================
     //  Data Management
     // ==================================================
+    
+    [Serializable]
+    private class PlayerData
+    {
+        public float[] charPos;
+        public float[] originPos;
+        public float[] originRot;
+    }
+    
+    /// <summary>
+    /// 플레이어 데이터를 저장한다.
+    /// </summary>
+    /// <returns>JObject로 변환된 플레이어 데이터</returns>
+    public JObject SaveData()
+    {
+        var pd = new PlayerData
+        {
+            charPos = Support.Vector3ToFloat(characterPosInWorldSpace),
+            originPos = Support.Vector3ToFloat(_xROrigin.transform.position),
+            originRot = Support.QuaternionToFloat(_xROrigin.transform.rotation)
+        };
+
+        return JObject.FromObject(pd);
+    }
+    
+    /// <summary>
+    /// 플레이어 데이터를 불러온다.
+    /// </summary>
+    /// <param name="jObject">플레이어 데이터가 담긴 JObject</param>
+    public void LoadData(JObject jObject)
+    {
+        var pd = jObject.ToObject<PlayerData>();
+        
+        _character.center = Vector3.zero;
+        
+        var originPos = Support.FloatToVector3(pd.charPos);
+        originPos.y = Support.FloatToVector3(pd.originPos)[1];
+        _xROrigin.transform.position = originPos;
+        
+        _xROrigin.transform.rotation = Support.FloatToQuaternion(pd.originRot);
+        
+        ResetCameraPosition();
+        UpdateCharacterController();
+    }
 }

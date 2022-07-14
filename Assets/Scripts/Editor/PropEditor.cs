@@ -1,6 +1,5 @@
 using UnityEditor;
 
-[CustomEditor(typeof(Prop))]
 public class PropEditor : Editor
 {
     private SerializedProperty _propDataProperty;
@@ -20,8 +19,8 @@ public class PropEditor : Editor
         
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Prop Information", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField("Breakable:", data.NoData ? "No Data" : data.Breakable.ToString());
-        EditorGUILayout.LabelField("Damaged:", data.NoData ? "No Data" : $"{data.Damaged} / {_propData.durability}");
+        EditorGUILayout.LabelField("Breakable:", data.NoData ? "No Data" : data.breakable.ToString());
+        EditorGUILayout.LabelField("Damaged:", data.NoData ? "No Data" : $"{data.damaged} / {_propData.durability}");
     }
     
     

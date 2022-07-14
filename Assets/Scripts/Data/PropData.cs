@@ -6,9 +6,19 @@ using UnityEngine;
 public class PropData : ScriptableObject
 {
     /// <summary>
+    /// 프리팹 이름
+    /// </summary>
+    public string prefab;
+    
+    /// <summary>
     /// 프롭의 사운드 데이터
     /// </summary>
     public SoundData soundData;
+    
+    /// <summary>
+    /// 물건을 놓았을 때 충돌이 다시 활성화되는 거리.
+    /// </summary>
+    public float collisionDistance;
     
     /// <summary>
     /// 프롭의 인벤토리 저장 가능 여부

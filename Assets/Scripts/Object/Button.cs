@@ -182,8 +182,8 @@ public class Button : SerializableObject
         {
             index = transform.GetSiblingIndex(),
             name = transform.name,
-            buttonPos = Vector3ToFloat(_button.transform.position),
-            buttonRot = QuaternionToFloat(_button.transform.rotation),
+            buttonPos = Support.Vector3ToFloat(_button.transform.position),
+            buttonRot = Support.QuaternionToFloat(_button.transform.rotation),
             locked = _locked,
             pressed = _pressed
         };
@@ -195,8 +195,8 @@ public class Button : SerializableObject
     {
         var od = jObject.ToObject<ObjectData>();
 
-        _button.transform.position = FloatToVector3(od.buttonPos);
-        _button.transform.rotation = FloatToQuaternion(od.buttonRot);
+        _button.transform.position = Support.FloatToVector3(od.buttonPos);
+        _button.transform.rotation = Support.FloatToQuaternion(od.buttonRot);
         locked = od.locked;
         pressed = od.pressed;
     }
