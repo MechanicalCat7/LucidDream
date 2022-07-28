@@ -29,6 +29,9 @@ public class PlayerManager : MonoBehaviour
     
     [SerializeField] private PlayerHand _rightHand;
     public PlayerHand rightHand => _rightHand;
+
+    [SerializeField] private PlayerUI _playerUI;
+    public PlayerUI playerUI => _playerUI;
     
     [SerializeField] private PauseMenu _pauseMenu;
     public PauseMenu pauseMenu => _pauseMenu;
@@ -41,6 +44,9 @@ public class PlayerManager : MonoBehaviour
     
     [SerializeField] private InputActionProperty _menuAction;
     public InputActionProperty menuAction => _menuAction;
+    
+    [Tooltip("메뉴 호출에 필요한 시간")]
+    [SerializeField] private float _menuCallTime;
     
     /// <summary>
     /// 게임 일시정지 시 수행하는 이벤트
@@ -103,7 +109,7 @@ public class PlayerManager : MonoBehaviour
             _menuPressedTime = 0;
         
         // 게임 일시 정지
-        if (_menuPressedTime > 2f)
+        if (_menuPressedTime > _menuCallTime)
         {
             _menuPressedTime = 0;
             GameManager.instance.PauseGame();

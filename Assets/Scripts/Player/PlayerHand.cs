@@ -55,7 +55,7 @@ public class PlayerHand : MonoBehaviour
     
     [Header("Touch Haptic")]
     [Tooltip("지형에 닿을 경우 진동의 세기")]
-    [SerializeField] private float _hapticAmplitude;
+    [Range(0, 1)] [SerializeField] private float _hapticAmplitude;
     
     [Tooltip("지형에 닿을 경우 진동의 길이")]
     [SerializeField] private float _hapticDuration;
@@ -68,6 +68,8 @@ public class PlayerHand : MonoBehaviour
     private Animator _animator;
     private Renderer _renderer;
     private ActionBasedController _actionController;
+
+    private bool _visible = true;
 
     private PlayerManager _player;
     private Transform _xrOrigin;
@@ -85,6 +87,19 @@ public class PlayerHand : MonoBehaviour
     /// 인벤토리에 저장된 오브젝트
     /// </summary>
     public Transform storedItem { get; set; }
+    
+    /// <summary>
+    /// 손 모델의 표시 여부
+    /// </summary>
+    public bool visible
+    {
+        get => _visible;
+        set
+        {
+            _visible = value;
+            _renderer.enabled = value;
+        }
+    }
 
     // ==================================================
     //  Unity Functions
@@ -119,6 +134,7 @@ public class PlayerHand : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // 지형에 닿을 경우 진동
         if (Support.CompareLayer(collision.gameObject.layer, _collisionLayer))
         {
             _actionController.SendHapticImpulse(_hapticAmplitude, _hapticDuration);
@@ -188,8 +204,7 @@ public class PlayerHand : MonoBehaviour
         {
             _rigidbody.velocity = Vector3.zero;
             _rigidbody.angularVelocity = Vector3.zero;
-            transform.position = point;
-            transform.rotation = _controller.rotation;
+            transform.SetPositionAndRotation(point, _controller.rotation);
         }
         // 아니면 기본 이동
         else
@@ -223,8 +238,7 @@ public class PlayerHand : MonoBehaviour
     {
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
-        transform.position = _controller.position;
-        transform.rotation = _controller.rotation;
+        transform.SetPositionAndRotation(_controller.position, _controller.rotation);
     }
 
     // --------------------------------------------------
@@ -269,8 +283,11 @@ public class PlayerHand : MonoBehaviour
     /// <param name="state">컨트롤러 모델 표시 여부</param>
     public void ShowControllerModel(bool state)
     {
-        _inventory.visible = !state;
-        _renderer.enabled = !state;
+        if (_visible)
+        {
+            _inventory.visible = !state;
+            _renderer.enabled = !state;
+        }
         _controllerModel.enabled = state;
     }
     

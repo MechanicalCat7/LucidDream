@@ -12,7 +12,7 @@ public class Prop : SerializableObject
     
     [Tooltip("Prop Data 파일")]
     [SerializeField] protected PropData _data;
-    
+
     // ==================================================
     //  Variables
     // ==================================================
@@ -53,8 +53,11 @@ public class Prop : SerializableObject
 
     protected void OnCollisionEnter(Collision collision)
     {
+        // 충돌 소리 재생
         var impulse = collision.impulse.magnitude;
-        _audioSource.PlayOneShot(_data.soundData.impact, Mathf.Clamp01(impulse/5f));
+        _audioSource.PlayOneShot(_data.soundData.impact, Mathf.Clamp(impulse * _data.impactScale, 0, _data.volume));
+        
+        // 데미지 입력
         if (_data.breakable && impulse > _data.damageThreshold)
         {
             _damaged += impulse;
@@ -70,10 +73,10 @@ public class Prop : SerializableObject
     /// <summary>
     /// 프롭을 파괴한다.
     /// </summary>
-    protected void BreakProp()
+    protected virtual void BreakProp()
     {
         // 파괴 소리 재생
-        AudioSource.PlayClipAtPoint(_data.soundData.breaking, transform.position);
+        AudioSource.PlayClipAtPoint(_data.soundData.breaking, transform.position, _data.volume);
         Destroy(gameObject);
         
         // 파편 생성
@@ -81,7 +84,8 @@ public class Prop : SerializableObject
         {
             foreach (var fragment in _data.fragmentObjectList)
             {
-                Instantiate(fragment, transform.position, transform.rotation);
+                var temp = Instantiate(fragment, transform.position, transform.rotation, DataManager.instance.otherObjects);
+                Destroy(temp, 5f);
             }
         }
     }

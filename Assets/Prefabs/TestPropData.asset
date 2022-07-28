@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: TestPropData
   m_EditorClassIdentifier: 
   prefab: Test
-  soundData: {fileID: 11400000, guid: 3ef92db71ac35404595161ae3d0cd11f, type: 2}
   collisionDistance: 0.1
+  soundData: {fileID: 11400000, guid: 3ef92db71ac35404595161ae3d0cd11f, type: 2}
+  volume: 0
+  impactScale: 0
   storable: 1
   breakable: 0
-  durability: 0
+  durability: 1
   damageThreshold: 0
-  createFragmentOnBreak: 0
-  fragmentObjectList: []
+  createFragmentOnBreak: 1
+  fragmentObjectList:
+  - {fileID: 4994799903905572093, guid: 6d079371f76101b44af914f5b8ad49f8, type: 3}

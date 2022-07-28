@@ -1,7 +1,9 @@
-using System;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
+/// <summary>
+/// 저장 가능한 오브젝트들의 기본 클래스
+/// </summary>
 public class SerializableObject : MonoBehaviour
 {
     // ==================================================

@@ -10,14 +10,9 @@ public class TestScriptEditor : Editor
         
         var data = (TestScript)target;
 
-        if (GUILayout.Button("Save State"))
+        if (GUILayout.Button("Push Message"))
         {
-            data.CallSaveState();
-        }
-        
-        if (GUILayout.Button("Test Function"))
-        {
-            data.TestFunc();
+            data.PushTestMessage();
         }
     }
 }

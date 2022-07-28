@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26375310df3d3cb44b804a2efed5418d, type: 3}
+  m_Name: KeypadSound
+  m_EditorClassIdentifier: 
+  activate: {fileID: 8300000, guid: ff411c11319bd774b8a657ea4104abeb, type: 3}
+  deactivate: {fileID: 0}
+  enabled: {fileID: 8300000, guid: 656ee093b563cb3438e52be6f4a44ad0, type: 3}
+  disabled: {fileID: 8300000, guid: c618c2fdf280d664cb1b607952c3e4a6, type: 3}
+  move: {fileID: 0}
+  impact: {fileID: 0}

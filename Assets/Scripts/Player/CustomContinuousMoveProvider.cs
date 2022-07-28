@@ -26,7 +26,7 @@ public class CustomContinuousMoveProvider : ActionBasedContinuousMoveProvider
 
     protected override Vector2 ReadInput()
     {
-        if (_player.isMoving)
+        if (_player.isMoving && !GameManager.instance.isGamePaused)
         {
             if (!_body.isMovable)
                 _player.ResetCameraPosition();

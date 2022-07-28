@@ -1104,6 +1104,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Sub Button",
+                    "type": "Button",
+                    "id": "3c62ff43-63b0-4b82-b319-5909fe5077fc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1132,11 +1141,44 @@
                 {
                     "name": "",
                     "id": "71be865e-7fe6-4bcf-88fe-5d5d1dddb09a",
-                    "path": "<OculusTouchController>{LeftHand}/primaryButton",
+                    "path": "<OculusTouchController>{LeftHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Menu Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2af5e722-5f79-4c03-86bd-c4375642c98f",
+                    "path": "<OculusTouchController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2042cf0a-4eea-4cdc-9c3f-44c75f6b635e",
+                    "path": "<OculusTouchController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sub Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "052a9dc5-11eb-46dc-89ff-8a3c07892885",
+                    "path": "<OculusTouchController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sub Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

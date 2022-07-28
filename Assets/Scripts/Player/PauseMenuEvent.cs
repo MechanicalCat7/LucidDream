@@ -1,3 +1,4 @@
+using System.IO;
 using TMPro;
 using UnityEngine;
 
@@ -21,12 +22,21 @@ public class PauseMenuEvent : MonoBehaviour
     
     [Tooltip("종료 메뉴")]
     [SerializeField] private Canvas _exitMenu;
-    
+
     [Header("Saving Screen")]
     [SerializeField] private Canvas _savingScreen;
     [SerializeField] private TextMeshProUGUI _savingText;
     [SerializeField] private UnityEngine.UI.Button _savingButton;
-    private TextMeshProUGUI _savingButtonText;
+    [SerializeField] private TextMeshProUGUI _savingButtonText;
+
+    [Header("Load Screen")] 
+    [SerializeField] private Transform _scrollView;
+    [SerializeField] private GameObject _fileButton;
+
+    [Header("Continue Screen")] 
+    [SerializeField] private Canvas _continueScreen;
+    [SerializeField] private TextMeshProUGUI _continueText;
+    private bool _loadGameState;
     
     // ==================================================
     //  Variables
@@ -41,8 +51,6 @@ public class PauseMenuEvent : MonoBehaviour
     private void Awake()
     {
         _menuArray = GetComponentsInChildren<Canvas>();
-
-        _savingButtonText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // ==================================================
@@ -94,6 +102,9 @@ public class PauseMenuEvent : MonoBehaviour
 
     public void MainLoadState()
     {
+        ClearFileList();
+        LoadFileList();
+        DataManager.instance.selectedFile = null;
         ShowMenu(_loadMenu);
     }
 
@@ -109,14 +120,20 @@ public class PauseMenuEvent : MonoBehaviour
         ShowMenu(_savingScreen);
         DataManager.instance.SaveState();
     }
-
-    private void OnEndSaving()
+    
+    /// <summary>
+    /// 저장이 끝났을 때 수행
+    /// </summary>
+    public void OnEndSaving()
     {
         _savingText.text = "저장 완료";
         _savingButton.interactable = true;
         _savingButtonText.text = "확인";
     }
-
+    
+    /// <summary>
+    /// 저장 완료 후 확인 버튼을 눌렀을 때
+    /// </summary>
     public void SavingConfirm()
     {
         ShowMenu(_mainMenu);
@@ -127,7 +144,90 @@ public class PauseMenuEvent : MonoBehaviour
     }
     
     // --------------------------------------------------
+
+    public void LoadGameButton()
+    {
+        if (DataManager.instance.selectedFile == null)
+            return;
+        
+        _continueText.text = "불러오기:\nFileName";
+        _loadGameState = true;
+        ShowMenu(_continueScreen);
+    }
+
+    public void LoadDeleteButton()
+    {
+        if (DataManager.instance.selectedFile == null)
+            return;
+        
+        _continueText.text = "삭제:\nFileName";
+        _loadGameState = false;
+        ShowMenu(_continueScreen);
+    }
     
+    /// <summary>
+    /// 게임 불러오기
+    /// </summary>
+    private void LoadGame()
+    {
+        DataManager.instance.LoadState(DataManager.instance.selectedFile);
+    }
+    
+    /// <summary>
+    /// 저장된 파일 삭제
+    /// </summary>
+    private void LoadDelete()
+    {
+        File.Delete($"{DataManager.SavePath}/{DataManager.instance.selectedFile.name}");
+        DataManager.instance.selectedFile = null;
+        MainLoadState();
+    }
+
+    public void ContinueButton()
+    {
+        if (_loadGameState)
+            LoadGame();
+        else
+            LoadDelete();
+    }
+    
+    public void ContinueCancel()
+    {
+        ShowMenu(_loadMenu);
+    }
+    
+    /// <summary>
+    /// 저장된 파일 목록을 스크롤 뷰로 가져온다.
+    /// </summary>
+    private void LoadFileList()
+    {
+        if (!Directory.Exists(DataManager.SavePath))
+            Directory.CreateDirectory(DataManager.SavePath);
+
+        var saveFiles = Directory.GetFiles(DataManager.SavePath, "*.json");
+        if (saveFiles.Length <= 0) return;
+        
+        foreach (var saveFile in saveFiles)
+        {
+            var fileInfo = DataManager.instance.GetFileInfo(saveFile);
+            
+            GameObject button = Instantiate(_fileButton, _scrollView);
+            var buttonComp = button.GetComponent<LoadFileButton>();
+            buttonComp.SetButton(fileInfo);
+        }
+    }
+    
+    /// <summary>
+    /// 스크롤 뷰의 내용을 모두 지운다.
+    /// </summary>
+    private void ClearFileList()
+    {
+        foreach (Transform child in _scrollView)
+        {
+            if (child != _scrollView)
+                Destroy(child.gameObject);
+        }
+    }
     
     // --------------------------------------------------
 

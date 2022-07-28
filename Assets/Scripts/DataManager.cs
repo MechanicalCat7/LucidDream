@@ -41,9 +41,25 @@ public class DataManager
     //  Properties
     // ==================================================
     
+    /// <summary>
+    /// 변화가 생기지 않는 오브젝트들
+    /// </summary>
     public Transform staticObjects { get; private set; }
     
+    /// <summary>
+    /// 동적으로 생성되거나 제거되는 오브젝트들
+    /// </summary>
     public Transform dynamicObjects { get; private set; }
+    
+    /// <summary>
+    /// 기타 오브젝트들
+    /// </summary>
+    public Transform otherObjects { get; private set; }
+
+    /// <summary>
+    /// 불러오기 메뉴에서 선택된 파일 정보
+    /// </summary>
+    public SaveFileInfo selectedFile { get; set; }
     
     /// <summary>
     /// 게임을 불러오는 중인가?
@@ -53,11 +69,15 @@ public class DataManager
     // ==================================================
     //  Data Manager Functions
     // ==================================================
-
+    
+    /// <summary>
+    /// Static, Dynamic 오브젝트를 가져온다.
+    /// </summary>
     public void GetObjects()
     {
         staticObjects = GameObject.Find("Static").transform;
         dynamicObjects = GameObject.Find("Dynamic").transform;
+        otherObjects = GameObject.Find("Other").transform;
     }
     
     // --------------------------------------------------
@@ -119,6 +139,7 @@ public class DataManager
             Directory.CreateDirectory(SavePath);
         File.WriteAllText($"{SavePath}/{fileName}", dataString);
         
+        GameManager.instance.OnEndSaveGame();
         Debug.Log($"Game state saved: {fileName}");
     }
     
@@ -247,14 +268,13 @@ public class DataManager
     /// <summary>
     /// 게임 저장 정보를 가져온다.
     /// </summary>
-    /// <param name="fileName">저장 파일 이름</param>
+    /// <param name="filePath">저장 파일 이름</param>
     /// <returns>SaveFileInfo 인스턴스</returns>
-    public SaveFileInfo GetFileInfo(string fileName)
+    public SaveFileInfo GetFileInfo(string filePath)
     {
-        var filePath = $"{SavePath}/{fileName}";
         if (!File.Exists(filePath))
         {
-            Debug.LogError($"File does not exist: {fileName}");
+            Debug.LogError($"File does not exist: {filePath}");
             return null;
         }
         

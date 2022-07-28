@@ -7,7 +7,7 @@ public class TerrainData : MonoBehaviour
     // ==================================================
     
     [Tooltip("지형의 사운드 데이터")]
-    [SerializeField] private SoundData _sound;
+    [SerializeField] private MaterialSoundData _sound;
     
     // ==================================================
     //  Properties
@@ -16,5 +16,5 @@ public class TerrainData : MonoBehaviour
     /// <summary>
     /// 지형의 사운드 데이터
     /// </summary>
-    public SoundData Sound => _sound;
+    public MaterialSoundData Sound => _sound;
 }

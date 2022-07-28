@@ -34,8 +34,7 @@ public class PauseMenu : MonoBehaviour
 
     private PlayerManager _player;
     private Transform _head;
-
-    private bool _isDisplaying;         // 메뉴화면이 표시 중인가?
+    
     private Coroutine _coroutine;       // 코루틴
     private bool _isCoroutineRun;       // 코루틴이 실행 중인가?
     private float _currentAlpha;        // 현재 배경화면 알파값
@@ -51,16 +50,6 @@ public class PauseMenu : MonoBehaviour
         
         _player.gamePausedEvent.AddListener(OnPauseGame);
         _player.gameResumedEvent.AddListener(OnResumeGame);
-    }
-
-    private void Update()
-    {
-        if (_isDisplaying)
-        {
-            var speed = Time.deltaTime * _moveSpeed;
-            transform.position = Vector3.Slerp(transform.position, _head.position, speed);
-            transform.rotation = Quaternion.Slerp(transform.rotation, _head.rotation, speed);
-        }
     }
 
     // ==================================================
@@ -126,11 +115,10 @@ public class PauseMenu : MonoBehaviour
         // 플레이어 머리 위치로 메뉴 이동
         transform.position = _head.position;
         var rot = _head.rotation.eulerAngles;
-        rot.x = 0;
+        rot.x = rot.z = 0;
         transform.rotation = Quaternion.Euler(rot);
-        
+
         // 표시
-        _isDisplaying = true;
         _event.mainMenu = true;
         UpdateBackground(true);
     }
@@ -140,10 +128,14 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     private void OnResumeGame()
     {
-        _isDisplaying = false;
         _event.mainMenu = false;
         UpdateBackground(false);
     }
     
     // --------------------------------------------------
+
+    public void OnEndSaving()
+    {
+        _event.OnEndSaving();
+    }
 }

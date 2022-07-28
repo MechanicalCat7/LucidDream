@@ -8,9 +8,7 @@ public class InventoryInteractor : XRSocketInteractor
     // ==================================================
 
     private static readonly int ColorShaderProperty = Shader.PropertyToID("_Color");
-    private const int GrabbedLayerIndex = 8;
-    private const int InventoryLayerIndex = 9;
-    
+
     // ==================================================
     //  Editor-assigned Variables
     // ==================================================
@@ -89,7 +87,7 @@ public class InventoryInteractor : XRSocketInteractor
 
     public override bool CanHover(IXRHoverInteractable interactable)
     {
-        return base.CanHover(interactable) && interactable.transform.gameObject.layer == GrabbedLayerIndex;
+        return base.CanHover(interactable) && interactable.transform.gameObject.layer == Support.GrabbedLayerIndex;
     }
 
     public override bool CanSelect(IXRSelectInteractable interactable)
@@ -132,7 +130,7 @@ public class InventoryInteractor : XRSocketInteractor
         args.interactableObject.transform.TryGetComponent(out GrabbableProp prop);
         _hand.storedItem = prop.transform;
 
-        Support.ChangeLayer(_hand.storedItem, InventoryLayerIndex);
+        Support.ChangeLayer(_hand.storedItem, Support.InventoryLayerIndex);
         ChangeColor(_defaultColor);
     }
 

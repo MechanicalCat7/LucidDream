@@ -2,6 +2,19 @@ using UnityEngine;
 
 public static class Support
 {
+    // ==================================================
+    //  Variables
+    // ==================================================
+
+    public const int PlayerLayerIndex = 7;
+    public const int GrabbedLayerIndex = 8;
+    public const int InventoryLayerIndex = 9;
+    public const int PropLayerIndex = 10;
+
+    // ==================================================
+    //  Functions
+    // ==================================================
+    
     /// <summary>
     /// 두 레이어가 같은지, 또는 레이어가 레이어 마스크에 포함되어 있는지 확인한다.
     /// </summary>

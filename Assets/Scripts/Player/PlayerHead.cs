@@ -58,7 +58,7 @@ public class PlayerHead : MonoBehaviour
     
     private void Awake()
     {
-        _indicatorRend = _originIndicator.GetComponentInChildren<Renderer>();
+        // _indicatorRend = _originIndicator.GetComponentInChildren<Renderer>();
         
         var halfHeight = _colliderHeight / 2 - _colliderRadius;
         _capsuleStart = _colliderCenter + Vector3.left * halfHeight;
@@ -80,7 +80,7 @@ public class PlayerHead : MonoBehaviour
         if (CheckCollide())
         {
             originPos.y = _xrOrigin.position.y;
-            _originIndicator.position = originPos;
+            // _originIndicator.position = originPos;
             if (_currentAlpha < 1)
                 _currentAlpha += _fadeSpeed;
         }
@@ -99,7 +99,7 @@ public class PlayerHead : MonoBehaviour
         // 알파 값 적용
         var fadeValue = Mathf.Max(distance, _currentAlpha);
         _fadeScreen.material.SetFloat(AlphaShaderProperty, fadeValue);
-        _indicatorRend.material.SetFloat(AlphaShaderProperty, fadeValue);
+        // _indicatorRend.material.SetFloat(AlphaShaderProperty, fadeValue);
     }
     
     private void OnDrawGizmosSelected()

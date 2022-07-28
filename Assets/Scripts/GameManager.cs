@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager
 {
@@ -57,7 +58,9 @@ public class GameManager
     /// </summary>
     public void PauseGame()
     {
+        isGamePaused = true;
         playerManager.gamePausedEvent.Invoke();
+        Time.timeScale = 0;
     }
     
     /// <summary>
@@ -65,14 +68,16 @@ public class GameManager
     /// </summary>
     public void ResumeGame()
     {
+        Time.timeScale = 1f;
         playerManager.gameResumedEvent.Invoke();
+        isGamePaused = false;
     }
     
     // --------------------------------------------------
 
     public void OnEndSaveGame()
     {
-        
+        playerManager.pauseMenu.OnEndSaving();
     }
 
     public void OnBeginLoadGame()

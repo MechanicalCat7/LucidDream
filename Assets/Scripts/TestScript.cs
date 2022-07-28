@@ -2,21 +2,19 @@ using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
-    [SerializeField] private string fileName;
+    private int _count;
     
-    public void CallSaveState()
-    {
-        if(Application.isPlaying)
-            DataManager.instance.SaveState();
-        else
-            Debug.LogWarning("Only called in playing mode.");
-    }
-
-    public void TestFunc()
+    public void PushTestMessage()
     {
         if (Application.isPlaying)
-            DataManager.instance.LoadState(DataManager.instance.GetFileInfo(fileName));
+        {
+            GameManager.instance.playerManager.playerUI.PushTextMessage($"Test Message {_count}", 2f);
+            _count += 1;
+        }
         else
+        {
             Debug.LogWarning("Only called in playing mode.");
+        }
     }
+
 }

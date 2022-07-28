@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,15 +10,26 @@ public class PropData : ScriptableObject
     public string prefab;
     
     /// <summary>
-    /// 프롭의 사운드 데이터
-    /// </summary>
-    public SoundData soundData;
-    
-    /// <summary>
     /// 물건을 놓았을 때 충돌이 다시 활성화되는 거리.
     /// </summary>
     public float collisionDistance;
     
+    /// <summary>
+    /// 프롭의 사운드 데이터
+    /// </summary>
+    [Header("Audio")]
+    public MaterialSoundData soundData;
+    
+    /// <summary>
+    /// 소리 크기
+    /// </summary>
+    [Range(0, 1)] public float volume;
+    
+    /// <summary>
+    /// 충돌 시 소리의 크기 조절
+    /// </summary>
+    [Range(0, 1)] public float impactScale;
+
     /// <summary>
     /// 프롭의 인벤토리 저장 가능 여부
     /// </summary>

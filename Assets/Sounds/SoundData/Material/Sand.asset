@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533951a94a24ee043b6610b6cbf6b27c, type: 3}
+  m_Name: Sand
+  m_EditorClassIdentifier: 
+  _walking:
+  - {fileID: 8300000, guid: a38c0a40bc3bdf24dad42d9efca37e94, type: 3}
+  - {fileID: 8300000, guid: fa998d82f82142749987605161319a9c, type: 3}
+  - {fileID: 8300000, guid: 47e50ba61a0ad954d99bccbe0419e3e0, type: 3}
+  - {fileID: 8300000, guid: ee7f8d6ce0305f643af30310b33b8b64, type: 3}
+  _running: []
+  _impact: []
+  _breaking: []

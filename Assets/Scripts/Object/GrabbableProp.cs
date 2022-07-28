@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -11,12 +12,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class GrabbableProp : Prop
 {
     // ==================================================
-    //  Static Variables
+    //  Editor-assigned Variables
     // ==================================================
     
-    private const int GrabbedLayerIndex = 8;
-    private const int PropLayerIndex = 10;
+    [Tooltip("손 포즈의 존재 여부")]
+    [SerializeField] private bool _isPoseAvailable;
 
+    [SerializeField] private Renderer _leftHandPose;
+    
+    [SerializeField] private Renderer _rightHandPose;
+    
     // ==================================================
     //  Variables
     // ==================================================
@@ -35,6 +40,11 @@ public class GrabbableProp : Prop
     /// 프롭의 인벤토리 저장 가능 여부
     /// </summary>
     public bool storable => _data.storable;
+    
+    /// <summary>
+    /// 손 포즈의 존재 여부
+    /// </summary>
+    public bool isPoseAvailable => _isPoseAvailable;
 
     // ==================================================
     //  Unity Functions
@@ -67,6 +77,29 @@ public class GrabbableProp : Prop
     //  Grabbable Prop Functions
     // ==================================================
     
+    protected override void BreakProp()
+    {
+        // 파괴 소리 재생
+        AudioSource.PlayClipAtPoint(_data.soundData.breaking, transform.position, _data.volume);
+        Destroy(gameObject);
+        
+        // 파편 생성
+        if (_data.createFragmentOnBreak && _data.fragmentObjectList.Count > 0)
+        {
+            // 프롭을 잡고있는 경우 놓게 한다
+            if (_interactable.isSelected && _interactable.GetOldestInteractorSelecting().transform.TryGetComponent(out PlayerHand hand))
+            {
+                hand.ForceDeselect();
+            }
+            
+            foreach (var fragment in _data.fragmentObjectList)
+            {
+                var temp = Instantiate(fragment, transform.position, transform.rotation, DataManager.instance.otherObjects);
+                Destroy(temp, 5f);
+            }
+        }
+    }
+    
     /// <summary>
     /// 오브젝트를 잡을 때 이벤트
     /// </summary>
@@ -78,35 +111,46 @@ public class GrabbableProp : Prop
         {
             if (socket is InventoryInteractor inventory)
                 _stored = inventory.handType;
-        }
-        else
-        {
             return;
         }
-    
+
         // 프롭을 잡은 경우 Grabbed 레이어로 변경
         if(_isCoroutineRunning)
             StopCoroutine(_coroutine);
-        Support.ChangeLayer(transform, GrabbedLayerIndex);
+        Support.ChangeLayer(transform, Support.GrabbedLayerIndex);
+        
+        // 포즈가 존재할 경우 적용
+        if (_isPoseAvailable && args.interactorObject.transform.TryGetComponent(out CustomDirectInteractor interactor))
+        {
+            interactor.hand.visible = false;
+            switch (interactor.handType)
+            {
+                case HandType.Left:
+                    _leftHandPose.enabled = true;
+                    break;
+                case HandType.Right:
+                    _rightHandPose.enabled = true;
+                    break;
+            }
+        }
     }
-    
+
     /// <summary>
     /// 오브젝트를 놓을 때 이벤트
     /// </summary>
     /// <param name="args"></param>
     private void SelectExitedEvent(SelectExitEventArgs args)
     {
+        if (gameObject.IsDestroyed())
+            return;
+        
         // 인벤토리에서 나온 경우 저장된 손을 None으로 변경
         if (args.interactorObject.transform.TryGetComponent(out XRSocketInteractor socket))
         {
             if (socket is InventoryInteractor)
                 _stored = HandType.None;
         }
-        else
-        {
-            return;
-        }
-        
+
         // 인벤토리에 닿아있는 상태일 경우 거리 측정을 수행하지 않음
         if (_interactable.interactorsHovering.OfType<InventoryInteractor>().Any())
         {
@@ -114,9 +158,18 @@ public class GrabbableProp : Prop
         }
         
         // 프롭을 놓을 경우 거리 측정 시작
+        Support.ChangeLayer(transform, Support.GrabbedLayerIndex);
         if(_isCoroutineRunning)
             StopCoroutine(_coroutine);
         _coroutine = StartCoroutine(CheckDistanceCoroutine());
+        
+        // 포즈 제거
+        if (isPoseAvailable && args.interactorObject.transform.TryGetComponent(out CustomDirectInteractor interactor))
+        {
+            _leftHandPose.enabled = false;
+            _rightHandPose.enabled = false;
+            interactor.hand.visible = true;
+        }
     }
     
     /// <summary>
@@ -134,7 +187,7 @@ public class GrabbableProp : Prop
             yield return null;
         }
         
-        Support.ChangeLayer(transform, PropLayerIndex);
+        Support.ChangeLayer(transform, Support.PropLayerIndex);
         _isCoroutineRunning = false;
     }
     
@@ -190,12 +243,14 @@ public class GrabbableProp : Prop
         switch (od.stored)
         {
             case 1:
-                transform.position = player.leftHand.transform.position;
-                transform.rotation = player.leftHand.transform.rotation;
+                var leftInv = player.leftHand.inventory.transform;
+                transform.position = leftInv.position;
+                transform.rotation = leftInv.rotation;
                 break;
             case 2:
-                transform.position = player.rightHand.transform.position;
-                transform.rotation = player.rightHand.transform.rotation;
+                var rightInv = player.rightHand.inventory.transform;
+                transform.position = rightInv.position;
+                transform.rotation = rightInv.rotation;
                 break;
             default:
                 transform.position = Support.FloatToVector3(od.pos);
