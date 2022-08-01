@@ -246,6 +246,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.zallist.universal-shadergraph-extensions": {
+      "version": "https://github.com/Zallist/unity-universal-shadergraph-extensions.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "4721c0cbf174a6a59f7d0de232803984cf5a64e1"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
