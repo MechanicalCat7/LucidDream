@@ -28,10 +28,10 @@ public class Door : SerializableObject
     [SerializeField] private bool _freezeOnClosed;
     
     [Space]
-    [Tooltip("문이 닫히는 것으로 인식하는 각도")]
+    [Tooltip("문이 닫히는 것으로 인식하는 각도 (절대값)")]
     [SerializeField] private float _closeAngle;
     
-    [Tooltip("문이 열리는 것으로 인식하는 각도")]
+    [Tooltip("문이 열리는 것으로 인식하는 각도 (절대값)")]
     [SerializeField] private float _openAngle;
     
     [Space]

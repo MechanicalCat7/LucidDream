@@ -120,8 +120,19 @@ public class PlayerHead : MonoBehaviour
     /// <returns>충돌 여부를 반환한다.</returns>
     private bool CheckCollide()
     {
+        // 머리가 닿음
         var start = transform.TransformPoint(_capsuleStart);
         var end = transform.TransformPoint(_capsuleEnd);
-        return Physics.CheckCapsule(start, end, _colliderRadius, _collisionLayer, QueryTriggerInteraction.Ignore);
+        var isCollided = Physics.CheckCapsule(start, end, _colliderRadius, _collisionLayer, QueryTriggerInteraction.Ignore);
+        
+        // 장애물 감지
+        var headPos = transform.position;
+        var charPos = _player.characterPosInWorldSpace;
+        charPos.y = headPos.y;
+        var v = headPos - charPos;
+        var isBlocked = Physics.Raycast(charPos, v.normalized, v.magnitude, _collisionLayer,
+            QueryTriggerInteraction.Ignore);
+
+        return isCollided || isBlocked;
     }
 }
