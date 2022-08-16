@@ -98,6 +98,7 @@ public class PlayerHand : MonoBehaviour
         {
             _visible = value;
             _renderer.enabled = value;
+            _inventory.visible = value;
         }
     }
 
@@ -289,6 +290,8 @@ public class PlayerHand : MonoBehaviour
             _renderer.enabled = !state;
         }
         _controllerModel.enabled = state;
+        var lineRenderer = _controller.GetComponent<XRInteractorLineVisual>();
+        lineRenderer.enabled = state;
     }
     
     // --------------------------------------------------
@@ -298,9 +301,6 @@ public class PlayerHand : MonoBehaviour
     /// </summary>
     private void OnPauseGame()
     {
-        var lineRenderer = _controller.GetComponent<XRInteractorLineVisual>();
-        lineRenderer.enabled = true;
-        
         ShowControllerModel(true);
     }
     
@@ -309,9 +309,6 @@ public class PlayerHand : MonoBehaviour
     /// </summary>
     private void OnResumeGame()
     {
-        var lineRenderer = _controller.GetComponent<XRInteractorLineVisual>();
-        lineRenderer.enabled = false;
-        
         ResetHandPosition();
         ShowControllerModel(false);
     }

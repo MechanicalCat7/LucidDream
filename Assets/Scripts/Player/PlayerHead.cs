@@ -74,6 +74,9 @@ public class PlayerHead : MonoBehaviour
     
     private void Update()
     {
+        if (GameManager.instance.isGamePaused)
+            return;
+
         var originPos = _player.characterPosInWorldSpace;
         
         // 머리 충돌 시 화면 가림

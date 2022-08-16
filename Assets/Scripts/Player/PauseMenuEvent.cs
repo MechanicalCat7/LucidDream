@@ -1,6 +1,7 @@
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 일시정지 메뉴 
@@ -111,6 +112,12 @@ public class PauseMenuEvent : MonoBehaviour
     public void MainExit()
     {
         ShowMenu(_exitMenu);
+    }
+
+    public void MainNewGame()
+    {
+        SceneManager.LoadScene("Practice");
+        GameManager.instance.SetGamePaused(false);
     }
     
     // --------------------------------------------------

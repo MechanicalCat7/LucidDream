@@ -52,6 +52,11 @@ public class GameManager
     }
     
     // --------------------------------------------------
+
+    public void SetGamePaused(bool state)
+    {
+        isGamePaused = state;
+    }
     
     /// <summary>
     /// 게임을 일시정지한다.
@@ -82,11 +87,13 @@ public class GameManager
 
     public void OnBeginLoadGame()
     {
+        isGamePaused = true;
         Time.timeScale = 0;
     }
 
     public void OnEndLoadGame()
     {
+        isGamePaused = false;
         Time.timeScale = 1f;
     }
 }

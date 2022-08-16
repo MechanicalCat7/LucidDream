@@ -21,10 +21,7 @@ public class PauseMenu : MonoBehaviour
     
     [Tooltip("일시정지 시 배경화면")]
     [SerializeField] private Renderer _background;
-    
-    [Tooltip("따라오는 속도")]
-    [SerializeField] private float _moveSpeed;
-    
+
     [Tooltip("화면 전환 속도")]
     [SerializeField] private float _fadeSpeed = 0.2f;
 

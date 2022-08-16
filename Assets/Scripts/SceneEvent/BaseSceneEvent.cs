@@ -20,7 +20,7 @@ public class BaseSceneEvent : MonoBehaviour
         DataManager.instance.GetObjects();
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         // 게임 불러오기 상태일 경우 계속 수행
         if (DataManager.instance.isLoadingGame)

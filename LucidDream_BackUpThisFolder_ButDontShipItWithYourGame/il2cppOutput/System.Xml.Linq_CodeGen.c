@@ -13,9 +13,9 @@
 
 
 // 0x00000001 System.String SR::Format(System.String,System.Object)
-extern void SR_Format_m63269096AA44CEB3453A431A25B3D0151FFDCA86 (void);
+extern void SR_Format_m3F5EEA52EC82E931BDEFCEE9789D876FD27D9459 (void);
 // 0x00000002 System.String SR::Format(System.String,System.Object,System.Object)
-extern void SR_Format_mCF94E56AEBC997F4601AC249B454ABFCA9C3EC4F (void);
+extern void SR_Format_m3E6D6782736A6F361E95EEE06395B4EBF14391F4 (void);
 // 0x00000003 System.Void System.Xml.Linq.BaseUriAnnotation::.ctor(System.String)
 extern void BaseUriAnnotation__ctor_m63EAC1E4CB30B2C91C25D20C36FE9821D6F02865 (void);
 // 0x00000004 System.Void System.Xml.Linq.LineInfoAnnotation::.ctor(System.Int32,System.Int32)
@@ -41,7 +41,7 @@ extern void XAttribute_ToString_m4B12B42FB4BBBF4047579A2465288AAEE9F31BB5 (void)
 // 0x0000000E System.String System.Xml.Linq.XAttribute::GetPrefixOfNamespace(System.Xml.Linq.XNamespace)
 extern void XAttribute_GetPrefixOfNamespace_mDE12E0403D299B366DBD8FF87B384EB2F0DAD2F3 (void);
 // 0x0000000F System.Void System.Xml.Linq.XAttribute::ValidateAttribute(System.Xml.Linq.XName,System.String)
-extern void XAttribute_ValidateAttribute_mB06937750370B57B13B635679C3D77A541A49129 (void);
+extern void XAttribute_ValidateAttribute_m70D9985C6D278228512D45C5566495AF457A2071 (void);
 // 0x00000010 System.Void System.Xml.Linq.XCData::.ctor(System.String)
 extern void XCData__ctor_m649661856E9B7BA8D204EB3FB1CE80D76998D416 (void);
 // 0x00000011 System.Void System.Xml.Linq.XCData::.ctor(System.Xml.Linq.XCData)
@@ -101,7 +101,7 @@ extern void XContainer_AppendText_m04B752A0A4AE57DC5D5317F8C62A1140EC5FD805 (voi
 // 0x0000002C System.Void System.Xml.Linq.XContainer::ConvertTextToNode()
 extern void XContainer_ConvertTextToNode_m02D880D7454D1A02F5C33F38086BF31FEA676BAF (void);
 // 0x0000002D System.String System.Xml.Linq.XContainer::GetStringValue(System.Object)
-extern void XContainer_GetStringValue_m99B17BC67C4DB9C7D88445EA20F1CA923830B790 (void);
+extern void XContainer_GetStringValue_m4C4D548565D4B287DD399F92C62AD5371F88D183 (void);
 // 0x0000002E System.Void System.Xml.Linq.XContainer::ReadContentFrom(System.Xml.XmlReader)
 extern void XContainer_ReadContentFrom_m3A9BB167B42CEE4F428F39F5AF0BE4B337D444A1 (void);
 // 0x0000002F System.Void System.Xml.Linq.XContainer::ReadContentFrom(System.Xml.XmlReader,System.Xml.Linq.LoadOptions)
@@ -178,7 +178,7 @@ extern void XDocument_AddAttributeSkipNotify_mFF42062B1570F6241005A55C4D162454C7
 extern void XDocument_CloneNode_mADF511715A902A14216456FA6248B3AEE1EF55C5 (void);
 // 0x00000053 T System.Xml.Linq.XDocument::GetFirstNode()
 // 0x00000054 System.Boolean System.Xml.Linq.XDocument::IsWhitespace(System.String)
-extern void XDocument_IsWhitespace_mE831DDBB95FA96BA34958D043B72EBDB3A66EDB5 (void);
+extern void XDocument_IsWhitespace_m7375DB9FBF379F950DFA1A1704A92CA596A2628D (void);
 // 0x00000055 System.Void System.Xml.Linq.XDocument::ValidateNode(System.Xml.Linq.XNode,System.Xml.Linq.XNode)
 extern void XDocument_ValidateNode_mC2034D575F2FD45984E83566D6B2FDFEB294806A (void);
 // 0x00000056 System.Void System.Xml.Linq.XDocument::ValidateDocument(System.Xml.Linq.XNode,System.Xml.XmlNodeType,System.Xml.XmlNodeType)
@@ -325,17 +325,17 @@ extern void XName_get_NamespaceName_mBEAFAB116BBDFE5B13EE2672C6C9DB3E58D257D3 (v
 // 0x000000A2 System.String System.Xml.Linq.XName::ToString()
 extern void XName_ToString_mC0FF991D95C0FF47A87EBCBFC14EA0EC8CEBCEC8 (void);
 // 0x000000A3 System.Xml.Linq.XName System.Xml.Linq.XName::Get(System.String)
-extern void XName_Get_mE2BF80740D6C501CF1678DB00F244C290BB34463 (void);
+extern void XName_Get_mC5654185D68DD5960BF16D91C0D7CF3AA6B44785 (void);
 // 0x000000A4 System.Xml.Linq.XName System.Xml.Linq.XName::Get(System.String,System.String)
-extern void XName_Get_m687AE6BB703D4A431C6F647730C7B0BB9B8D3E01 (void);
+extern void XName_Get_mECF7FD66C88749DF760999F9C6F506BA9A0D0373 (void);
 // 0x000000A5 System.Xml.Linq.XName System.Xml.Linq.XName::op_Implicit(System.String)
-extern void XName_op_Implicit_mFC85EBDA8EF02294034DF34A29E49812427EA566 (void);
+extern void XName_op_Implicit_m3A259E71F7D76AA504349A98DAE3C47D7A943736 (void);
 // 0x000000A6 System.Boolean System.Xml.Linq.XName::Equals(System.Object)
 extern void XName_Equals_m22A983F0AA2093E9D33BD42ADC89C79548F6D220 (void);
 // 0x000000A7 System.Int32 System.Xml.Linq.XName::GetHashCode()
 extern void XName_GetHashCode_mE5EAAFEE68E00AD9505E78AC0A11E31B05F2B70E (void);
 // 0x000000A8 System.Boolean System.Xml.Linq.XName::op_Equality(System.Xml.Linq.XName,System.Xml.Linq.XName)
-extern void XName_op_Equality_mC46AC45AA2810CB3DFFF1B577A980B1C890C754A (void);
+extern void XName_op_Equality_m3F2AF3BB435B0F79A8D197D2FB22CDB8E150DBC0 (void);
 // 0x000000A9 System.Boolean System.Xml.Linq.XName::System.IEquatable<System.Xml.Linq.XName>.Equals(System.Xml.Linq.XName)
 extern void XName_System_IEquatableU3CSystem_Xml_Linq_XNameU3E_Equals_mBF0DDFCD3955DEE4E90DF3CAB7E7FCC5815C60D2 (void);
 // 0x000000AA System.Void System.Xml.Linq.XName::System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
@@ -351,33 +351,33 @@ extern void XNamespace_GetName_mE518274722135FD918AF466F4C5B5CD7BFDEE311 (void);
 // 0x000000AF System.String System.Xml.Linq.XNamespace::ToString()
 extern void XNamespace_ToString_m40DD4165D7931CC3B84952751D50BA0F814417A3 (void);
 // 0x000000B0 System.Xml.Linq.XNamespace System.Xml.Linq.XNamespace::get_None()
-extern void XNamespace_get_None_m424100EFC4C7CFDCC882B06AFB303FCA4F4074BD (void);
+extern void XNamespace_get_None_mCE21C56684E4F1A7C7E1FFB36F72C54F9330EE9C (void);
 // 0x000000B1 System.Xml.Linq.XNamespace System.Xml.Linq.XNamespace::get_Xml()
-extern void XNamespace_get_Xml_mE6E53D856DC9F1548C9831281B9447E6AC9B912A (void);
+extern void XNamespace_get_Xml_mE1966B4156DA2D168566FDC81E6327CC63E9B0EB (void);
 // 0x000000B2 System.Xml.Linq.XNamespace System.Xml.Linq.XNamespace::get_Xmlns()
-extern void XNamespace_get_Xmlns_m3A64103754D8D3CA2F0EE40E13A1989B7967BC1B (void);
+extern void XNamespace_get_Xmlns_mC5CB27940F5AE9D090C6168033663616CED1F559 (void);
 // 0x000000B3 System.Xml.Linq.XNamespace System.Xml.Linq.XNamespace::Get(System.String)
-extern void XNamespace_Get_m8694879698FA51FB687D3361C92043FC5B879017 (void);
+extern void XNamespace_Get_mEE1B17946112BFAC41E4331433CF28B75FE761BE (void);
 // 0x000000B4 System.Xml.Linq.XNamespace System.Xml.Linq.XNamespace::op_Implicit(System.String)
-extern void XNamespace_op_Implicit_mB3CFEDB71BE0ADF3DA186F884778281AF3F96D3E (void);
+extern void XNamespace_op_Implicit_m82CA31E66BE67924ED340B6CF69B6DF3E8FAC7DC (void);
 // 0x000000B5 System.Boolean System.Xml.Linq.XNamespace::Equals(System.Object)
 extern void XNamespace_Equals_m3437E3FED90F6B3ED6CFED8C5B79AAC8F1B7C57A (void);
 // 0x000000B6 System.Int32 System.Xml.Linq.XNamespace::GetHashCode()
 extern void XNamespace_GetHashCode_m2DB1CED2C4D1F5EFCBFBBBA99B03BF8A26E9AA6C (void);
 // 0x000000B7 System.Boolean System.Xml.Linq.XNamespace::op_Equality(System.Xml.Linq.XNamespace,System.Xml.Linq.XNamespace)
-extern void XNamespace_op_Equality_mDC814172A2AE9F82AE3BA7583D880610E9F2F571 (void);
+extern void XNamespace_op_Equality_m616EF9FF2A818AD180E63594576384790E19254D (void);
 // 0x000000B8 System.Boolean System.Xml.Linq.XNamespace::op_Inequality(System.Xml.Linq.XNamespace,System.Xml.Linq.XNamespace)
-extern void XNamespace_op_Inequality_mEAA833A80433BA11124E5A2C4595EC7E159C74B1 (void);
+extern void XNamespace_op_Inequality_m72707CE08FC24456A262D7C72ECC042531A1918C (void);
 // 0x000000B9 System.Xml.Linq.XName System.Xml.Linq.XNamespace::GetName(System.String,System.Int32,System.Int32)
 extern void XNamespace_GetName_m9446102D865A37ACF99EFB99DC5A81C18087664E (void);
 // 0x000000BA System.Xml.Linq.XNamespace System.Xml.Linq.XNamespace::Get(System.String,System.Int32,System.Int32)
-extern void XNamespace_Get_m6B99FD0709952D5C511819B39EFE812928CACAEE (void);
+extern void XNamespace_Get_m055C6410B3413FD04032A881D48706114891016C (void);
 // 0x000000BB System.String System.Xml.Linq.XNamespace::ExtractLocalName(System.Xml.Linq.XName)
-extern void XNamespace_ExtractLocalName_m11246961BF3E4B1591A6B4900F4862C025D9B4C7 (void);
+extern void XNamespace_ExtractLocalName_mAEB547B4641EB2F51CBAD373C57457E6B04905C2 (void);
 // 0x000000BC System.String System.Xml.Linq.XNamespace::ExtractNamespace(System.WeakReference)
-extern void XNamespace_ExtractNamespace_m0A3C09C85CC204F69EC4FBB99005679FBA6E82C8 (void);
+extern void XNamespace_ExtractNamespace_m4716EF367DE17D509CB4839911A4726FEEE9859D (void);
 // 0x000000BD System.Xml.Linq.XNamespace System.Xml.Linq.XNamespace::EnsureNamespace(System.WeakReference&,System.String)
-extern void XNamespace_EnsureNamespace_mF23975303F2802A713FE63654DD0F9BF83F24BD6 (void);
+extern void XNamespace_EnsureNamespace_mFBE191305CF760E4F2FC15B3E3DA1BFAD147A55C (void);
 // 0x000000BE System.Void System.Xml.Linq.XNode::.ctor()
 extern void XNode__ctor_m7E4F8620BA971E95E0F2EBB6A86720C8027EB4F4 (void);
 // 0x000000BF System.Void System.Xml.Linq.XNode::Remove()
@@ -425,7 +425,7 @@ extern void XObject_GetSaveOptionsFromAnnotations_m46D960C1A1473A58A5A2F5676DDF1
 // 0x000000D6 System.Void System.Xml.Linq.XObjectChangeEventArgs::.ctor(System.Xml.Linq.XObjectChange)
 extern void XObjectChangeEventArgs__ctor_m0EC4DEEDCAC8B4660F086D1C980BEF79887DBBE2 (void);
 // 0x000000D7 System.Void System.Xml.Linq.XObjectChangeEventArgs::.cctor()
-extern void XObjectChangeEventArgs__cctor_mB7D2A22927332422D3626E632558F5F681FE2390 (void);
+extern void XObjectChangeEventArgs__cctor_mA2E8E5085C0016AFE1915D747016FFFA055C2F5D (void);
 // 0x000000D8 System.Void System.Xml.Linq.XProcessingInstruction::.ctor(System.String,System.String)
 extern void XProcessingInstruction__ctor_m9D42D9DF59625543003025C09E1AED9659A1E862 (void);
 // 0x000000D9 System.Void System.Xml.Linq.XProcessingInstruction::.ctor(System.Xml.Linq.XProcessingInstruction)
@@ -443,7 +443,7 @@ extern void XProcessingInstruction_WriteTo_m56732BE1F56BF38E2F161186A83CE394CA04
 // 0x000000DF System.Xml.Linq.XNode System.Xml.Linq.XProcessingInstruction::CloneNode()
 extern void XProcessingInstruction_CloneNode_m680B674C04EEE4E2C57294D645742048079D97B1 (void);
 // 0x000000E0 System.Void System.Xml.Linq.XProcessingInstruction::ValidateName(System.String)
-extern void XProcessingInstruction_ValidateName_m23076CC275A98263D713548F39EDB96D74531678 (void);
+extern void XProcessingInstruction_ValidateName_m945E9C60579F07D700F600E25579FA81F9D372CE (void);
 // 0x000000E1 System.Void System.Xml.Linq.XText::.ctor(System.String)
 extern void XText__ctor_m30153536CE7D619BF5609B3D3453109B3ECDD28D (void);
 // 0x000000E2 System.Void System.Xml.Linq.XText::.ctor(System.Xml.Linq.XText)
@@ -461,17 +461,17 @@ extern void XText_AppendText_m67BD74F5CFEBC7BF31089C195221CE2A0BB57FB2 (void);
 // 0x000000E8 System.Xml.Linq.XNode System.Xml.Linq.XText::CloneNode()
 extern void XText_CloneNode_m817AC9E0BB0881591E092B3F1F3AE4B1E00F8C1E (void);
 // 0x000000E9 System.Text.StringBuilder System.Text.StringBuilderCache::Acquire(System.Int32)
-extern void StringBuilderCache_Acquire_m718443B86A6766539E6D4EA0F8E0EC8308DFB982 (void);
+extern void StringBuilderCache_Acquire_m56CF0EE17E4DBF597E4A74230E25A18E9D4B77BE (void);
 // 0x000000EA System.Void System.Text.StringBuilderCache::Release(System.Text.StringBuilder)
-extern void StringBuilderCache_Release_m8A371207DF0F5AA9FDD288E561B0CA49C786AEB4 (void);
+extern void StringBuilderCache_Release_m8BC1DF4DCAFAC31A5FEC78A03891D522561D0835 (void);
 // 0x000000EB System.String System.Text.StringBuilderCache::GetStringAndRelease(System.Text.StringBuilder)
-extern void StringBuilderCache_GetStringAndRelease_m8C31386F7A1A94B3E1478D60BB459360216308F1 (void);
+extern void StringBuilderCache_GetStringAndRelease_mF731F5D5144F0723DFFCB719692FFAEAEDF47389 (void);
 // 0x000000EC System.Void Unity.ThrowStub::ThrowNotSupportedException()
-extern void ThrowStub_ThrowNotSupportedException_m0ED68F53DDC22CE209FCAD0A27425B801766709A (void);
+extern void ThrowStub_ThrowNotSupportedException_m9860569D0F80DAC07D9ECCCAFC15125E0A3603C1 (void);
 static Il2CppMethodPointer s_methodPointers[236] = 
 {
-	SR_Format_m63269096AA44CEB3453A431A25B3D0151FFDCA86,
-	SR_Format_mCF94E56AEBC997F4601AC249B454ABFCA9C3EC4F,
+	SR_Format_m3F5EEA52EC82E931BDEFCEE9789D876FD27D9459,
+	SR_Format_m3E6D6782736A6F361E95EEE06395B4EBF14391F4,
 	BaseUriAnnotation__ctor_m63EAC1E4CB30B2C91C25D20C36FE9821D6F02865,
 	LineInfoAnnotation__ctor_mF684C98B92D1A45CD0E4B4C95FECDB970DAC8714,
 	LineInfoEndElementAnnotation__ctor_mC7AFB594F54BD80B3336BF5BFD7F0576C7C85788,
@@ -484,7 +484,7 @@ static Il2CppMethodPointer s_methodPointers[236] =
 	XAttribute_set_Value_m6BB4BE5ED1708B0C3EB39A38DC36E8FE7BAA6C4C,
 	XAttribute_ToString_m4B12B42FB4BBBF4047579A2465288AAEE9F31BB5,
 	XAttribute_GetPrefixOfNamespace_mDE12E0403D299B366DBD8FF87B384EB2F0DAD2F3,
-	XAttribute_ValidateAttribute_mB06937750370B57B13B635679C3D77A541A49129,
+	XAttribute_ValidateAttribute_m70D9985C6D278228512D45C5566495AF457A2071,
 	XCData__ctor_m649661856E9B7BA8D204EB3FB1CE80D76998D416,
 	XCData__ctor_mF90A1941F63C439B2B36DE991E39238F34E26D6E,
 	XCData_get_NodeType_mAF5D64410A51E966EB34DCA38F13EC3C242C59F6,
@@ -514,7 +514,7 @@ static Il2CppMethodPointer s_methodPointers[236] =
 	XContainer_AppendNodeSkipNotify_m57D06340C7F57D650D6BE2DF27810AF19DE25DB5,
 	XContainer_AppendText_m04B752A0A4AE57DC5D5317F8C62A1140EC5FD805,
 	XContainer_ConvertTextToNode_m02D880D7454D1A02F5C33F38086BF31FEA676BAF,
-	XContainer_GetStringValue_m99B17BC67C4DB9C7D88445EA20F1CA923830B790,
+	XContainer_GetStringValue_m4C4D548565D4B287DD399F92C62AD5371F88D183,
 	XContainer_ReadContentFrom_m3A9BB167B42CEE4F428F39F5AF0BE4B337D444A1,
 	XContainer_ReadContentFrom_m6CCDD05649CBCE45ABEF7B6F9D2F14E4EC58D31D,
 	XContainer_RemoveNode_m801CAABC52F39D3BBDAAE0E091A58DD25D957467,
@@ -553,7 +553,7 @@ static Il2CppMethodPointer s_methodPointers[236] =
 	XDocument_AddAttributeSkipNotify_mFF42062B1570F6241005A55C4D162454C792D1BB,
 	XDocument_CloneNode_mADF511715A902A14216456FA6248B3AEE1EF55C5,
 	NULL,
-	XDocument_IsWhitespace_mE831DDBB95FA96BA34958D043B72EBDB3A66EDB5,
+	XDocument_IsWhitespace_m7375DB9FBF379F950DFA1A1704A92CA596A2628D,
 	XDocument_ValidateNode_mC2034D575F2FD45984E83566D6B2FDFEB294806A,
 	XDocument_ValidateDocument_mBE76330494260C5034127B11C20F4DA2B1DDD17E,
 	XDocument_ValidateString_mBD670C69B8F3474A76444AC11E6427385B205547,
@@ -632,12 +632,12 @@ static Il2CppMethodPointer s_methodPointers[236] =
 	XName_get_Namespace_mC66E7FA73994C5EE096C2C64774B3BE7C316FDE9,
 	XName_get_NamespaceName_mBEAFAB116BBDFE5B13EE2672C6C9DB3E58D257D3,
 	XName_ToString_mC0FF991D95C0FF47A87EBCBFC14EA0EC8CEBCEC8,
-	XName_Get_mE2BF80740D6C501CF1678DB00F244C290BB34463,
-	XName_Get_m687AE6BB703D4A431C6F647730C7B0BB9B8D3E01,
-	XName_op_Implicit_mFC85EBDA8EF02294034DF34A29E49812427EA566,
+	XName_Get_mC5654185D68DD5960BF16D91C0D7CF3AA6B44785,
+	XName_Get_mECF7FD66C88749DF760999F9C6F506BA9A0D0373,
+	XName_op_Implicit_m3A259E71F7D76AA504349A98DAE3C47D7A943736,
 	XName_Equals_m22A983F0AA2093E9D33BD42ADC89C79548F6D220,
 	XName_GetHashCode_mE5EAAFEE68E00AD9505E78AC0A11E31B05F2B70E,
-	XName_op_Equality_mC46AC45AA2810CB3DFFF1B577A980B1C890C754A,
+	XName_op_Equality_m3F2AF3BB435B0F79A8D197D2FB22CDB8E150DBC0,
 	XName_System_IEquatableU3CSystem_Xml_Linq_XNameU3E_Equals_mBF0DDFCD3955DEE4E90DF3CAB7E7FCC5815C60D2,
 	XName_System_Runtime_Serialization_ISerializable_GetObjectData_m7C96AD2A92138B962DE0BAAEA3F8F0D011612057,
 	XName__ctor_mB579540EB28ED78A0EEE6BD7A81129EDEB876E57,
@@ -645,20 +645,20 @@ static Il2CppMethodPointer s_methodPointers[236] =
 	XNamespace_get_NamespaceName_m582F8EEBEE2DD35B118583335F51870305CDCC38,
 	XNamespace_GetName_mE518274722135FD918AF466F4C5B5CD7BFDEE311,
 	XNamespace_ToString_m40DD4165D7931CC3B84952751D50BA0F814417A3,
-	XNamespace_get_None_m424100EFC4C7CFDCC882B06AFB303FCA4F4074BD,
-	XNamespace_get_Xml_mE6E53D856DC9F1548C9831281B9447E6AC9B912A,
-	XNamespace_get_Xmlns_m3A64103754D8D3CA2F0EE40E13A1989B7967BC1B,
-	XNamespace_Get_m8694879698FA51FB687D3361C92043FC5B879017,
-	XNamespace_op_Implicit_mB3CFEDB71BE0ADF3DA186F884778281AF3F96D3E,
+	XNamespace_get_None_mCE21C56684E4F1A7C7E1FFB36F72C54F9330EE9C,
+	XNamespace_get_Xml_mE1966B4156DA2D168566FDC81E6327CC63E9B0EB,
+	XNamespace_get_Xmlns_mC5CB27940F5AE9D090C6168033663616CED1F559,
+	XNamespace_Get_mEE1B17946112BFAC41E4331433CF28B75FE761BE,
+	XNamespace_op_Implicit_m82CA31E66BE67924ED340B6CF69B6DF3E8FAC7DC,
 	XNamespace_Equals_m3437E3FED90F6B3ED6CFED8C5B79AAC8F1B7C57A,
 	XNamespace_GetHashCode_m2DB1CED2C4D1F5EFCBFBBBA99B03BF8A26E9AA6C,
-	XNamespace_op_Equality_mDC814172A2AE9F82AE3BA7583D880610E9F2F571,
-	XNamespace_op_Inequality_mEAA833A80433BA11124E5A2C4595EC7E159C74B1,
+	XNamespace_op_Equality_m616EF9FF2A818AD180E63594576384790E19254D,
+	XNamespace_op_Inequality_m72707CE08FC24456A262D7C72ECC042531A1918C,
 	XNamespace_GetName_m9446102D865A37ACF99EFB99DC5A81C18087664E,
-	XNamespace_Get_m6B99FD0709952D5C511819B39EFE812928CACAEE,
-	XNamespace_ExtractLocalName_m11246961BF3E4B1591A6B4900F4862C025D9B4C7,
-	XNamespace_ExtractNamespace_m0A3C09C85CC204F69EC4FBB99005679FBA6E82C8,
-	XNamespace_EnsureNamespace_mF23975303F2802A713FE63654DD0F9BF83F24BD6,
+	XNamespace_Get_m055C6410B3413FD04032A881D48706114891016C,
+	XNamespace_ExtractLocalName_mAEB547B4641EB2F51CBAD373C57457E6B04905C2,
+	XNamespace_ExtractNamespace_m4716EF367DE17D509CB4839911A4726FEEE9859D,
+	XNamespace_EnsureNamespace_mFBE191305CF760E4F2FC15B3E3DA1BFAD147A55C,
 	XNode__ctor_m7E4F8620BA971E95E0F2EBB6A86720C8027EB4F4,
 	XNode_Remove_m74CDB71751058523C66B0529333D7D0E880C29F9,
 	XNode_ToString_m5E3D419064B677FD88EAA43E9DB28E08749B3D38,
@@ -684,7 +684,7 @@ static Il2CppMethodPointer s_methodPointers[236] =
 	XObject_SkipNotify_mBE5105AB523E68C26A65D153F8523DFF6636FD9F,
 	XObject_GetSaveOptionsFromAnnotations_m46D960C1A1473A58A5A2F5676DDF16042E7E51A9,
 	XObjectChangeEventArgs__ctor_m0EC4DEEDCAC8B4660F086D1C980BEF79887DBBE2,
-	XObjectChangeEventArgs__cctor_mB7D2A22927332422D3626E632558F5F681FE2390,
+	XObjectChangeEventArgs__cctor_mA2E8E5085C0016AFE1915D747016FFFA055C2F5D,
 	XProcessingInstruction__ctor_m9D42D9DF59625543003025C09E1AED9659A1E862,
 	XProcessingInstruction__ctor_mEF30F650C629AC6570B9C202E4EFAF58CD711F89,
 	XProcessingInstruction_get_Data_mF06C89FCF9F580497E3B59331676AFC9AA3F416B,
@@ -693,7 +693,7 @@ static Il2CppMethodPointer s_methodPointers[236] =
 	XProcessingInstruction_get_Target_mBB98BD38B91EBDC03558F4990591BE33FC1EB0DE,
 	XProcessingInstruction_WriteTo_m56732BE1F56BF38E2F161186A83CE394CA04636C,
 	XProcessingInstruction_CloneNode_m680B674C04EEE4E2C57294D645742048079D97B1,
-	XProcessingInstruction_ValidateName_m23076CC275A98263D713548F39EDB96D74531678,
+	XProcessingInstruction_ValidateName_m945E9C60579F07D700F600E25579FA81F9D372CE,
 	XText__ctor_m30153536CE7D619BF5609B3D3453109B3ECDD28D,
 	XText__ctor_m57E9875B16480CE76D1F612F68AC85B2EAFBADF8,
 	XText_get_NodeType_m0B5BA5C2D51F659BCD454D1566D4A5B48F62CE9C,
@@ -702,10 +702,10 @@ static Il2CppMethodPointer s_methodPointers[236] =
 	XText_WriteTo_m8DA512ED0623E5D736844AEF4F956CC761F834E3,
 	XText_AppendText_m67BD74F5CFEBC7BF31089C195221CE2A0BB57FB2,
 	XText_CloneNode_m817AC9E0BB0881591E092B3F1F3AE4B1E00F8C1E,
-	StringBuilderCache_Acquire_m718443B86A6766539E6D4EA0F8E0EC8308DFB982,
-	StringBuilderCache_Release_m8A371207DF0F5AA9FDD288E561B0CA49C786AEB4,
-	StringBuilderCache_GetStringAndRelease_m8C31386F7A1A94B3E1478D60BB459360216308F1,
-	ThrowStub_ThrowNotSupportedException_m0ED68F53DDC22CE209FCAD0A27425B801766709A,
+	StringBuilderCache_Acquire_m56CF0EE17E4DBF597E4A74230E25A18E9D4B77BE,
+	StringBuilderCache_Release_m8BC1DF4DCAFAC31A5FEC78A03891D522561D0835,
+	StringBuilderCache_GetStringAndRelease_mF731F5D5144F0723DFFCB719692FFAEAEDF47389,
+	ThrowStub_ThrowNotSupportedException_m9860569D0F80DAC07D9ECCCAFC15125E0A3603C1,
 };
 extern void NamespaceCache_Get_m3493C1A45330169E117ECBCCA137BF1DE0D97ADC_AdjustorThunk (void);
 extern void ElementWriter__ctor_m9799ED04B0CC92C56270CC842CEE0B55C2CFC7DA_AdjustorThunk (void);
@@ -740,139 +740,137 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[14] =
 };
 static const int32_t s_InvokerIndices[236] = 
 {
-	11491,
-	10450,
-	6614,
-	3367,
-	3367,
-	3713,
-	6614,
-	8051,
-	8168,
-	8131,
-	8168,
-	6614,
-	8168,
-	5894,
-	11930,
-	6614,
-	6614,
-	8131,
-	6614,
-	8168,
-	6614,
-	6614,
-	8131,
-	8168,
-	6614,
-	6614,
-	8168,
-	8319,
-	6614,
-	8168,
-	6614,
-	8168,
-	8319,
-	6614,
-	6614,
-	6614,
-	6614,
-	6614,
-	6614,
-	6614,
-	6614,
-	6614,
-	6614,
-	8319,
-	13102,
-	6614,
-	3705,
-	6614,
-	8319,
-	3713,
-	6614,
-	6614,
-	6614,
-	1895,
-	2231,
-	1525,
-	6580,
-	8319,
-	8051,
-	8168,
-	8319,
-	8168,
-	8168,
-	8168,
-	1899,
-	6614,
-	8168,
-	6614,
-	8168,
-	6614,
-	8168,
-	8168,
-	8319,
-	6614,
-	8168,
-	6614,
-	8131,
-	8168,
-	6614,
-	6614,
-	6614,
-	8168,
+	12019,
+	10962,
+	6981,
+	3537,
+	3537,
+	3890,
+	6981,
+	8509,
+	8626,
+	8589,
+	8626,
+	6981,
+	8626,
+	6200,
+	12461,
+	6981,
+	6981,
+	8589,
+	6981,
+	8626,
+	6981,
+	6981,
+	8589,
+	8626,
+	6981,
+	6981,
+	8626,
+	8778,
+	6981,
+	8626,
+	6981,
+	8626,
+	8778,
+	6981,
+	6981,
+	6981,
+	6981,
+	6981,
+	6981,
+	6981,
+	6981,
+	6981,
+	6981,
+	8778,
+	13644,
+	6981,
+	3882,
+	6981,
+	8778,
+	3890,
+	6981,
+	6981,
+	6981,
+	1978,
+	2326,
+	1571,
+	6947,
+	8778,
+	8509,
+	8626,
+	8778,
+	8626,
+	8626,
+	8626,
+	1982,
+	6981,
+	8626,
+	6981,
+	8626,
+	6981,
+	8626,
+	8626,
+	8778,
+	6981,
+	8626,
+	6981,
+	8589,
+	8626,
+	6981,
+	6981,
+	6981,
+	8626,
 	0,
-	12808,
-	3713,
-	1873,
-	6614,
-	1364,
-	6614,
-	8168,
-	8168,
-	8131,
-	8168,
-	8168,
-	6614,
-	8168,
-	6614,
-	6614,
-	6614,
-	8051,
-	8051,
-	8168,
-	8131,
-	8168,
-	6614,
-	5894,
-	8168,
-	5894,
-	6614,
-	8168,
-	6614,
-	6614,
-	6614,
-	6614,
-	6614,
-	6614,
-	8168,
-	5894,
-	2901,
-	3705,
-	3705,
-	3367,
-	3713,
-	6580,
-	8319,
-	8051,
-	8168,
-	8319,
-	8168,
-	8168,
-	8168,
-	0,
-	0,
+	13347,
+	3890,
+	1956,
+	6981,
+	1408,
+	6981,
+	8626,
+	8626,
+	8589,
+	8626,
+	8626,
+	6981,
+	8626,
+	6981,
+	6981,
+	6981,
+	8509,
+	8509,
+	8626,
+	8589,
+	8626,
+	6981,
+	6200,
+	8626,
+	6200,
+	6981,
+	8626,
+	6981,
+	6981,
+	6981,
+	6981,
+	6981,
+	6981,
+	8626,
+	6200,
+	3028,
+	3882,
+	3882,
+	3537,
+	3890,
+	6947,
+	8778,
+	8509,
+	8626,
+	8778,
+	8626,
+	8626,
+	8626,
 	0,
 	0,
 	0,
@@ -882,100 +880,102 @@ static const int32_t s_InvokerIndices[236] =
 	0,
 	0,
 	0,
-	5894,
-	6614,
-	6614,
-	2894,
-	6614,
-	6614,
-	8319,
-	8319,
-	6614,
-	8319,
-	8319,
-	3713,
-	3713,
-	2894,
-	8319,
-	3713,
-	8168,
-	8168,
-	8168,
-	8168,
-	13102,
-	11491,
-	13102,
-	4717,
-	8131,
-	11158,
-	4717,
-	3723,
-	8319,
-	6614,
-	8168,
-	5894,
-	8168,
-	14333,
-	14333,
-	14333,
-	13102,
-	13102,
-	4717,
-	8131,
-	11158,
-	11158,
-	1662,
-	10443,
-	13102,
-	13102,
-	11454,
-	8319,
-	8319,
-	8168,
 	0,
-	6614,
 	0,
-	5887,
-	8319,
-	8168,
+	6200,
+	6981,
+	6981,
+	3021,
+	6981,
+	6981,
+	8778,
+	8778,
+	6981,
+	8778,
+	8778,
+	3890,
+	3890,
+	3021,
+	8778,
+	3890,
+	8626,
+	8626,
+	8626,
+	8626,
+	13644,
+	12019,
+	13644,
+	4966,
+	8589,
+	11686,
+	4966,
+	3900,
+	8778,
+	6981,
+	8626,
+	6200,
+	8626,
+	14877,
+	14877,
+	14877,
+	13644,
+	13644,
+	4966,
+	8589,
+	11686,
+	11686,
+	1725,
+	10955,
+	13644,
+	13644,
+	11982,
+	8778,
+	8778,
+	8626,
 	0,
-	8168,
-	6614,
-	5894,
+	6981,
 	0,
-	8051,
-	8131,
-	8131,
-	8051,
-	2231,
-	2231,
-	6614,
-	3367,
-	8051,
-	8131,
-	6580,
-	14383,
-	3713,
-	6614,
-	8168,
-	6614,
-	8131,
-	8168,
-	6614,
-	8168,
-	13481,
-	6614,
-	6614,
-	8131,
-	8168,
-	6614,
-	6614,
-	6614,
-	8168,
-	13097,
-	13481,
-	13102,
-	14383,
+	6193,
+	8778,
+	8626,
+	0,
+	8626,
+	6981,
+	6200,
+	0,
+	8509,
+	8589,
+	8589,
+	8509,
+	2326,
+	2326,
+	6981,
+	3537,
+	8509,
+	8589,
+	6947,
+	14927,
+	3890,
+	6981,
+	8626,
+	6981,
+	8589,
+	8626,
+	6981,
+	8626,
+	14024,
+	6981,
+	6981,
+	8589,
+	8626,
+	6981,
+	6981,
+	6981,
+	8626,
+	13639,
+	14024,
+	13644,
+	14927,
 };
 static const Il2CppTokenRangePair s_rgctxIndices[4] = 
 {
@@ -996,7 +996,7 @@ extern const uint32_t g_rgctx_ExtractKeyDelegate_Invoke_m4CA080959B14181EDBBD2D8
 extern const uint32_t g_rgctx_XHashtableState_tAAB367EBB2F3E2042378A2A2C168E35FE7E19A82;
 extern const uint32_t g_rgctx_XHashtableState__ctor_m3B3498D60FA3C61028B7726E206316B86D850F7E;
 extern const uint32_t g_rgctx_XHashtableState_TryAdd_mA8CF2496461D368E224C022600A76E21DDF2BD47;
-extern const uint32_t g_rgctx_XHashtableState_ComputeHashCode_m071F8E396B78DBE051E5EA053D176F2D01C81F04;
+extern const uint32_t g_rgctx_XHashtableState_ComputeHashCode_m09C1C276C55AE405F61C73CFB7B8F27FE3AE9AD7;
 extern const uint32_t g_rgctx_XHashtableState_tAAB367EBB2F3E2042378A2A2C168E35FE7E19A82;
 extern const uint32_t g_rgctx_XHashtableState_FindEntry_mE084B1FC2671F32E9D05302CB3B66EFAC0DA2A1A;
 extern const uint32_t g_rgctx_T_t186893F92D702197560EBA73AE6364E452F93DDD;
@@ -1014,7 +1014,7 @@ static const Il2CppRGCTXDefinition s_rgctxValues[16] =
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_XHashtableState_tAAB367EBB2F3E2042378A2A2C168E35FE7E19A82 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_XHashtableState__ctor_m3B3498D60FA3C61028B7726E206316B86D850F7E },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_XHashtableState_TryAdd_mA8CF2496461D368E224C022600A76E21DDF2BD47 },
-	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_XHashtableState_ComputeHashCode_m071F8E396B78DBE051E5EA053D176F2D01C81F04 },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_XHashtableState_ComputeHashCode_m09C1C276C55AE405F61C73CFB7B8F27FE3AE9AD7 },
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_XHashtableState_tAAB367EBB2F3E2042378A2A2C168E35FE7E19A82 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_XHashtableState_FindEntry_mE084B1FC2671F32E9D05302CB3B66EFAC0DA2A1A },
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_T_t186893F92D702197560EBA73AE6364E452F93DDD },
