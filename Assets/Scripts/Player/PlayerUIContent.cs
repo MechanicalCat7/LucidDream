@@ -26,7 +26,6 @@ public class PlayerUIContent : MonoBehaviour
     /// <summary>
     /// UI 내용을 설정하고 표시한다.
     /// </summary>
-    /// <param name="playerUI">속해있는 PlayerUI</param>
     /// <param name="text">표시할 내용</param>
     /// <param name="duration">표시하는 시간</param>
     public void SetContent(string text, float duration)
