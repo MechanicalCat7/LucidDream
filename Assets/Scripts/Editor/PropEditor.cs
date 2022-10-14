@@ -1,5 +1,6 @@
 using UnityEditor;
 
+[CustomEditor(typeof(Prop))]
 public class PropEditor : Editor
 {
     private SerializedProperty _propDataProperty;
@@ -8,7 +9,7 @@ public class PropEditor : Editor
     
     private void OnEnable()
     {
-        _propDataProperty = serializedObject.FindProperty("data");
+        _propDataProperty = serializedObject.FindProperty("_data");
     }
 
     public override void OnInspectorGUI()
@@ -19,8 +20,16 @@ public class PropEditor : Editor
         
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Prop Information", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField("Breakable:", data.NoData ? "No Data" : data.breakable.ToString());
-        EditorGUILayout.LabelField("Damaged:", data.NoData ? "No Data" : $"{data.damaged} / {_propData.durability}");
+        if (data.NoData)
+        {
+            EditorGUILayout.LabelField("No Data");
+        }
+        else
+        {
+            EditorGUILayout.LabelField("Breakable:", data.breakable.ToString());
+            EditorGUILayout.LabelField("Damaged:", $"{data.damaged} / {_propData.durability}");
+        }
+        
     }
     
     

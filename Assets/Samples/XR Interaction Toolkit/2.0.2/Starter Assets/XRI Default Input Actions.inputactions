@@ -1106,9 +1106,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Sub Button",
+                    "name": "Left Sub Button",
                     "type": "Button",
                     "id": "3c62ff43-63b0-4b82-b319-5909fe5077fc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Right Sub Button",
+                    "type": "Button",
+                    "id": "e97ab68e-74eb-4bab-bafe-ab32f99999d3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1167,7 +1176,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Sub Button",
+                    "action": "Left Sub Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1178,7 +1187,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Sub Button",
+                    "action": "Right Sub Button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -19,7 +19,12 @@ public class PracticeSceneEvent : BaseSceneEvent
 
     [SerializeField] private ControllerHint _leftHint;
     [SerializeField] private ControllerHint _rightHint;
-    
+
+    [SerializeField] private Transform _elevatorButtonKey;
+    [SerializeField] private Transform _elevatorButton;
+    [SerializeField] private Rigidbody _elevatorDoorLeft;
+    [SerializeField] private Rigidbody _elevatorDoorRight;
+
     // ==================================================
     //  Variables
     // ==================================================
@@ -27,6 +32,7 @@ public class PracticeSceneEvent : BaseSceneEvent
     // 이벤트 발동 여부
     private bool _isNewGame = true;
     private bool _checkInventoryInfo;
+    private bool _checkElevatorButton;
 
     private PlayerManager _player;
 
@@ -132,6 +138,40 @@ public class PracticeSceneEvent : BaseSceneEvent
         _player.playerUI.PushTextMessage($"보관이 가능할 경우 인벤토리가 <color=green>초록색</color>으로,\n 불가능 할 경우 <color=red>빨간색</color>으로 변합니다");
     }
 
+    public void ElevatorOpenEvent()
+    {
+        _checkElevatorButton = true;
+        Destroy(_elevatorButtonKey.gameObject);
+        StartCoroutine(ElevatorOpenEventCoroutine());
+    }
+
+    private IEnumerator ElevatorOpenEventCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        
+        // 문 열림
+        var leftInitPos = _elevatorDoorLeft.position;
+        var rightInitPos = _elevatorDoorRight.position;
+        var leftTargetX = (leftInitPos + _elevatorDoorLeft.transform.right * 0.45f).x;
+        var rightTargetX = (rightInitPos - _elevatorDoorRight.transform.right * 0.45f).x;
+
+        var runTime = 0.0f;
+        var duration = 2f;
+        
+        while (runTime < duration)
+        {
+            runTime += Time.deltaTime;
+            var t = runTime / duration;
+
+            _elevatorDoorLeft.position = new Vector3(Mathf.SmoothStep(leftInitPos.x, leftTargetX, t), leftInitPos.y,
+                leftInitPos.z);
+            _elevatorDoorRight.position = new Vector3(Mathf.SmoothStep(rightInitPos.x, rightTargetX, t), rightInitPos.y,
+                rightInitPos.z);
+            yield return null;
+        }
+
+    }
+
     // ==================================================
     //  Data Management
     // ==================================================
@@ -139,13 +179,15 @@ public class PracticeSceneEvent : BaseSceneEvent
     private class SceneData
     {
         public bool isNewGame;
+        public bool checkElevatorButton;
     }
 
     public override JObject SaveData()
     {
         SceneData sd = new SceneData
         {
-            isNewGame = _isNewGame
+            isNewGame = _isNewGame,
+            checkElevatorButton = _checkElevatorButton
         };
         return JObject.FromObject(sd);
     }
@@ -155,5 +197,16 @@ public class PracticeSceneEvent : BaseSceneEvent
         SceneData sd = jObject.ToObject<SceneData>();
 
         _isNewGame = sd.isNewGame;
+
+        if (sd.checkElevatorButton)
+        {
+            _checkElevatorButton = true;
+            var leftInitPos = _elevatorDoorLeft.position;
+            var rightInitPos = _elevatorDoorRight.position;
+            _elevatorDoorLeft.position = new Vector3((leftInitPos + _elevatorDoorLeft.transform.right * 0.45f).x,
+                leftInitPos.y, leftInitPos.z);
+            _elevatorDoorRight.position = new Vector3((rightInitPos - _elevatorDoorRight.transform.right * 0.45f).x,
+                rightInitPos.y, rightInitPos.z);
+        }
     }
 }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533951a94a24ee043b6610b6cbf6b27c, type: 3}
+  m_Name: Porcelain
+  m_EditorClassIdentifier: 
+  _walking:
+  - {fileID: 8300000, guid: d192541d3b9ae594c870f86f3db50372, type: 3}
+  - {fileID: 8300000, guid: ec55df3f4876cb548a3796d1aa64b759, type: 3}
+  - {fileID: 8300000, guid: 7d83b6f21ee72fe40b01bfd5c1b425b1, type: 3}
+  - {fileID: 8300000, guid: 2035c17c99f876a46abaea6cdb973b9e, type: 3}
+  _running: []
+  _impact:
+  - {fileID: 8300000, guid: e48f36540d97c484aaba3ca157a3f0bf, type: 3}
+  _breaking:
+  - {fileID: 8300000, guid: 20dab2d390258da4f8ed596f1c26523c, type: 3}

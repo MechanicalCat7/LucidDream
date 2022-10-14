@@ -32,7 +32,16 @@ public class PlayerUI : MonoBehaviour
     private Transform _head;
 
     private bool _isDisplaying;
-
+    
+    // ==================================================
+    //  Properties
+    // ==================================================
+    
+    /// <summary>
+    /// 현재 캔버스에 있는 컨텐츠의 개수
+    /// </summary>
+    private int contentCount => _canvas.transform.childCount;
+    
     // ==================================================
     //  Unity Functions
     // ==================================================
@@ -48,7 +57,7 @@ public class PlayerUI : MonoBehaviour
 
     private void Update()
     {
-        if(_isDisplaying)
+        if(contentCount > 0)
             transform.rotation = Quaternion.Slerp(transform.rotation, _head.rotation, Time.deltaTime * _rotateSpeed);
     }
 

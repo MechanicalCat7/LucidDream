@@ -2097,7 +2097,7 @@ MonoBehaviour:
   _footstepPeriod: 1
   _collisionLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 4104
 --- !u!1 &8463391910772717107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,7 +2444,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _event: {fileID: 8463391910794731605}
   _background: {fileID: 8463391912051522145}
-  _moveSpeed: 3
   _fadeSpeed: 0.2
 --- !u!114 &8463391910794731605
 MonoBehaviour:
@@ -3502,7 +3501,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1050591
+    m_Bits: 1056735
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -8582,6 +8581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab68ce6587aab0146b8dabefbd806791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_ClickSpeed: 0.3
   m_MoveDeadzone: 0.6
   m_RepeatDelay: 0.5
@@ -9550,6 +9550,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Inventory
       objectReference: {fileID: 0}
+    - target: {fileID: 3597317021342385985, guid: e687dbe5accc30a4cb7f22b7712a464a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3597317021342385994, guid: e687dbe5accc30a4cb7f22b7712a464a,
         type: 3}
       propertyPath: m_InteractionManager
@@ -9641,6 +9646,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Right Inventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 3597317021342385985, guid: e687dbe5accc30a4cb7f22b7712a464a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3597317021342385994, guid: e687dbe5accc30a4cb7f22b7712a464a,
         type: 3}

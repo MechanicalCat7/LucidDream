@@ -44,6 +44,12 @@ public class PlayerManager : MonoBehaviour
     
     [SerializeField] private InputActionProperty _menuAction;
     public InputActionProperty menuAction => _menuAction;
+
+    [SerializeField] private InputActionProperty _leftSubAction;
+    public InputActionProperty leftSubAction => _leftSubAction;
+    
+    [SerializeField] private InputActionProperty _rightSubAction;
+    public InputActionProperty rightSubAction => _rightSubAction;
     
     [Tooltip("메뉴 호출에 필요한 시간")]
     [SerializeField] private float _menuCallTime;
@@ -101,6 +107,8 @@ public class PlayerManager : MonoBehaviour
         // 컨트롤러 입력 확인
         isMoving = _moveAction.action.ReadValue<Vector2>() != Vector2.zero;
         isTurning = _turnAction.action.ReadValue<Vector2>() != Vector2.zero;
+        
+        
         
         // 메뉴 버튼 입력 확인
         if (_menuAction.action.ReadValue<float>() > 0 && !GameManager.instance.isGamePaused)

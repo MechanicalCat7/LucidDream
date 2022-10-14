@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26375310df3d3cb44b804a2efed5418d, type: 3}
+  m_Name: DoorSound
+  m_EditorClassIdentifier: 
+  activate: {fileID: 0}
+  deactivate: {fileID: 0}
+  enabled: {fileID: 0}
+  disabled: {fileID: 8300000, guid: ff26d4853ae123e47947c408878ca66d, type: 3}
+  move: {fileID: 0}
+  impact: {fileID: 8300000, guid: 9438d7f8708c4c540ab5128036543576, type: 3}

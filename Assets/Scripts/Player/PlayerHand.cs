@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,7 +31,7 @@ public class PlayerHand : MonoBehaviour
     [SerializeField] private Renderer _controllerModel;
     
     [Tooltip("XR Direct Interactor")]
-    [SerializeField] private XRDirectInteractor _interactor;
+    [SerializeField] private CustomDirectInteractor _interactor;
     
     [Tooltip("인벤토리 오브젝트")]
     [SerializeField] private InventoryInteractor _inventory;
@@ -39,8 +40,14 @@ public class PlayerHand : MonoBehaviour
     [Tooltip("어느 쪽 손인지 결정")]
     [SerializeField] private HandType _handType;
     public HandType handType => _handType;
-    
+
     [Header("Movement")]
+    [Tooltip("움직일 수 있는 최고 무게")]
+    [SerializeField] private float _maxInteractableWeight = 10f;
+    
+    [Tooltip("오브젝트와의 최대 거리")]
+    [SerializeField] private float _maxDistance = 0.1f;
+    
     [Tooltip("손의 이동 속도")]
     [SerializeField] private float _movementSpeed = 35f;
     
@@ -68,6 +75,9 @@ public class PlayerHand : MonoBehaviour
     private Animator _animator;
     private Renderer _renderer;
     private ActionBasedController _actionController;
+    private Collider[] _handColliders;
+    private float _handMoveSpeed;
+    private float _handRotateSpeed;
 
     private bool _visible = true;
 
@@ -112,6 +122,11 @@ public class PlayerHand : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
         _renderer = GetComponentInChildren<Renderer>();
         _actionController = _controller.GetComponent<ActionBasedController>();
+        _handColliders = GetComponentsInChildren<Collider>();
+
+        _handMoveSpeed = _movementSpeed;
+        _interactor.selectEntered.AddListener(SelectEnteredEvent);
+        _interactor.selectExited.AddListener(SelectExitedEvent);
     }
     
     private void Start()
@@ -151,6 +166,12 @@ public class PlayerHand : MonoBehaviour
     /// </summary>
     private void UpdateHandTransform()
     {
+        // 손과 컨트롤러의 위치가 어긋나면 물체를 놓게함
+        if (Vector3.Distance(transform.position, _controller.position) > _maxDistance)
+        {
+            ForceDeselect();
+        }
+
         // 컨트롤러 속도로 이동 (오브젝트를 잡고 있을 경우)
         if (velocityMove)
         {
@@ -171,7 +192,7 @@ public class PlayerHand : MonoBehaviour
             var v = _controller.localPosition - transform.localPosition;
             var pos = _xrOrigin.TransformDirection(v);
             if(CheckVectorValid(pos.x))
-                _rigidbody.velocity = pos * _movementSpeed;
+                _rigidbody.velocity = pos * _handMoveSpeed;
             
             RotateHand();
         }
@@ -240,6 +261,39 @@ public class PlayerHand : MonoBehaviour
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
         transform.SetPositionAndRotation(_controller.position, _controller.rotation);
+    }
+    
+    // --------------------------------------------------
+
+    private void SelectEnteredEvent(SelectEnterEventArgs args)
+    {
+        // 무게에 따른 속도 조절
+        if (args.interactableObject.transform.TryGetComponent(out Rigidbody rigid))
+        {
+            var t = Mathf.Clamp01(1 - rigid.mass / _maxInteractableWeight);
+            _handMoveSpeed = _movementSpeed * t;
+            _handRotateSpeed = _rotationSpeed * t;
+        }
+        
+        args.interactableObject.transform.SetParent(_player.xrOrigin.transform);
+        
+        visible = false;
+        foreach (var col in _handColliders)
+        {
+            col.enabled = false;
+        }
+    }
+
+    private void SelectExitedEvent(SelectExitEventArgs args)
+    {
+        _handMoveSpeed = _movementSpeed;
+        _handRotateSpeed = _rotationSpeed;
+        
+        visible = true;
+        foreach (var col in _handColliders)
+        {
+            col.enabled = true;
+        }
     }
 
     // --------------------------------------------------

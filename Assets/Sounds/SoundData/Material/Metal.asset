@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533951a94a24ee043b6610b6cbf6b27c, type: 3}
   m_Name: Metal
   m_EditorClassIdentifier: 
-  _walking: []
+  _walking:
+  - {fileID: 8300000, guid: 114ea2bf066ca5f4cb125f72daf3d242, type: 3}
+  - {fileID: 8300000, guid: 649f5c8fb3153454d945f855059a25a1, type: 3}
+  - {fileID: 8300000, guid: 35c196907e3ea6e4597d560db628ba95, type: 3}
+  - {fileID: 8300000, guid: b6643a2721fe9054b961c4aec298cff0, type: 3}
   _running: []
-  _impact: []
+  _impact:
+  - {fileID: 8300000, guid: ae605fb157fdc5847bcdd8636dd029c5, type: 3}
   _breaking: []

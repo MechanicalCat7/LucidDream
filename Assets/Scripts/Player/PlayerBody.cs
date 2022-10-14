@@ -108,11 +108,14 @@ public class PlayerBody : MonoBehaviour
     private void CheckFootstep()
     {
         var speed = _character.velocity.magnitude;
-        if (_character.isGrounded && speed > _walkingThreshold)
+        if (speed > _walkingThreshold)
         {
             _footstepTime += Time.deltaTime;
+
             if (_footstepTime >= _footstepPeriod)
+            {
                 PlayFootstepSound(speed);
+            }
         }
         else
         {
@@ -126,11 +129,12 @@ public class PlayerBody : MonoBehaviour
     /// <param name="speed">현재 이동 속도</param>
     private void PlayFootstepSound(float speed)
     {
-        if (Physics.Raycast(_player.characterPosInWorldSpace, Vector3.down, out var hit, 1f, _collisionLayer))
+        if (Physics.Raycast(_player.characterPosInWorldSpace, Vector3.down, out var hit, 2f, _collisionLayer))
         {
             if (hit.transform.TryGetComponent(out TerrainData terrain))
             {
                 _audioSource.PlayOneShot(terrain.Sound.walking, speed);
+                Debug.Log("Walk");
             }
         }
         _footstepTime = 0;

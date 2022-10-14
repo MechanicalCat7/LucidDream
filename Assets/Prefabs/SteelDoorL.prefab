@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _door: {fileID: 8368901304246224715}
   _handle: {fileID: 8368901304151701407}
+  _soundData: {fileID: 11400000, guid: f21c48962962e91499b7f0b59467507f, type: 2}
   _locked: 0
   _minIsClosed: 1
   _freezeOnClosed: 0

@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -16,10 +17,12 @@ public class Door : SerializableObject
     [Tooltip("손잡이 오브젝트")]
     [SerializeField] private XRGrabInteractable _handle;
     
+    [Tooltip("사운드 데이터")]
+    [SerializeField] private ObjectSoundData _soundData;
+    
     [Space]
     [Tooltip("문의 잠김 상태. 잠김 상태에서는 문이 닫혀있을 때 움직이지 않는다.")]
     [SerializeField] private bool _locked;
-    
     
     [Tooltip("Hinge Joint의 최소 각도가 문이 닫혔을 때 각도일 경우 체크한다.")]
     [SerializeField] private bool _minIsClosed;
@@ -44,7 +47,8 @@ public class Door : SerializableObject
     // ==================================================
     //  Variables
     // ==================================================
-    
+
+    private AudioSource _audioSource;
     private Rigidbody _doorRigid;
 
     // ==================================================
@@ -76,6 +80,10 @@ public class Door : SerializableObject
     private void Awake()
     {
         _doorRigid = _door.GetComponent<Rigidbody>();
+        _audioSource = transform.AddComponent<AudioSource>();
+        _audioSource.spatialBlend = 1f;
+        
+        _handle.selectEntered.AddListener(PlayLockedSound);
 
         _doorRigid.constraints = _locked ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
         
@@ -104,7 +112,15 @@ public class Door : SerializableObject
             _doorOpenedEvent.Invoke();
         }
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.impulse.magnitude > 5f)
+        {
+            _audioSource.PlayOneShot(_soundData.impact, Mathf.Clamp01(collision.impulse.magnitude / 10f));
+        }
+    }
+
     // ==================================================
     //  Door Functions
     // ==================================================
@@ -134,6 +150,14 @@ public class Door : SerializableObject
                 else
                     _doorRigid.constraints = RigidbodyConstraints.None;
             }
+        }
+    }
+
+    private void PlayLockedSound(SelectEnterEventArgs _)
+    {
+        if (_locked)
+        {
+            _audioSource.PlayOneShot(_soundData.disabled);
         }
     }
     
