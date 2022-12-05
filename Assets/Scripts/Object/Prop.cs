@@ -2,6 +2,7 @@ using System;
 using Newtonsoft.Json.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Prop : SerializableObject
@@ -12,6 +13,10 @@ public class Prop : SerializableObject
     
     [Tooltip("Prop Data 파일")]
     [SerializeField] protected PropData _data;
+    
+    [Space]
+    [Tooltip("파괴 시 이벤트")]
+    [SerializeField] protected UnityEvent _breakEvent;
 
     // ==================================================
     //  Variables
@@ -21,7 +26,7 @@ public class Prop : SerializableObject
     protected Renderer _renderer;
     protected Rigidbody _rigidbody;
     
-    protected float _damaged;             // 누적 데미지
+    protected float _damaged;               // 누적 데미지
 
     // ==================================================
     //  Properties
@@ -39,6 +44,8 @@ public class Prop : SerializableObject
     /// </summary>
     public float damaged => _damaged;
 
+    public UnityEvent breakEvent => _breakEvent;
+
     // ==================================================
     //  Unity Functions
     // ==================================================
@@ -55,15 +62,13 @@ public class Prop : SerializableObject
     {
         // 충돌 소리 재생
         var impulse = collision.impulse.magnitude;
-        _audioSource.PlayOneShot(_data.soundData.impact, Mathf.Clamp(impulse * _data.impactScale, 0, _data.volume));
-        
-        // 데미지 입력
-        if (_data.breakable && impulse > _data.damageThreshold)
+        if (_data.soundData != null && _data.soundData.impact != null)
         {
-            _damaged += impulse;
-            if(_damaged > _data.durability)
-                BreakProp();
+            _audioSource.PlayOneShot(_data.soundData.impact, Mathf.Clamp(impulse * _data.impactScale, 0, _data.volume));    
         }
+
+        // 데미지 입력
+        GetDamage(impulse, transform.position);
     }
     
     // ==================================================
@@ -76,6 +81,39 @@ public class Prop : SerializableObject
     protected virtual void BreakProp()
     {
         // 파괴 소리 재생
+        AudioSource.PlayClipAtPoint(_data.soundData.breaking, transform.position, _data.volume);
+        Destroy(gameObject);
+        
+        // 파편 생성
+        if (_data.createFragmentOnBreak && _data.fragmentObjectList.Count > 0)
+        {
+            foreach (var fragment in _data.fragmentObjectList)
+            {
+                var temp = Instantiate(fragment, transform.position, transform.rotation, DataManager.instance.otherObjects);
+                Destroy(temp, 5f);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// 데미지를 가한다.
+    /// </summary>
+    /// <param name="damage">입력된 데미지</param>
+    /// <param name="origin">피해가 시작된 위치</param>
+    public virtual void GetDamage(float damage, Vector3 origin)
+    {
+        // 데미지 입력
+        if (_data.breakable && damage > _data.damageThreshold)
+        {
+            _damaged += damage;
+        }
+        else
+            return;
+        
+        // 파괴 조건 확인
+        if (_damaged < _data.durability)
+            return;
+        _breakEvent.Invoke();
         AudioSource.PlayClipAtPoint(_data.soundData.breaking, transform.position, _data.volume);
         Destroy(gameObject);
         

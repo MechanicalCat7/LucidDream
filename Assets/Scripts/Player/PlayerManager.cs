@@ -47,10 +47,14 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private InputActionProperty _leftSubAction;
     public InputActionProperty leftSubAction => _leftSubAction;
-    
+
     [SerializeField] private InputActionProperty _rightSubAction;
     public InputActionProperty rightSubAction => _rightSubAction;
     
+    [SerializeField] private UnityEvent _subActionEvent;
+    private bool _subActionPressed;
+    
+    [Space]
     [Tooltip("메뉴 호출에 필요한 시간")]
     [SerializeField] private float _menuCallTime;
     
@@ -91,6 +95,8 @@ public class PlayerManager : MonoBehaviour
     /// </summary>
     public bool isTurning { get; private set; }
 
+    public UnityEvent subActionEvent => _subActionEvent;
+
     // ==================================================
     //  Unity Functions
     // ==================================================
@@ -100,16 +106,27 @@ public class PlayerManager : MonoBehaviour
         GameManager.instance.RegisterPlayerManager(this);
 
         _driver = GetComponent<CharacterControllerDriver>();
+        
     }
 
     private void Update()
     {
+        if (GameManager.instance.isGamePaused)
+            return;
+        
         // 컨트롤러 입력 확인
         isMoving = _moveAction.action.ReadValue<Vector2>() != Vector2.zero;
         isTurning = _turnAction.action.ReadValue<Vector2>() != Vector2.zero;
         
-        
-        
+        // 보조 버튼 입력 확인
+        bool isSubPressing = _leftSubAction.action.ReadValue<float>() != 0 || _rightSubAction.action.ReadValue<float>() != 0;
+        if (isSubPressing != _subActionPressed)
+        {
+            _subActionPressed = isSubPressing;
+            if (isSubPressing)
+                _subActionEvent.Invoke();
+        }
+
         // 메뉴 버튼 입력 확인
         if (_menuAction.action.ReadValue<float>() > 0 && !GameManager.instance.isGamePaused)
             _menuPressedTime += Time.deltaTime;

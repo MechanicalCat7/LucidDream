@@ -19,6 +19,8 @@ public class Door : SerializableObject
     
     [Tooltip("사운드 데이터")]
     [SerializeField] private ObjectSoundData _soundData;
+
+    [SerializeField] private bool _closeSound;
     
     [Space]
     [Tooltip("문의 잠김 상태. 잠김 상태에서는 문이 닫혀있을 때 움직이지 않는다.")]
@@ -104,6 +106,10 @@ public class Door : SerializableObject
         {
             isOpened = false;
             _doorClosedEvent.Invoke();
+            if (_closeSound)
+            {
+                _audioSource.PlayOneShot(_soundData.deactivate);
+            }
         }
         // 문 열림 이벤트
         if (angle > _openAngle && !isOpened)
@@ -113,13 +119,13 @@ public class Door : SerializableObject
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.impulse.magnitude > 5f)
-        {
-            _audioSource.PlayOneShot(_soundData.impact, Mathf.Clamp01(collision.impulse.magnitude / 10f));
-        }
-    }
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     if (collision.impulse.magnitude > 5f)
+    //     {
+    //         _audioSource.PlayOneShot(_soundData.impact, Mathf.Clamp01(collision.impulse.magnitude / 10f));
+    //     }
+    // }
 
     // ==================================================
     //  Door Functions

@@ -18,5 +18,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cd9ce0afd7ad41f4d9314dd5300cea5f, type: 3}
   - {fileID: 8300000, guid: 5ebfa14ededa3024ca65c8955d658ded, type: 3}
   _running: []
-  _impact: []
+  _impact:
+  - {fileID: 8300000, guid: 9d51fa93ea12c2c4f9d315f34216f134, type: 3}
+  _impactHigh:
+  - {fileID: 8300000, guid: 9d51fa93ea12c2c4f9d315f34216f134, type: 3}
   _breaking: []

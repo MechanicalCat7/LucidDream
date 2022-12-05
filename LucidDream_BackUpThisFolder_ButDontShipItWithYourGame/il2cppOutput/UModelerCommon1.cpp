@@ -86,6 +86,10 @@ struct Dictionary_2_tD38D194CFB90BDE471043CFA7EC4EB686F94E074;
 struct Dictionary_2_tE2DDF83997C468EF036B0F6874ADE3DE9FF8A5A1;
 // System.Collections.Generic.Dictionary`2<tripolygon.UModeler.VertexKey,System.Object>
 struct Dictionary_2_t012081B3DDB9CE3B2BA57CEA93C060E6E0EDE0AA;
+// System.Func`2<System.Collections.Generic.KeyValuePair`2<System.UInt64,System.Object>,System.Object>
+struct Func_2_t594115AD800B9FAD1794A4B1B1605FBF772FA287;
+// System.Func`2<System.Collections.Generic.KeyValuePair`2<System.UInt64,tripolygon.UModeler.SimplePolygon>,tripolygon.UModeler.SimplePolygon>
+struct Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890;
 // System.Func`2<System.Collections.Generic.KeyValuePair`2<UnityEngine.Vector3,tripolygon.UModeler.VertexInfo>,System.Boolean>
 struct Func_2_t747694239B58B0E43536FF013FEA0572657C62A8;
 // System.Func`2<UnityEngine.Vector3,UnityEngine.Vector3>
@@ -96,10 +100,16 @@ struct HashSet_1_t06BBC0D2949027D234F896394AA791228D190E5D;
 struct HashSet_1_t4A2F2B74276D0AD3ED0F873045BD61E9504ECAE2;
 // System.Collections.Generic.HashSet`1<System.Object>
 struct HashSet_1_t2F33BEB06EEA4A872E2FAF464382422AA39AE885;
+// System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.UInt64,System.Object>>
+struct IEnumerable_1_tD8444729D31CE48E2CA53C604F03BE68D4E26FDC;
+// System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.UInt64,tripolygon.UModeler.SimplePolygon>>
+struct IEnumerable_1_t11490E9AEA097966C997E45B4BC4F0CD2BACDB34;
 // System.Collections.Generic.IEnumerable`1<tripolygon.UModeler.Edge>
 struct IEnumerable_1_t2177FA780B5975AB5719A2D28A8B4E8A5D503608;
 // System.Collections.Generic.IEnumerable`1<System.Object>
 struct IEnumerable_1_tF95C9E01A913DD50575531C8305932628663D9E9;
+// System.Collections.Generic.IEnumerable`1<tripolygon.UModeler.SimplePolygon>
+struct IEnumerable_1_tC666B88EFA20F715F001BEEA99C470398172FECE;
 // System.Collections.Generic.IEqualityComparer`1<tripolygon.UModeler.IndexPair>
 struct IEqualityComparer_1_t9BCCEB259DC632B754847915D3094B19B664B826;
 // System.Collections.Generic.IEqualityComparer`1<System.Int32>
@@ -430,6 +440,8 @@ struct VertexSelection_tCBE5D7F361B151F3E07DB5ABD24F8A3D1F1409C4;
 struct Void_t4861ACF8F4594C3437BB48B6E56783494B843915;
 // tripolygon.UModeler.EditableMesh/<>c
 struct U3CU3Ec_t35235C42D6FEAACD44CF81CFAD4E6C82FDC0F6AC;
+// tripolygon.UModeler.EditableMeshCache/<>c
+struct U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A;
 // tripolygon.UModeler.UModeler/ModelerDelegate
 struct ModelerDelegate_t3E84323788B9A588C192E5D33F6809AAB16B2707;
 
@@ -449,6 +461,7 @@ IL2CPP_EXTERN_C RuntimeClass* Edge_t61E163F7AA3BA416F72B1EDF0DD966F41041D4FF_il2
 IL2CPP_EXTERN_C RuntimeClass* EditableMesh_tF419912423C538859FC4EDB1F6ABD7314E01A476_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* EngineResourceManager_tB814C237AED9E9140B8D664B9F5D3BE18965A951_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ExtendedEdge_t98E8C96519A12E63553AA5CB20130D17BB1E8221_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* HashSet_1_t06BBC0D2949027D234F896394AA791228D190E5D_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* HashSet_1_t4A2F2B74276D0AD3ED0F873045BD61E9504ECAE2_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* HitResult_t1C6A2CA0F36DF67C6BF66A35ECC5D1F9BA600AEA_il2cpp_TypeInfo_var;
@@ -500,6 +513,7 @@ IL2CPP_EXTERN_C RuntimeClass* String_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Token_t0A3004C6B1C491504935BC271220D585CD34E488_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Triangulator_t47A8F5D7779E12B9450B1DAE48DE5EC82EA97E45_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CU3Ec_t35235C42D6FEAACD44CF81CFAD4E6C82FDC0F6AC_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UMContext_tD5DABA4A108180D95D3BDB86E9A4669F51289AFB_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UModeler_tF29E9161DE3331F85E86886244AC15FEC514C577_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* UVParameter_t3DB903DED34BB8F9E4C5E5345C316D0E793081B3_il2cpp_TypeInfo_var;
@@ -555,6 +569,8 @@ IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2__ctor_mF924CFA8C0625EFFB80E8C6
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_get_Item_m177F9F2295EE2D2CFF9C7895B03631BCA4705AEB_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_get_Item_mA3C973E5BB22F2234F72299E853A24B5EAC2EC0F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_get_Item_mDC4573E8986C3C7373C6C598F22EEAC59B45DB59_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Enumerable_Select_TisKeyValuePair_2_t97F7F1BD60E1D1B6801E77FBC8CFAB5425BFE11F_TisSimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385_m6EEEC45E6A68FE48117750C3AA1F1FD31A2F1562_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Enumerable_ToList_TisSimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385_m23081C9D19C047B583265F491AEE7D78650B5A6D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_m1BEC0D05243B15154777BAC663F32A1FB27122E8_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_m41C4C935AAE8A8E16BBD33D451819B2E04749834_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_m4E5ADF25B1132F8A5C80226D92A8ABEFF0CF2CD9_RuntimeMethod_var;
@@ -591,6 +607,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* HashSet_1_get_Count_mB717B519B4FBD92488427A
 IL2CPP_EXTERN_C const RuntimeMethod* HashSet_1_get_Count_mFDFAD84BADFD091D17A36E30805872689DE7FA57_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* KeyValuePair_2__ctor_m67A8C5E44512EE3C9665F59B4CBC3336539A10E7_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* KeyValuePair_2_get_Value_m23F32E3BA99B3387DC79E625CE79A735FD0C9EE5_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* KeyValuePair_2_get_Value_m8E1CD1ADC77D3C3A92FF95C3B55D93E15968D7D1_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* List_1_AddRange_mB495C5F4682A2A054FEB18E5E666BAF89505E9DA_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* List_1_Add_m0120BA403AD44F8D52B30FE0CC93CFA588B433E0_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* List_1_Add_m0248A96C5334E9A93E6994B7780478BCD994EA3D_RuntimeMethod_var;
@@ -687,6 +704,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* PolygonGroupManager_IsPolygonGroupEmpty_m03
 IL2CPP_EXTERN_C const RuntimeMethod* PolygonResources_IsUnusedPolygon_m201F832545FA84CD43E82F3AA6210F070EB9BA59_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Queue_1__ctor_m23A1C0F807090A6301E627DDB342F109D0E22DE1_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SimplePolygon_IsEdgeInvalid_m0B7F068643FEFBB54FD5894BB21364CAB7EEAA9F_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* U3CU3Ec_U3CClearShelfU3Eb__6_0_mB562F99C266E96CC67BECCDA2F1D0D65D5CFB2AB_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Vector2_get_Item_m18BC65BB0512B16A1F9C8BE4B83A3E7BBAD7064D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Vector2_set_Item_mEF309880B9B3B370B542AABEB32256EEC589DD03_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Vector3_get_Item_m163510BFC2F7BFAD1B601DC9F3606B799CF199F2_RuntimeMethod_var;
@@ -1876,6 +1894,19 @@ struct U3CU3Ec_t35235C42D6FEAACD44CF81CFAD4E6C82FDC0F6AC_StaticFields
 	Func_2_t747694239B58B0E43536FF013FEA0572657C62A8* ___U3CU3E9__115_2_2;
 };
 
+// tripolygon.UModeler.EditableMeshCache/<>c
+struct U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A  : public RuntimeObject
+{
+};
+
+struct U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_StaticFields
+{
+	// tripolygon.UModeler.EditableMeshCache/<>c tripolygon.UModeler.EditableMeshCache/<>c::<>9
+	U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A* ___U3CU3E9_0;
+	// System.Func`2<System.Collections.Generic.KeyValuePair`2<System.UInt64,tripolygon.UModeler.SimplePolygon>,tripolygon.UModeler.SimplePolygon> tripolygon.UModeler.EditableMeshCache/<>c::<>9__6_0
+	Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890* ___U3CU3E9__6_0_1;
+};
+
 // System.Collections.Generic.List`1/Enumerator<tripolygon.UModeler.Edge>
 struct Enumerator_t66280666897D2E422C6A4B27DB76FA43873AE162 
 {
@@ -2004,6 +2035,24 @@ struct Enumerator_t3D269CAE9B09FCB72995B0CE43D5C1008510EAD7
 	int32_t ____version_2;
 	// T System.Collections.Generic.List`1/Enumerator::_current
 	Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* ____current_3;
+};
+
+// System.Collections.Generic.KeyValuePair`2<System.UInt64,System.Object>
+struct KeyValuePair_2_t1F749E064301C7FBDD1C0B79D6C7290359EA8141 
+{
+	// TKey System.Collections.Generic.KeyValuePair`2::key
+	uint64_t ___key_0;
+	// TValue System.Collections.Generic.KeyValuePair`2::value
+	RuntimeObject* ___value_1;
+};
+
+// System.Collections.Generic.KeyValuePair`2<System.UInt64,tripolygon.UModeler.SimplePolygon>
+struct KeyValuePair_2_t97F7F1BD60E1D1B6801E77FBC8CFAB5425BFE11F 
+{
+	// TKey System.Collections.Generic.KeyValuePair`2::key
+	uint64_t ___key_0;
+	// TValue System.Collections.Generic.KeyValuePair`2::value
+	SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___value_1;
 };
 
 // System.Boolean
@@ -2683,6 +2732,11 @@ struct SystemException_tCC48D868298F4C0705279823E34B00F4FBDB7295  : public Excep
 {
 };
 
+// System.Func`2<System.Collections.Generic.KeyValuePair`2<System.UInt64,tripolygon.UModeler.SimplePolygon>,tripolygon.UModeler.SimplePolygon>
+struct Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890  : public MulticastDelegate_t
+{
+};
+
 // System.Predicate`1<tripolygon.UModeler.IndexPair>
 struct Predicate_1_t3FF5FDFB862A41A77141FA283786144C97FF4083  : public MulticastDelegate_t
 {
@@ -3140,6 +3194,20 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Clear_m16C1F2C61FED59
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2_Clear_mCFB5EA7351D5860D2B91592B91A84CA265A41433_gshared (Dictionary_2_t14FE4A752A83D53771C584E4C8D14E01F2AFD7BA* __this, const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.Dictionary`2<tripolygon.UModeler.VertexKey,System.Object>::Clear()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2_Clear_mEBF7C69CC324320F164B98CA34E3F3ED9D8ABCC6_gshared (Dictionary_2_t012081B3DDB9CE3B2BA57CEA93C060E6E0EDE0AA* __this, const RuntimeMethod* method) ;
+// System.Void System.Func`2<System.Collections.Generic.KeyValuePair`2<System.UInt64,System.Object>,System.Object>::.ctor(System.Object,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Func_2__ctor_m39B1ADD59349F080DBC5B4E23AA0B5D082FD82F9_gshared (Func_2_t594115AD800B9FAD1794A4B1B1605FBF772FA287* __this, RuntimeObject* ___object0, intptr_t ___method1, const RuntimeMethod* method) ;
+// System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::Select<System.Collections.Generic.KeyValuePair`2<System.UInt64,System.Object>,System.Object>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,TResult>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Enumerable_Select_TisKeyValuePair_2_t1F749E064301C7FBDD1C0B79D6C7290359EA8141_TisRuntimeObject_m10560FA9A423CF30197C5325AF872C75A907BC0E_gshared (RuntimeObject* ___source0, Func_2_t594115AD800B9FAD1794A4B1B1605FBF772FA287* ___selector1, const RuntimeMethod* method) ;
+// System.Collections.Generic.List`1<TSource> System.Linq.Enumerable::ToList<System.Object>(System.Collections.Generic.IEnumerable`1<TSource>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* Enumerable_ToList_TisRuntimeObject_m6456D63764F29E6B5B2422C3DE25113577CF51EE_gshared (RuntimeObject* ___source0, const RuntimeMethod* method) ;
+// System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<System.Object>::GetEnumerator()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A List_1_GetEnumerator_mD8294A7FA2BEB1929487127D476F8EC1CDC23BFC_gshared (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, const RuntimeMethod* method) ;
+// System.Void System.Collections.Generic.List`1/Enumerator<System.Object>::Dispose()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Enumerator_Dispose_mD9DC3E3C3697830A4823047AB29A77DBBB5ED419_gshared (Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A* __this, const RuntimeMethod* method) ;
+// T System.Collections.Generic.List`1/Enumerator<System.Object>::get_Current()
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* Enumerator_get_Current_m6330F15D18EE4F547C05DF9BF83C5EB710376027_gshared_inline (Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A* __this, const RuntimeMethod* method) ;
+// System.Boolean System.Collections.Generic.List`1/Enumerator<System.Object>::MoveNext()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Enumerator_MoveNext_mE921CC8F29FBBDE7CC3209A0ED0D921D58D00BCB_gshared (Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A* __this, const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.Dictionary`2<System.UInt64,System.Object>::Add(TKey,TValue)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2_Add_m780B77D83B69F205D5C14934B23B8D91C79DDCDB_gshared (Dictionary_2_t01A465CD199FB14D59FEC2DC7DDE76D2CD0A09F4* __this, uint64_t ___key0, RuntimeObject* ___value1, const RuntimeMethod* method) ;
 // System.Boolean System.Collections.Generic.Dictionary`2<System.UInt64,System.Object>::TryGetValue(TKey,TValue&)
@@ -3158,8 +3226,6 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m4407E4C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Dictionary_2_TryGetValue_m9DE1C624D98C35EBBE6C587ACD16337FAAA98895_gshared (Dictionary_2_t012081B3DDB9CE3B2BA57CEA93C060E6E0EDE0AA* __this, VertexKey_tB3D7F40B748D63B1F3CB7ADF6736C0587592ABF5 ___key0, RuntimeObject** ___value1, const RuntimeMethod* method) ;
 // System.Boolean System.Collections.Generic.List`1<System.Object>::Remove(T)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool List_1_Remove_m4DFA48F4CEB9169601E75FC28517C5C06EFA5AD7_gshared (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, RuntimeObject* ___item0, const RuntimeMethod* method) ;
-// T System.Collections.Generic.List`1<System.Object>::get_Item(System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* List_1_get_Item_m33561245D64798C2AB07584C0EC4F240E4839A38_gshared (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, int32_t ___index0, const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.List`1<System.Object>::Add(T)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Add_mEBCF994CC3814631017F46A387B1A192ED6C85C7_gshared_inline (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, RuntimeObject* ___item0, const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.List`1<System.Object>::.ctor()
@@ -3168,6 +3234,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void List_1__ctor_m7F078BB342729BDF11327FD89D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2_Add_m4ECC5E8A0ABAC69F841BAA6DF9E771878D024EEB_gshared (Dictionary_2_t012081B3DDB9CE3B2BA57CEA93C060E6E0EDE0AA* __this, VertexKey_tB3D7F40B748D63B1F3CB7ADF6736C0587592ABF5 ___key0, RuntimeObject* ___value1, const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.Dictionary`2<System.Object,System.Object>::Add(TKey,TValue)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2_Add_m93FFFABE8FCE7FA9793F0915E2A8842C7CD0C0C1_gshared (Dictionary_2_t14FE4A752A83D53771C584E4C8D14E01F2AFD7BA* __this, RuntimeObject* ___key0, RuntimeObject* ___value1, const RuntimeMethod* method) ;
+// T System.Collections.Generic.List`1<System.Object>::get_Item(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* List_1_get_Item_m33561245D64798C2AB07584C0EC4F240E4839A38_gshared (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, int32_t ___index0, const RuntimeMethod* method) ;
 // T System.Collections.Generic.List`1<tripolygon.UModeler.VertexKey>::get_Item(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VertexKey_tB3D7F40B748D63B1F3CB7ADF6736C0587592ABF5 List_1_get_Item_m1BA513A341E849D510B538E3BF7737EFC3322E3D_gshared (List_1_tA336B956917267E80639C8BB9A4A2DFAD6797199* __this, int32_t ___index0, const RuntimeMethod* method) ;
 // System.Int32 System.Collections.Generic.List`1<tripolygon.UModeler.VertexKey>::get_Count()
@@ -3178,14 +3246,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2__ctor_m5DA5AA64DE7BDB71265D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2__ctor_m5B32FBC624618211EB461D59CFBB10E987FD1329_gshared (Dictionary_2_t14FE4A752A83D53771C584E4C8D14E01F2AFD7BA* __this, const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.Dictionary`2<tripolygon.UModeler.VertexKey,System.Object>::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Dictionary_2__ctor_m49DCC6F258C4D9CDC91A9FD9479466DE5AA7EA53_gshared (Dictionary_2_t012081B3DDB9CE3B2BA57CEA93C060E6E0EDE0AA* __this, const RuntimeMethod* method) ;
-// System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<System.Object>::GetEnumerator()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A List_1_GetEnumerator_mD8294A7FA2BEB1929487127D476F8EC1CDC23BFC_gshared (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, const RuntimeMethod* method) ;
-// System.Void System.Collections.Generic.List`1/Enumerator<System.Object>::Dispose()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Enumerator_Dispose_mD9DC3E3C3697830A4823047AB29A77DBBB5ED419_gshared (Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A* __this, const RuntimeMethod* method) ;
-// T System.Collections.Generic.List`1/Enumerator<System.Object>::get_Current()
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* Enumerator_get_Current_m6330F15D18EE4F547C05DF9BF83C5EB710376027_gshared_inline (Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A* __this, const RuntimeMethod* method) ;
-// System.Boolean System.Collections.Generic.List`1/Enumerator<System.Object>::MoveNext()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Enumerator_MoveNext_mE921CC8F29FBBDE7CC3209A0ED0D921D58D00BCB_gshared (Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A* __this, const RuntimeMethod* method) ;
+// TValue System.Collections.Generic.KeyValuePair`2<System.UInt64,System.Object>::get_Value()
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* KeyValuePair_2_get_Value_mD8C68FAC73E70CDB6F3B0383A855C6806256A27D_gshared_inline (KeyValuePair_2_t1F749E064301C7FBDD1C0B79D6C7290359EA8141* __this, const RuntimeMethod* method) ;
 // System.Void tripolygon.UModeler.MathUtil::Swap<System.Single>(T&,T&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MathUtil_Swap_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_mFF1958643B2E254F209FDDDD71EF2822706E6131_gshared (float* ___value00, float* ___value11, const RuntimeMethod* method) ;
 // System.Void tripolygon.UModeler.MathUtil::Swap<UnityEngine.Vector3>(T&,T&)
@@ -3316,6 +3378,43 @@ inline void Dictionary_2_Clear_mBD478C152EAD9A09812A8EEEA0972013EADF2C0F (Dictio
 {
 	((  void (*) (Dictionary_2_tE2DDF83997C468EF036B0F6874ADE3DE9FF8A5A1*, const RuntimeMethod*))Dictionary_2_Clear_mEBF7C69CC324320F164B98CA34E3F3ED9D8ABCC6_gshared)(__this, method);
 }
+// System.Void System.Func`2<System.Collections.Generic.KeyValuePair`2<System.UInt64,tripolygon.UModeler.SimplePolygon>,tripolygon.UModeler.SimplePolygon>::.ctor(System.Object,System.IntPtr)
+inline void Func_2__ctor_m26883FC1D0FDFF67DBB54782A05DBC47260F46CB (Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890* __this, RuntimeObject* ___object0, intptr_t ___method1, const RuntimeMethod* method)
+{
+	((  void (*) (Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890*, RuntimeObject*, intptr_t, const RuntimeMethod*))Func_2__ctor_m39B1ADD59349F080DBC5B4E23AA0B5D082FD82F9_gshared)(__this, ___object0, ___method1, method);
+}
+// System.Collections.Generic.IEnumerable`1<TResult> System.Linq.Enumerable::Select<System.Collections.Generic.KeyValuePair`2<System.UInt64,tripolygon.UModeler.SimplePolygon>,tripolygon.UModeler.SimplePolygon>(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,TResult>)
+inline RuntimeObject* Enumerable_Select_TisKeyValuePair_2_t97F7F1BD60E1D1B6801E77FBC8CFAB5425BFE11F_TisSimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385_m6EEEC45E6A68FE48117750C3AA1F1FD31A2F1562 (RuntimeObject* ___source0, Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890* ___selector1, const RuntimeMethod* method)
+{
+	return ((  RuntimeObject* (*) (RuntimeObject*, Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890*, const RuntimeMethod*))Enumerable_Select_TisKeyValuePair_2_t1F749E064301C7FBDD1C0B79D6C7290359EA8141_TisRuntimeObject_m10560FA9A423CF30197C5325AF872C75A907BC0E_gshared)(___source0, ___selector1, method);
+}
+// System.Collections.Generic.List`1<TSource> System.Linq.Enumerable::ToList<tripolygon.UModeler.SimplePolygon>(System.Collections.Generic.IEnumerable`1<TSource>)
+inline List_1_tBD3EFF6C36C49D37E37AA532C06442E0AEC0544D* Enumerable_ToList_TisSimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385_m23081C9D19C047B583265F491AEE7D78650B5A6D (RuntimeObject* ___source0, const RuntimeMethod* method)
+{
+	return ((  List_1_tBD3EFF6C36C49D37E37AA532C06442E0AEC0544D* (*) (RuntimeObject*, const RuntimeMethod*))Enumerable_ToList_TisRuntimeObject_m6456D63764F29E6B5B2422C3DE25113577CF51EE_gshared)(___source0, method);
+}
+// System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<tripolygon.UModeler.SimplePolygon>::GetEnumerator()
+inline Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A List_1_GetEnumerator_mA18DAFFFF3BD4744E7FEC75CF45CF82191C4F15F (List_1_tBD3EFF6C36C49D37E37AA532C06442E0AEC0544D* __this, const RuntimeMethod* method)
+{
+	return ((  Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A (*) (List_1_tBD3EFF6C36C49D37E37AA532C06442E0AEC0544D*, const RuntimeMethod*))List_1_GetEnumerator_mD8294A7FA2BEB1929487127D476F8EC1CDC23BFC_gshared)(__this, method);
+}
+// System.Void System.Collections.Generic.List`1/Enumerator<tripolygon.UModeler.SimplePolygon>::Dispose()
+inline void Enumerator_Dispose_m8437B17E26ACDCE2D9AAA7F74C7085DBDAD6FA56 (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A* __this, const RuntimeMethod* method)
+{
+	((  void (*) (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A*, const RuntimeMethod*))Enumerator_Dispose_mD9DC3E3C3697830A4823047AB29A77DBBB5ED419_gshared)(__this, method);
+}
+// T System.Collections.Generic.List`1/Enumerator<tripolygon.UModeler.SimplePolygon>::get_Current()
+inline SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* Enumerator_get_Current_mC177674926B9E4ACC686819AED9F611C7B86B257_inline (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A* __this, const RuntimeMethod* method)
+{
+	return ((  SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* (*) (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A*, const RuntimeMethod*))Enumerator_get_Current_m6330F15D18EE4F547C05DF9BF83C5EB710376027_gshared_inline)(__this, method);
+}
+// System.Void tripolygon.UModeler.EditableMeshCache::RemovePolygon(tripolygon.UModeler.SimplePolygon,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_RemovePolygon_mAB2329FD8D5455F81DDB0BB309EC7263C8EDA2D0 (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, int32_t ___shelf1, const RuntimeMethod* method) ;
+// System.Boolean System.Collections.Generic.List`1/Enumerator<tripolygon.UModeler.SimplePolygon>::MoveNext()
+inline bool Enumerator_MoveNext_m1171C3EDD04C2E6D53FA8A631245C50BD38EB56D (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A* __this, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A*, const RuntimeMethod*))Enumerator_MoveNext_mE921CC8F29FBBDE7CC3209A0ED0D921D58D00BCB_gshared)(__this, method);
+}
 // System.Void tripolygon.UModeler.EditableMeshCache::Clear()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_Clear_mF6EC42379AD7058FF1D7AE835EF597D2ADFB6EF4 (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, const RuntimeMethod* method) ;
 // System.Void tripolygon.UModeler.ShelfHolder::.ctor(tripolygon.UModeler.EditableMesh)
@@ -3350,14 +3449,16 @@ inline bool Dictionary_2_Remove_m87029B9AEDA3E80F5466C12315399B5FBC561538 (Dicti
 {
 	return ((  bool (*) (Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC*, uint64_t, const RuntimeMethod*))Dictionary_2_Remove_m53C10B69E80D763AF7966549B52F08796ECD4A2E_gshared)(__this, ___key0, method);
 }
-// System.Void tripolygon.UModeler.EditableMeshCache::Update()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_Update_mD29EDBF44557EE79CFCC306D877A85C70147C19B (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, const RuntimeMethod* method) ;
 // tripolygon.UModeler.Vertex tripolygon.UModeler.SimplePolygon::GetVertex(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* SimplePolygon_GetVertex_mEE7A2297098F3F4357A6E45C4F524164A0B0D927 (SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* __this, int32_t ___idx0, const RuntimeMethod* method) ;
-// System.Boolean tripolygon.UModeler.EditableMeshCache::UpdateVertex(tripolygon.UModeler.SimplePolygon,tripolygon.UModeler.Vertex,System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EditableMeshCache_UpdateVertex_m2AABBAA99BF48031682DB2B9E8C3A7D123EDC91D (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* ___vertex1, int32_t ___vertexIndexHint2, const RuntimeMethod* method) ;
+// System.Boolean tripolygon.UModeler.EditableMeshCache::RemoveVertex(tripolygon.UModeler.Vertex)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EditableMeshCache_RemoveVertex_mF1B6F14F26843A3D58E6C5B742B1A15DD79E50EE (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* ___vertex0, const RuntimeMethod* method) ;
+// System.Void tripolygon.UModeler.EditableMeshCache::Update()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_Update_mD29EDBF44557EE79CFCC306D877A85C70147C19B (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, const RuntimeMethod* method) ;
 // System.Int32 tripolygon.UModeler.SimplePolygon::GetVertexCount()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t SimplePolygon_GetVertexCount_mDB67C17C091F78FF2D5628675424520DF3B50746 (SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* __this, const RuntimeMethod* method) ;
+// System.Boolean tripolygon.UModeler.EditableMeshCache::UpdateVertex(tripolygon.UModeler.SimplePolygon,tripolygon.UModeler.Vertex,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EditableMeshCache_UpdateVertex_m2AABBAA99BF48031682DB2B9E8C3A7D123EDC91D (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* ___vertex1, int32_t ___vertexIndexHint2, const RuntimeMethod* method) ;
 // System.Int32 tripolygon.UModeler.SimplePolygon::FindVertexIndex(tripolygon.UModeler.Vertex)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t SimplePolygon_FindVertexIndex_mB61960C90731B9530BFCEE68AC2C88D882B6C233 (SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* __this, Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* ___vertex0, const RuntimeMethod* method) ;
 // System.Boolean System.Collections.Generic.Dictionary`2<tripolygon.UModeler.Vertex,tripolygon.UModeler.VertexInfo>::TryGetValue(TKey,TValue&)
@@ -3371,8 +3472,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VertexInfo_IsValid_mD2C1BDC8689598692E75
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 VertexInfo_get_pos_mEEEFD94BB191F9EF422C74624FA9FD932524A71E (VertexInfo_tB680BA9D4490146E6BA47DE33441C56B67ABA69C* __this, const RuntimeMethod* method) ;
 // System.Boolean tripolygon.UModeler.Comparer::IsEquivalent(UnityEngine.Vector3,UnityEngine.Vector3)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Comparer_IsEquivalent_mAB00A170CAA5452C62FD8203EC6D3D463103985E (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___v00, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___v11, const RuntimeMethod* method) ;
-// System.Boolean tripolygon.UModeler.EditableMeshCache::RemoveVertex(tripolygon.UModeler.Vertex)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EditableMeshCache_RemoveVertex_mF1B6F14F26843A3D58E6C5B742B1A15DD79E50EE (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* ___vertex0, const RuntimeMethod* method) ;
 // System.Boolean tripolygon.UModeler.EditableMeshCache::AddVertex(tripolygon.UModeler.SimplePolygon,System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EditableMeshCache_AddVertex_mA9640B0ECC52153F8830D1A64BD281B1C0AFB14A (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, int32_t ___vtxIndex1, const RuntimeMethod* method) ;
 // tripolygon.UModeler.Token tripolygon.UModeler.VertexInfo::FindToken(tripolygon.UModeler.Vertex)
@@ -3403,13 +3502,6 @@ inline bool List_1_Remove_mD192AFD0E85CF4D87D92FB6688434CD21F69B038 (List_1_tDEC
 {
 	return ((  bool (*) (List_1_tDEC7425F9DCD7A5D4725E51D54B7B38D9218D0B3*, VertexInfo_tB680BA9D4490146E6BA47DE33441C56B67ABA69C*, const RuntimeMethod*))List_1_Remove_m4DFA48F4CEB9169601E75FC28517C5C06EFA5AD7_gshared)(__this, ___item0, method);
 }
-// T System.Collections.Generic.List`1<tripolygon.UModeler.Token>::get_Item(System.Int32)
-inline Token_t0A3004C6B1C491504935BC271220D585CD34E488* List_1_get_Item_mBBC03A6C2FE726BF244B38F24FF89A141594E2F2 (List_1_tA0AE4383A3502ED1C57040797EDB7110A767B43C* __this, int32_t ___index0, const RuntimeMethod* method)
-{
-	return ((  Token_t0A3004C6B1C491504935BC271220D585CD34E488* (*) (List_1_tA0AE4383A3502ED1C57040797EDB7110A767B43C*, int32_t, const RuntimeMethod*))List_1_get_Item_m33561245D64798C2AB07584C0EC4F240E4839A38_gshared)(__this, ___index0, method);
-}
-// tripolygon.UModeler.Vertex tripolygon.UModeler.Token::get_vertex()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* Token_get_vertex_m63D3C9587CF4768F32BD2662263CD14F2E1E69F0 (Token_t0A3004C6B1C491504935BC271220D585CD34E488* __this, const RuntimeMethod* method) ;
 // System.Void tripolygon.UModeler.Token::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Token__ctor_mE6A16C1B18CCAB2BE7789754BA05F597EA4DB89A (Token_t0A3004C6B1C491504935BC271220D585CD34E488* __this, const RuntimeMethod* method) ;
 // tripolygon.UModeler.VertexInfo tripolygon.UModeler.EditableMeshCache::FindVertexByPos(UnityEngine.Vector3)
@@ -3469,6 +3561,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SelectExtended_set_selection_m36B7C427E2
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t SelectExtended_get_selection_mA8131FB1E716C5F92C5A04A49B61DB79506961AD_inline (SelectExtended_tA9AA94ECFF1523DC7FE8E001FF9593BD32AC030E* __this, const RuntimeMethod* method) ;
 // System.Void tripolygon.UModeler.SelectExtended::RevertSelection()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SelectExtended_RevertSelection_m09651A5982926C0B72BEA184A3C4E41D51BAAC57 (SelectExtended_tA9AA94ECFF1523DC7FE8E001FF9593BD32AC030E* __this, const RuntimeMethod* method) ;
+// T System.Collections.Generic.List`1<tripolygon.UModeler.Token>::get_Item(System.Int32)
+inline Token_t0A3004C6B1C491504935BC271220D585CD34E488* List_1_get_Item_mBBC03A6C2FE726BF244B38F24FF89A141594E2F2 (List_1_tA0AE4383A3502ED1C57040797EDB7110A767B43C* __this, int32_t ___index0, const RuntimeMethod* method)
+{
+	return ((  Token_t0A3004C6B1C491504935BC271220D585CD34E488* (*) (List_1_tA0AE4383A3502ED1C57040797EDB7110A767B43C*, int32_t, const RuntimeMethod*))List_1_get_Item_m33561245D64798C2AB07584C0EC4F240E4839A38_gshared)(__this, ___index0, method);
+}
 // System.Void System.Collections.Generic.Dictionary`2<System.UInt64,tripolygon.UModeler.SimplePolygon>::.ctor()
 inline void Dictionary_2__ctor_m99BE4BB544148C1FC20DD98BDECE5552D69D308E (Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* __this, const RuntimeMethod* method)
 {
@@ -3484,38 +3581,27 @@ inline void Dictionary_2__ctor_m227C57C5E030875E6235F8CB08E43CC51DF16009 (Dictio
 {
 	((  void (*) (Dictionary_2_tE2DDF83997C468EF036B0F6874ADE3DE9FF8A5A1*, const RuntimeMethod*))Dictionary_2__ctor_m49DCC6F258C4D9CDC91A9FD9479466DE5AA7EA53_gshared)(__this, method);
 }
+// System.Void tripolygon.UModeler.EditableMeshCache/<>c::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__ctor_m768626F81AF946A0BF33594CBD19AD7F4FE436D5 (U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A* __this, const RuntimeMethod* method) ;
+// TValue System.Collections.Generic.KeyValuePair`2<System.UInt64,tripolygon.UModeler.SimplePolygon>::get_Value()
+inline SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* KeyValuePair_2_get_Value_m8E1CD1ADC77D3C3A92FF95C3B55D93E15968D7D1_inline (KeyValuePair_2_t97F7F1BD60E1D1B6801E77FBC8CFAB5425BFE11F* __this, const RuntimeMethod* method)
+{
+	return ((  SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* (*) (KeyValuePair_2_t97F7F1BD60E1D1B6801E77FBC8CFAB5425BFE11F*, const RuntimeMethod*))KeyValuePair_2_get_Value_mD8C68FAC73E70CDB6F3B0383A855C6806256A27D_gshared_inline)(__this, method);
+}
 // System.Void tripolygon.UModeler.VertexManager::Clear()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexManager_Clear_m8D9CC1379B7A16CEFF831BED178E017202ED21E6 (VertexManager_tDF03C9512FCAADC01EF9A4DF8F9ED7CC77F7EABF* __this, const RuntimeMethod* method) ;
 // System.Boolean tripolygon.UModeler.VertexManager::UpdatePartially(tripolygon.UModeler.SimplePolygon)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VertexManager_UpdatePartially_mE4468784A0011E096F5B572E81179CB2D2F264E1 (VertexManager_tDF03C9512FCAADC01EF9A4DF8F9ED7CC77F7EABF* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, const RuntimeMethod* method) ;
-// System.Collections.Generic.List`1/Enumerator<T> System.Collections.Generic.List`1<tripolygon.UModeler.SimplePolygon>::GetEnumerator()
-inline Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A List_1_GetEnumerator_mA18DAFFFF3BD4744E7FEC75CF45CF82191C4F15F (List_1_tBD3EFF6C36C49D37E37AA532C06442E0AEC0544D* __this, const RuntimeMethod* method)
-{
-	return ((  Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A (*) (List_1_tBD3EFF6C36C49D37E37AA532C06442E0AEC0544D*, const RuntimeMethod*))List_1_GetEnumerator_mD8294A7FA2BEB1929487127D476F8EC1CDC23BFC_gshared)(__this, method);
-}
-// System.Void System.Collections.Generic.List`1/Enumerator<tripolygon.UModeler.SimplePolygon>::Dispose()
-inline void Enumerator_Dispose_m8437B17E26ACDCE2D9AAA7F74C7085DBDAD6FA56 (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A* __this, const RuntimeMethod* method)
-{
-	((  void (*) (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A*, const RuntimeMethod*))Enumerator_Dispose_mD9DC3E3C3697830A4823047AB29A77DBBB5ED419_gshared)(__this, method);
-}
-// T System.Collections.Generic.List`1/Enumerator<tripolygon.UModeler.SimplePolygon>::get_Current()
-inline SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* Enumerator_get_Current_mC177674926B9E4ACC686819AED9F611C7B86B257_inline (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A* __this, const RuntimeMethod* method)
-{
-	return ((  SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* (*) (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A*, const RuntimeMethod*))Enumerator_get_Current_m6330F15D18EE4F547C05DF9BF83C5EB710376027_gshared_inline)(__this, method);
-}
 // System.Boolean tripolygon.UModeler.VertexManager::RemovePolygon(tripolygon.UModeler.SimplePolygon)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VertexManager_RemovePolygon_mE250D34C3C819BAE8B9E3F85BD80567957499CAC (VertexManager_tDF03C9512FCAADC01EF9A4DF8F9ED7CC77F7EABF* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, const RuntimeMethod* method) ;
-// System.Boolean System.Collections.Generic.List`1/Enumerator<tripolygon.UModeler.SimplePolygon>::MoveNext()
-inline bool Enumerator_MoveNext_m1171C3EDD04C2E6D53FA8A631245C50BD38EB56D (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A* __this, const RuntimeMethod* method)
-{
-	return ((  bool (*) (Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A*, const RuntimeMethod*))Enumerator_MoveNext_mE921CC8F29FBBDE7CC3209A0ED0D921D58D00BCB_gshared)(__this, method);
-}
 // System.Boolean tripolygon.UModeler.VertexManager::UpdateVertex(tripolygon.UModeler.SimplePolygon,tripolygon.UModeler.Vertex,System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VertexManager_UpdateVertex_m206DF0F4D9005D2C6AD053CB7FEB56EA837B8226 (VertexManager_tDF03C9512FCAADC01EF9A4DF8F9ED7CC77F7EABF* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* ___vertex1, int32_t ___vertexIndexHint2, const RuntimeMethod* method) ;
 // System.Boolean tripolygon.UModeler.VertexManager::RemoveVertex(tripolygon.UModeler.Vertex)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VertexManager_RemoveVertex_m32D620001A5695EA946248E54377E69B3D2DF5DA (VertexManager_tDF03C9512FCAADC01EF9A4DF8F9ED7CC77F7EABF* __this, Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* ___vertex0, const RuntimeMethod* method) ;
 // System.Boolean tripolygon.UModeler.VertexManager::AddVertex(tripolygon.UModeler.SimplePolygon,System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool VertexManager_AddVertex_m29646D8B929B01CCE3B5677E90BD87EB2FECA739 (VertexManager_tDF03C9512FCAADC01EF9A4DF8F9ED7CC77F7EABF* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, int32_t ___vtxIndex1, const RuntimeMethod* method) ;
+// tripolygon.UModeler.Vertex tripolygon.UModeler.Token::get_vertex()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* Token_get_vertex_m63D3C9587CF4768F32BD2662263CD14F2E1E69F0 (Token_t0A3004C6B1C491504935BC271220D585CD34E488* __this, const RuntimeMethod* method) ;
 // tripolygon.UModeler.VertexInfo tripolygon.UModeler.VertexManager::FindVertexByPos(UnityEngine.Vector3)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR VertexInfo_tB680BA9D4490146E6BA47DE33441C56B67ABA69C* VertexManager_FindVertexByPos_m5948E2C35A09BB59F4A51BB07991F0EE9064EF07 (VertexManager_tDF03C9512FCAADC01EF9A4DF8F9ED7CC77F7EABF* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___pos0, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Mesh::.ctor()
@@ -4006,6 +4092,8 @@ inline void List_1_Add_m0F71ECCF66C7CD582CB5B81E0998DF2DCBCCF1FC_inline (List_1_
 {
 	((  void (*) (List_1_tB56344040F48C3579D0C4CC5DF8E9CA7810D107E*, PolygonAndID_t70AC7BF9BCC98A3F24714E8C77C031CBAD1C00F0*, const RuntimeMethod*))List_1_Add_mEBCF994CC3814631017F46A387B1A192ED6C85C7_gshared_inline)(__this, ___item0, method);
 }
+// System.Void tripolygon.UModeler.PolygonResources::SetDirtyCache()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolygonResources_SetDirtyCache_m0734E73C7570091330330A944D74D1DD381B1CB9 (PolygonResources_t178C03BB86A862AE700F4F18AD2A637ACED13057* __this, const RuntimeMethod* method) ;
 // System.Void tripolygon.UModeler.PolygonResources::RefreshCache()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolygonResources_RefreshCache_mED428033FA149076524D3B51A3F3189F528AD022 (PolygonResources_t178C03BB86A862AE700F4F18AD2A637ACED13057* __this, const RuntimeMethod* method) ;
 // System.Void tripolygon.UModeler.PolygonAndID::Refresh()
@@ -5077,6 +5165,137 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_Clear_mF6EC42379AD7058
 		return;
 	}
 }
+// System.Void tripolygon.UModeler.EditableMeshCache::ClearShelf(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_ClearShelf_m941E4A771A7B856817895ED7657480549D4EF938 (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, int32_t ___inShelf0, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_Clear_mBE3EBD43A39D8F2E920CE348DBE8E2806E472068_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerable_Select_TisKeyValuePair_2_t97F7F1BD60E1D1B6801E77FBC8CFAB5425BFE11F_TisSimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385_m6EEEC45E6A68FE48117750C3AA1F1FD31A2F1562_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerable_ToList_TisSimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385_m23081C9D19C047B583265F491AEE7D78650B5A6D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerator_Dispose_m8437B17E26ACDCE2D9AAA7F74C7085DBDAD6FA56_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerator_MoveNext_m1171C3EDD04C2E6D53FA8A631245C50BD38EB56D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Enumerator_get_Current_mC177674926B9E4ACC686819AED9F611C7B86B257_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_GetEnumerator_mA18DAFFFF3BD4744E7FEC75CF45CF82191C4F15F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CU3Ec_U3CClearShelfU3Eb__6_0_mB562F99C266E96CC67BECCDA2F1D0D65D5CFB2AB_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* V_1 = NULL;
+	Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890* G_B3_0 = NULL;
+	Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* G_B3_1 = NULL;
+	Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890* G_B2_0 = NULL;
+	Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* G_B2_1 = NULL;
+	{
+		EditableMesh_tF419912423C538859FC4EDB1F6ABD7314E01A476* L_0 = __this->___editableMesh_0;
+		if (!L_0)
+		{
+			goto IL_006a;
+		}
+	}
+	{
+		Dictionary_2U5BU5D_tDBD4F187893163AAAC7BD9263DE25187F2F39C2D* L_1 = __this->___polygonDict_1;
+		int32_t L_2 = ___inShelf0;
+		NullCheck(L_1);
+		int32_t L_3 = L_2;
+		Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* L_4 = (L_1)->GetAt(static_cast<il2cpp_array_size_t>(L_3));
+		il2cpp_codegen_runtime_class_init_inline(U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var);
+		Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890* L_5 = ((U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_StaticFields*)il2cpp_codegen_static_fields_for(U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var))->___U3CU3E9__6_0_1;
+		Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890* L_6 = L_5;
+		G_B2_0 = L_6;
+		G_B2_1 = L_4;
+		if (L_6)
+		{
+			G_B3_0 = L_6;
+			G_B3_1 = L_4;
+			goto IL_002f;
+		}
+	}
+	{
+		il2cpp_codegen_runtime_class_init_inline(U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var);
+		U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A* L_7 = ((U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_StaticFields*)il2cpp_codegen_static_fields_for(U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var))->___U3CU3E9_0;
+		Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890* L_8 = (Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890*)il2cpp_codegen_object_new(Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890_il2cpp_TypeInfo_var);
+		NullCheck(L_8);
+		Func_2__ctor_m26883FC1D0FDFF67DBB54782A05DBC47260F46CB(L_8, L_7, (intptr_t)((void*)U3CU3Ec_U3CClearShelfU3Eb__6_0_mB562F99C266E96CC67BECCDA2F1D0D65D5CFB2AB_RuntimeMethod_var), NULL);
+		Func_2_tFF608F1458CE2AC381CAE2A96E162E27FC087890* L_9 = L_8;
+		((U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_StaticFields*)il2cpp_codegen_static_fields_for(U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var))->___U3CU3E9__6_0_1 = L_9;
+		Il2CppCodeGenWriteBarrier((void**)(&((U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_StaticFields*)il2cpp_codegen_static_fields_for(U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var))->___U3CU3E9__6_0_1), (void*)L_9);
+		G_B3_0 = L_9;
+		G_B3_1 = G_B2_1;
+	}
+
+IL_002f:
+	{
+		RuntimeObject* L_10;
+		L_10 = Enumerable_Select_TisKeyValuePair_2_t97F7F1BD60E1D1B6801E77FBC8CFAB5425BFE11F_TisSimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385_m6EEEC45E6A68FE48117750C3AA1F1FD31A2F1562(G_B3_1, G_B3_0, Enumerable_Select_TisKeyValuePair_2_t97F7F1BD60E1D1B6801E77FBC8CFAB5425BFE11F_TisSimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385_m6EEEC45E6A68FE48117750C3AA1F1FD31A2F1562_RuntimeMethod_var);
+		List_1_tBD3EFF6C36C49D37E37AA532C06442E0AEC0544D* L_11;
+		L_11 = Enumerable_ToList_TisSimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385_m23081C9D19C047B583265F491AEE7D78650B5A6D(L_10, Enumerable_ToList_TisSimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385_m23081C9D19C047B583265F491AEE7D78650B5A6D_RuntimeMethod_var);
+		NullCheck(L_11);
+		Enumerator_tD262BF522F6DB50294BEC81555F00F3375FA121A L_12;
+		L_12 = List_1_GetEnumerator_mA18DAFFFF3BD4744E7FEC75CF45CF82191C4F15F(L_11, List_1_GetEnumerator_mA18DAFFFF3BD4744E7FEC75CF45CF82191C4F15F_RuntimeMethod_var);
+		V_0 = L_12;
+	}
+	{
+		auto __finallyBlock = il2cpp::utils::Finally([&]
+		{
+
+FINALLY_005c:
+			{// begin finally (depth: 1)
+				Enumerator_Dispose_m8437B17E26ACDCE2D9AAA7F74C7085DBDAD6FA56((&V_0), Enumerator_Dispose_m8437B17E26ACDCE2D9AAA7F74C7085DBDAD6FA56_RuntimeMethod_var);
+				return;
+			}// end finally (depth: 1)
+		});
+		try
+		{// begin try (depth: 1)
+			{
+				goto IL_0051_1;
+			}
+
+IL_0041_1:
+			{
+				SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_13;
+				L_13 = Enumerator_get_Current_mC177674926B9E4ACC686819AED9F611C7B86B257_inline((&V_0), Enumerator_get_Current_mC177674926B9E4ACC686819AED9F611C7B86B257_RuntimeMethod_var);
+				V_1 = L_13;
+				SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_14 = V_1;
+				int32_t L_15 = ___inShelf0;
+				EditableMeshCache_RemovePolygon_mAB2329FD8D5455F81DDB0BB309EC7263C8EDA2D0(__this, L_14, L_15, NULL);
+			}
+
+IL_0051_1:
+			{
+				bool L_16;
+				L_16 = Enumerator_MoveNext_m1171C3EDD04C2E6D53FA8A631245C50BD38EB56D((&V_0), Enumerator_MoveNext_m1171C3EDD04C2E6D53FA8A631245C50BD38EB56D_RuntimeMethod_var);
+				if (L_16)
+				{
+					goto IL_0041_1;
+				}
+			}
+			{
+				goto IL_006a;
+			}
+		}// end try (depth: 1)
+		catch(Il2CppExceptionWrapper& e)
+		{
+			__finallyBlock.StoreException(e.ex);
+		}
+	}
+
+IL_006a:
+	{
+		Dictionary_2U5BU5D_tDBD4F187893163AAAC7BD9263DE25187F2F39C2D* L_17 = __this->___polygonDict_1;
+		int32_t L_18 = ___inShelf0;
+		NullCheck(L_17);
+		int32_t L_19 = L_18;
+		Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* L_20 = (L_17)->GetAt(static_cast<il2cpp_array_size_t>(L_19));
+		NullCheck(L_20);
+		Dictionary_2_Clear_mBE3EBD43A39D8F2E920CE348DBE8E2806E472068(L_20, Dictionary_2_Clear_mBE3EBD43A39D8F2E920CE348DBE8E2806E472068_RuntimeMethod_var);
+		return;
+	}
+}
 // System.Void tripolygon.UModeler.EditableMeshCache::SetEditableMesh(tripolygon.UModeler.EditableMesh)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_SetEditableMesh_m5A2B1BB652FD806964F025BBDFD32984A2DAB26B (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, EditableMesh_tF419912423C538859FC4EDB1F6ABD7314E01A476* ___edMesh0, const RuntimeMethod* method) 
 {
@@ -5346,6 +5565,89 @@ IL_0032:
 		return;
 	}
 }
+// System.Void tripolygon.UModeler.EditableMeshCache::MovePolygonShelf(tripolygon.UModeler.SimplePolygon,System.Int32,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_MovePolygonShelf_mA089C16DFEF1C4BDCEF5AF178D07F78695BC3F8C (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, int32_t ___srcShelf1, int32_t ___destShelf2, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_Add_m183E6693B2D0BD27EC060984F7E3E712F29F7A29_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_ContainsKey_m702A3A5A19CC4E07C820F1978F93A6B3FE3C53FC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_Remove_m87029B9AEDA3E80F5466C12315399B5FBC561538_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		Dictionary_2U5BU5D_tDBD4F187893163AAAC7BD9263DE25187F2F39C2D* L_0 = __this->___polygonDict_1;
+		int32_t L_1 = ___srcShelf1;
+		NullCheck(L_0);
+		int32_t L_2 = L_1;
+		Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* L_3 = (L_0)->GetAt(static_cast<il2cpp_array_size_t>(L_2));
+		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_4 = ___polygon0;
+		NullCheck(L_4);
+		uint64_t L_5;
+		L_5 = SimplePolygon_get_instanceID_m5B2FD3D7A1913712941A0A7C4F2D03DB74053E7B_inline(L_4, NULL);
+		NullCheck(L_3);
+		bool L_6;
+		L_6 = Dictionary_2_ContainsKey_m702A3A5A19CC4E07C820F1978F93A6B3FE3C53FC(L_3, L_5, Dictionary_2_ContainsKey_m702A3A5A19CC4E07C820F1978F93A6B3FE3C53FC_RuntimeMethod_var);
+		if (!L_6)
+		{
+			goto IL_0029;
+		}
+	}
+	{
+		Dictionary_2U5BU5D_tDBD4F187893163AAAC7BD9263DE25187F2F39C2D* L_7 = __this->___polygonDict_1;
+		int32_t L_8 = ___srcShelf1;
+		NullCheck(L_7);
+		int32_t L_9 = L_8;
+		Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* L_10 = (L_7)->GetAt(static_cast<il2cpp_array_size_t>(L_9));
+		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_11 = ___polygon0;
+		NullCheck(L_11);
+		uint64_t L_12;
+		L_12 = SimplePolygon_get_instanceID_m5B2FD3D7A1913712941A0A7C4F2D03DB74053E7B_inline(L_11, NULL);
+		NullCheck(L_10);
+		bool L_13;
+		L_13 = Dictionary_2_Remove_m87029B9AEDA3E80F5466C12315399B5FBC561538(L_10, L_12, Dictionary_2_Remove_m87029B9AEDA3E80F5466C12315399B5FBC561538_RuntimeMethod_var);
+	}
+
+IL_0029:
+	{
+		Dictionary_2U5BU5D_tDBD4F187893163AAAC7BD9263DE25187F2F39C2D* L_14 = __this->___polygonDict_1;
+		int32_t L_15 = ___destShelf2;
+		NullCheck(L_14);
+		int32_t L_16 = L_15;
+		Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* L_17 = (L_14)->GetAt(static_cast<il2cpp_array_size_t>(L_16));
+		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_18 = ___polygon0;
+		NullCheck(L_18);
+		uint64_t L_19;
+		L_19 = SimplePolygon_get_instanceID_m5B2FD3D7A1913712941A0A7C4F2D03DB74053E7B_inline(L_18, NULL);
+		NullCheck(L_17);
+		bool L_20;
+		L_20 = Dictionary_2_ContainsKey_m702A3A5A19CC4E07C820F1978F93A6B3FE3C53FC(L_17, L_19, Dictionary_2_ContainsKey_m702A3A5A19CC4E07C820F1978F93A6B3FE3C53FC_RuntimeMethod_var);
+		if (L_20)
+		{
+			goto IL_0052;
+		}
+	}
+	{
+		Dictionary_2U5BU5D_tDBD4F187893163AAAC7BD9263DE25187F2F39C2D* L_21 = __this->___polygonDict_1;
+		int32_t L_22 = ___destShelf2;
+		NullCheck(L_21);
+		int32_t L_23 = L_22;
+		Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* L_24 = (L_21)->GetAt(static_cast<il2cpp_array_size_t>(L_23));
+		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_25 = ___polygon0;
+		NullCheck(L_25);
+		uint64_t L_26;
+		L_26 = SimplePolygon_get_instanceID_m5B2FD3D7A1913712941A0A7C4F2D03DB74053E7B_inline(L_25, NULL);
+		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_27 = ___polygon0;
+		NullCheck(L_24);
+		Dictionary_2_Add_m183E6693B2D0BD27EC060984F7E3E712F29F7A29(L_24, L_26, L_27, Dictionary_2_Add_m183E6693B2D0BD27EC060984F7E3E712F29F7A29_RuntimeMethod_var);
+	}
+
+IL_0052:
+	{
+		return;
+	}
+}
 // System.Void tripolygon.UModeler.EditableMeshCache::RemovePolygon(tripolygon.UModeler.SimplePolygon,System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_RemovePolygon_mAB2329FD8D5455F81DDB0BB309EC7263C8EDA2D0 (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, int32_t ___shelf1, const RuntimeMethod* method) 
 {
@@ -5356,45 +5658,87 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_RemovePolygon_mAB2329F
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_Remove_m87029B9AEDA3E80F5466C12315399B5FBC561538_RuntimeMethod_var);
 		s_Il2CppMethodInitialized = true;
 	}
+	int32_t V_0 = 0;
 	{
-		int32_t L_0 = ___shelf1;
-		int32_t L_1;
-		L_1 = EditableMeshCache_GetShelf_m1046D519D33EF338301E7021AE7CE07B1ACD1EFD(__this, L_0, NULL);
-		___shelf1 = L_1;
-		Dictionary_2U5BU5D_tDBD4F187893163AAAC7BD9263DE25187F2F39C2D* L_2 = __this->___polygonDict_1;
-		int32_t L_3 = ___shelf1;
-		NullCheck(L_2);
-		int32_t L_4 = L_3;
-		Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* L_5 = (L_2)->GetAt(static_cast<il2cpp_array_size_t>(L_4));
-		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_6 = ___polygon0;
-		NullCheck(L_6);
-		uint64_t L_7;
-		L_7 = SimplePolygon_get_instanceID_m5B2FD3D7A1913712941A0A7C4F2D03DB74053E7B_inline(L_6, NULL);
-		NullCheck(L_5);
-		bool L_8;
-		L_8 = Dictionary_2_ContainsKey_m702A3A5A19CC4E07C820F1978F93A6B3FE3C53FC(L_5, L_7, Dictionary_2_ContainsKey_m702A3A5A19CC4E07C820F1978F93A6B3FE3C53FC_RuntimeMethod_var);
-		if (!L_8)
+		V_0 = 0;
+		goto IL_001d;
+	}
+
+IL_0004:
+	{
+		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_0 = ___polygon0;
+		int32_t L_1 = V_0;
+		NullCheck(L_0);
+		Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* L_2;
+		L_2 = SimplePolygon_GetVertex_mEE7A2297098F3F4357A6E45C4F524164A0B0D927(L_0, L_1, NULL);
+		bool L_3;
+		L_3 = EditableMeshCache_RemoveVertex_mF1B6F14F26843A3D58E6C5B742B1A15DD79E50EE(__this, L_2, NULL);
+		if (L_3)
 		{
-			goto IL_0033;
+			goto IL_0019;
 		}
 	}
 	{
-		Dictionary_2U5BU5D_tDBD4F187893163AAAC7BD9263DE25187F2F39C2D* L_9 = __this->___polygonDict_1;
-		int32_t L_10 = ___shelf1;
-		NullCheck(L_9);
-		int32_t L_11 = L_10;
-		Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* L_12 = (L_9)->GetAt(static_cast<il2cpp_array_size_t>(L_11));
-		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_13 = ___polygon0;
+		EditableMeshCache_Update_mD29EDBF44557EE79CFCC306D877A85C70147C19B(__this, NULL);
+	}
+
+IL_0019:
+	{
+		int32_t L_4 = V_0;
+		V_0 = ((int32_t)il2cpp_codegen_add(L_4, 1));
+	}
+
+IL_001d:
+	{
+		int32_t L_5 = V_0;
+		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_6 = ___polygon0;
+		NullCheck(L_6);
+		int32_t L_7;
+		L_7 = SimplePolygon_GetVertexCount_mDB67C17C091F78FF2D5628675424520DF3B50746(L_6, NULL);
+		if ((((int32_t)L_5) < ((int32_t)L_7)))
+		{
+			goto IL_0004;
+		}
+	}
+	{
+		int32_t L_8 = ___shelf1;
+		int32_t L_9;
+		L_9 = EditableMeshCache_GetShelf_m1046D519D33EF338301E7021AE7CE07B1ACD1EFD(__this, L_8, NULL);
+		___shelf1 = L_9;
+		Dictionary_2U5BU5D_tDBD4F187893163AAAC7BD9263DE25187F2F39C2D* L_10 = __this->___polygonDict_1;
+		int32_t L_11 = ___shelf1;
+		NullCheck(L_10);
+		int32_t L_12 = L_11;
+		Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* L_13 = (L_10)->GetAt(static_cast<il2cpp_array_size_t>(L_12));
+		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_14 = ___polygon0;
+		NullCheck(L_14);
+		uint64_t L_15;
+		L_15 = SimplePolygon_get_instanceID_m5B2FD3D7A1913712941A0A7C4F2D03DB74053E7B_inline(L_14, NULL);
 		NullCheck(L_13);
-		uint64_t L_14;
-		L_14 = SimplePolygon_get_instanceID_m5B2FD3D7A1913712941A0A7C4F2D03DB74053E7B_inline(L_13, NULL);
-		NullCheck(L_12);
-		bool L_15;
-		L_15 = Dictionary_2_Remove_m87029B9AEDA3E80F5466C12315399B5FBC561538(L_12, L_14, Dictionary_2_Remove_m87029B9AEDA3E80F5466C12315399B5FBC561538_RuntimeMethod_var);
+		bool L_16;
+		L_16 = Dictionary_2_ContainsKey_m702A3A5A19CC4E07C820F1978F93A6B3FE3C53FC(L_13, L_15, Dictionary_2_ContainsKey_m702A3A5A19CC4E07C820F1978F93A6B3FE3C53FC_RuntimeMethod_var);
+		if (!L_16)
+		{
+			goto IL_0059;
+		}
+	}
+	{
+		Dictionary_2U5BU5D_tDBD4F187893163AAAC7BD9263DE25187F2F39C2D* L_17 = __this->___polygonDict_1;
+		int32_t L_18 = ___shelf1;
+		NullCheck(L_17);
+		int32_t L_19 = L_18;
+		Dictionary_2_t505A6C776753B03F0372105728FAE243A6DB54CC* L_20 = (L_17)->GetAt(static_cast<il2cpp_array_size_t>(L_19));
+		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_21 = ___polygon0;
+		NullCheck(L_21);
+		uint64_t L_22;
+		L_22 = SimplePolygon_get_instanceID_m5B2FD3D7A1913712941A0A7C4F2D03DB74053E7B_inline(L_21, NULL);
+		NullCheck(L_20);
+		bool L_23;
+		L_23 = Dictionary_2_Remove_m87029B9AEDA3E80F5466C12315399B5FBC561538(L_20, L_22, Dictionary_2_Remove_m87029B9AEDA3E80F5466C12315399B5FBC561538_RuntimeMethod_var);
 		return;
 	}
 
-IL_0033:
+IL_0059:
 	{
 		EditableMeshCache_Update_mD29EDBF44557EE79CFCC306D877A85C70147C19B(__this, NULL);
 		return;
@@ -5593,55 +5937,6 @@ IL_0077:
 		return (bool)1;
 	}
 }
-// System.Boolean tripolygon.UModeler.EditableMeshCache::RemovePolygon(tripolygon.UModeler.SimplePolygon)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EditableMeshCache_RemovePolygon_mA98B2E1D789A8682AB5A88A2B871EA72B28E47E0 (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* ___polygon0, const RuntimeMethod* method) 
-{
-	int32_t V_0 = 0;
-	{
-		V_0 = 0;
-		goto IL_0019;
-	}
-
-IL_0004:
-	{
-		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_0 = ___polygon0;
-		int32_t L_1 = V_0;
-		NullCheck(L_0);
-		Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* L_2;
-		L_2 = SimplePolygon_GetVertex_mEE7A2297098F3F4357A6E45C4F524164A0B0D927(L_0, L_1, NULL);
-		bool L_3;
-		L_3 = EditableMeshCache_RemoveVertex_mF1B6F14F26843A3D58E6C5B742B1A15DD79E50EE(__this, L_2, NULL);
-		if (L_3)
-		{
-			goto IL_0015;
-		}
-	}
-	{
-		return (bool)0;
-	}
-
-IL_0015:
-	{
-		int32_t L_4 = V_0;
-		V_0 = ((int32_t)il2cpp_codegen_add(L_4, 1));
-	}
-
-IL_0019:
-	{
-		int32_t L_5 = V_0;
-		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_6 = ___polygon0;
-		NullCheck(L_6);
-		int32_t L_7;
-		L_7 = SimplePolygon_GetVertexCount_mDB67C17C091F78FF2D5628675424520DF3B50746(L_6, NULL);
-		if ((((int32_t)L_5) < ((int32_t)L_7)))
-		{
-			goto IL_0004;
-		}
-	}
-	{
-		return (bool)1;
-	}
-}
 // System.Boolean tripolygon.UModeler.EditableMeshCache::RemoveVertex(tripolygon.UModeler.Vertex)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool EditableMeshCache_RemoveVertex_mF1B6F14F26843A3D58E6C5B742B1A15DD79E50EE (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* ___vertex0, const RuntimeMethod* method) 
 {
@@ -5738,96 +6033,6 @@ IL_005a:
 IL_0067:
 	{
 		return (bool)1;
-	}
-}
-// System.Void tripolygon.UModeler.EditableMeshCache::RemoveVertexInfo(tripolygon.UModeler.VertexInfo)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache_RemoveVertexInfo_m59CB6317F8F1D48430B1E2AAFC8E080C07EE9E8C (EditableMeshCache_t670115114CAE4890073BECDA625009C01B883B27* __this, VertexInfo_tB680BA9D4490146E6BA47DE33441C56B67ABA69C* ___vi0, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_Remove_m11E2EA5DE9581C957375AF6F2BCDEB8E3E71653E_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_TryGetValue_mE2F75174D19DFCF4C1B7EFFE6F04EC40C892C838_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_Remove_mD192AFD0E85CF4D87D92FB6688434CD21F69B038_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_get_Count_m4198E305698B4D48454B33DCF58BAA459E055595_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_get_Item_mBBC03A6C2FE726BF244B38F24FF89A141594E2F2_RuntimeMethod_var);
-		s_Il2CppMethodInitialized = true;
-	}
-	VertexKey_tB3D7F40B748D63B1F3CB7ADF6736C0587592ABF5 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	List_1_tDEC7425F9DCD7A5D4725E51D54B7B38D9218D0B3* V_1 = NULL;
-	int32_t V_2 = 0;
-	{
-		V_2 = 0;
-		goto IL_0025;
-	}
-
-IL_0004:
-	{
-		Dictionary_2_tD38D194CFB90BDE471043CFA7EC4EB686F94E074* L_0 = __this->___vertexDict_3;
-		VertexInfo_tB680BA9D4490146E6BA47DE33441C56B67ABA69C* L_1 = ___vi0;
-		NullCheck(L_1);
-		List_1_tA0AE4383A3502ED1C57040797EDB7110A767B43C* L_2 = L_1->___tokens_2;
-		int32_t L_3 = V_2;
-		NullCheck(L_2);
-		Token_t0A3004C6B1C491504935BC271220D585CD34E488* L_4;
-		L_4 = List_1_get_Item_mBBC03A6C2FE726BF244B38F24FF89A141594E2F2(L_2, L_3, List_1_get_Item_mBBC03A6C2FE726BF244B38F24FF89A141594E2F2_RuntimeMethod_var);
-		NullCheck(L_4);
-		Vertex_tB6D4D191E463D1653AA47DED15E41F21BA5A21FC* L_5;
-		L_5 = Token_get_vertex_m63D3C9587CF4768F32BD2662263CD14F2E1E69F0(L_4, NULL);
-		NullCheck(L_0);
-		bool L_6;
-		L_6 = Dictionary_2_Remove_m11E2EA5DE9581C957375AF6F2BCDEB8E3E71653E(L_0, L_5, Dictionary_2_Remove_m11E2EA5DE9581C957375AF6F2BCDEB8E3E71653E_RuntimeMethod_var);
-		int32_t L_7 = V_2;
-		V_2 = ((int32_t)il2cpp_codegen_add(L_7, 1));
-	}
-
-IL_0025:
-	{
-		int32_t L_8 = V_2;
-		VertexInfo_tB680BA9D4490146E6BA47DE33441C56B67ABA69C* L_9 = ___vi0;
-		NullCheck(L_9);
-		List_1_tA0AE4383A3502ED1C57040797EDB7110A767B43C* L_10 = L_9->___tokens_2;
-		NullCheck(L_10);
-		int32_t L_11;
-		L_11 = List_1_get_Count_m4198E305698B4D48454B33DCF58BAA459E055595_inline(L_10, List_1_get_Count_m4198E305698B4D48454B33DCF58BAA459E055595_RuntimeMethod_var);
-		if ((((int32_t)L_8) < ((int32_t)L_11)))
-		{
-			goto IL_0004;
-		}
-	}
-	{
-		VertexInfo_tB680BA9D4490146E6BA47DE33441C56B67ABA69C* L_12 = ___vi0;
-		NullCheck(L_12);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_13;
-		L_13 = VertexInfo_get_pos_mEEEFD94BB191F9EF422C74624FA9FD932524A71E(L_12, NULL);
-		VertexKey__ctor_m5ADFAB6A0CA1D84E3CC2765B2B6F4965FB815FB8((&V_0), L_13, NULL);
-		Dictionary_2_tE2DDF83997C468EF036B0F6874ADE3DE9FF8A5A1* L_14 = __this->___vertexByPos_4;
-		VertexKey_tB3D7F40B748D63B1F3CB7ADF6736C0587592ABF5 L_15 = V_0;
-		NullCheck(L_14);
-		bool L_16;
-		L_16 = Dictionary_2_TryGetValue_mE2F75174D19DFCF4C1B7EFFE6F04EC40C892C838(L_14, L_15, (&V_1), Dictionary_2_TryGetValue_mE2F75174D19DFCF4C1B7EFFE6F04EC40C892C838_RuntimeMethod_var);
-		if (!L_16)
-		{
-			goto IL_0058;
-		}
-	}
-	{
-		List_1_tDEC7425F9DCD7A5D4725E51D54B7B38D9218D0B3* L_17 = V_1;
-		VertexInfo_tB680BA9D4490146E6BA47DE33441C56B67ABA69C* L_18 = ___vi0;
-		NullCheck(L_17);
-		bool L_19;
-		L_19 = List_1_Remove_mD192AFD0E85CF4D87D92FB6688434CD21F69B038(L_17, L_18, List_1_Remove_mD192AFD0E85CF4D87D92FB6688434CD21F69B038_RuntimeMethod_var);
-	}
-
-IL_0058:
-	{
-		List_1_tDEC7425F9DCD7A5D4725E51D54B7B38D9218D0B3* L_20 = __this->___vertices_2;
-		VertexInfo_tB680BA9D4490146E6BA47DE33441C56B67ABA69C* L_21 = ___vi0;
-		NullCheck(L_20);
-		bool L_22;
-		L_22 = List_1_Remove_mD192AFD0E85CF4D87D92FB6688434CD21F69B038(L_20, L_21, List_1_Remove_mD192AFD0E85CF4D87D92FB6688434CD21F69B038_RuntimeMethod_var);
-		return;
 	}
 }
 // System.Boolean tripolygon.UModeler.EditableMeshCache::AddVertex(tripolygon.UModeler.SimplePolygon,System.Int32)
@@ -6434,6 +6639,55 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EditableMeshCache__ctor_mA62C67C3E4E81B8
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___vertexByPos_4), (void*)L_7);
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
 		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void tripolygon.UModeler.EditableMeshCache/<>c::.cctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__cctor_mBC2F17D7908673FD2AC9E413B13E418CA05A317D (const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A* L_0 = (U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A*)il2cpp_codegen_object_new(U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		U3CU3Ec__ctor_m768626F81AF946A0BF33594CBD19AD7F4FE436D5(L_0, NULL);
+		((U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_StaticFields*)il2cpp_codegen_static_fields_for(U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var))->___U3CU3E9_0 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&((U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_StaticFields*)il2cpp_codegen_static_fields_for(U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A_il2cpp_TypeInfo_var))->___U3CU3E9_0), (void*)L_0);
+		return;
+	}
+}
+// System.Void tripolygon.UModeler.EditableMeshCache/<>c::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__ctor_m768626F81AF946A0BF33594CBD19AD7F4FE436D5 (U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A* __this, const RuntimeMethod* method) 
+{
+	{
+		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
+		return;
+	}
+}
+// tripolygon.UModeler.SimplePolygon tripolygon.UModeler.EditableMeshCache/<>c::<ClearShelf>b__6_0(System.Collections.Generic.KeyValuePair`2<System.UInt64,tripolygon.UModeler.SimplePolygon>)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* U3CU3Ec_U3CClearShelfU3Eb__6_0_mB562F99C266E96CC67BECCDA2F1D0D65D5CFB2AB (U3CU3Ec_tD394FA2E4BD9AFF98AE4ED7A2C9A4E6CAFB77D8A* __this, KeyValuePair_2_t97F7F1BD60E1D1B6801E77FBC8CFAB5425BFE11F ___a0, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&KeyValuePair_2_get_Value_m8E1CD1ADC77D3C3A92FF95C3B55D93E15968D7D1_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_0;
+		L_0 = KeyValuePair_2_get_Value_m8E1CD1ADC77D3C3A92FF95C3B55D93E15968D7D1_inline((&___a0), KeyValuePair_2_get_Value_m8E1CD1ADC77D3C3A92FF95C3B55D93E15968D7D1_RuntimeMethod_var);
+		return L_0;
 	}
 }
 #ifdef __clang__
@@ -16143,6 +16397,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolygonResources_RegenerateInstanceID_m6
 		return;
 	}
 }
+// System.Void tripolygon.UModeler.PolygonResources::SetDirtyCache()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolygonResources_SetDirtyCache_m0734E73C7570091330330A944D74D1DD381B1CB9 (PolygonResources_t178C03BB86A862AE700F4F18AD2A637ACED13057* __this, const RuntimeMethod* method) 
+{
+	{
+		__this->___cacheEnable_2 = (bool)0;
+		return;
+	}
+}
 // System.Void tripolygon.UModeler.PolygonResources::RefreshCache()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PolygonResources_RefreshCache_mED428033FA149076524D3B51A3F3189F528AD022 (PolygonResources_t178C03BB86A862AE700F4F18AD2A637ACED13057* __this, const RuntimeMethod* method) 
 {
@@ -16301,7 +16563,7 @@ IL_0044:
 		uint64_t L_15;
 		L_15 = VirtualFuncInvoker0< uint64_t >::Invoke(18 /* System.UInt64 System.IO.BinaryReader::ReadUInt64() */, L_14);
 		__this->___instanceID__1 = L_15;
-		__this->___cacheEnable_2 = (bool)0;
+		PolygonResources_SetDirtyCache_m0734E73C7570091330330A944D74D1DD381B1CB9(__this, NULL);
 		PolygonResources_RefreshCache_mED428033FA149076524D3B51A3F3189F528AD022(__this, NULL);
 		return;
 	}
@@ -16612,6 +16874,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PolygonResources_Contains_m013B5B202A55E
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		PolygonResources_RefreshCache_mED428033FA149076524D3B51A3F3189F528AD022(__this, NULL);
 		Dictionary_2_tA916F1E438E8A6E0B41F2B656736AB73E42BA6C9* L_0 = __this->___polygonsCache_3;
 		SimplePolygon_t5F51D3D1F485B3C377E0E40766EBFD86BA9D9385* L_1 = ___polygon0;
 		NullCheck(L_1);
@@ -16622,14 +16885,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PolygonResources_Contains_m013B5B202A55E
 		L_3 = Dictionary_2_ContainsKey_m2679EFA0B76E81FE6DF807F79B452B98A81D2586(L_0, L_2, Dictionary_2_ContainsKey_m2679EFA0B76E81FE6DF807F79B452B98A81D2586_RuntimeMethod_var);
 		if (!L_3)
 		{
-			goto IL_0015;
+			goto IL_001b;
 		}
 	}
 	{
 		return (bool)1;
 	}
 
-IL_0015:
+IL_001b:
 	{
 		return (bool)0;
 	}
@@ -16677,17 +16940,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PolygonResources_RemoveUnused_mED7FBBEDF
 		L_2 = List_1_RemoveAll_m0EB2EA76696BC0BE6D3478A48C250FBE7C0840CF(L_0, L_1, List_1_RemoveAll_m0EB2EA76696BC0BE6D3478A48C250FBE7C0840CF_RuntimeMethod_var);
 		if ((((int32_t)L_2) <= ((int32_t)0)))
 		{
-			goto IL_002f;
+			goto IL_002e;
 		}
 	}
 	{
-		__this->___cacheEnable_2 = (bool)0;
+		PolygonResources_SetDirtyCache_m0734E73C7570091330330A944D74D1DD381B1CB9(__this, NULL);
 		PolygonResources_RefreshCache_mED428033FA149076524D3B51A3F3189F528AD022(__this, NULL);
 		VirtualActionInvoker0::Invoke(6 /* System.Void tripolygon.UModeler.PolygonResources::Refresh() */, __this);
 		return (bool)1;
 	}
 
-IL_002f:
+IL_002e:
 	{
 		return (bool)0;
 	}
@@ -38109,6 +38372,13 @@ IL_003c:
 		return;
 	}
 }
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* Enumerator_get_Current_m6330F15D18EE4F547C05DF9BF83C5EB710376027_gshared_inline (Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A* __this, const RuntimeMethod* method) 
+{
+	{
+		RuntimeObject* L_0 = (RuntimeObject*)__this->____current_3;
+		return L_0;
+	}
+}
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -38160,10 +38430,10 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t List_1_get_Count_mA8DD34A
 		return L_0;
 	}
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* Enumerator_get_Current_m6330F15D18EE4F547C05DF9BF83C5EB710376027_gshared_inline (Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A* __this, const RuntimeMethod* method) 
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* KeyValuePair_2_get_Value_mD8C68FAC73E70CDB6F3B0383A855C6806256A27D_gshared_inline (KeyValuePair_2_t1F749E064301C7FBDD1C0B79D6C7290359EA8141* __this, const RuntimeMethod* method) 
 {
 	{
-		RuntimeObject* L_0 = (RuntimeObject*)__this->____current_3;
+		RuntimeObject* L_0 = (RuntimeObject*)__this->___value_1;
 		return L_0;
 	}
 }

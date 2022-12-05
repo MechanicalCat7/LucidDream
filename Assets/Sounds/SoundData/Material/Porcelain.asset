@@ -20,5 +20,7 @@ MonoBehaviour:
   _running: []
   _impact:
   - {fileID: 8300000, guid: e48f36540d97c484aaba3ca157a3f0bf, type: 3}
+  _impactHigh:
+  - {fileID: 8300000, guid: e48f36540d97c484aaba3ca157a3f0bf, type: 3}
   _breaking:
   - {fileID: 8300000, guid: 20dab2d390258da4f8ed596f1c26523c, type: 3}

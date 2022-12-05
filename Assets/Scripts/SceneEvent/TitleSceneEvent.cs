@@ -7,6 +7,7 @@ public class TitleSceneEvent : BaseSceneEvent
     //  Editor-assigned Variables
     // ==================================================
 
+    [SerializeField] private SoundData _sound;
     [SerializeField] private Transform _leftDoor;
     [SerializeField] private Transform _rightDoor;
     [SerializeField] private float _duration;
@@ -55,7 +56,8 @@ public class TitleSceneEvent : BaseSceneEvent
         var rightInitPos = _rightDoor.position;
         var leftTargetX = (leftInitPos + _leftDoor.right * 0.45f).x;
         var rightTargetX = (rightInitPos - _rightDoor.right * 0.45f).x;
-
+        AudioSource.PlayClipAtPoint(_sound.soundList[0], GameManager.instance.playerManager.head.position);
+        
         runTime = 0.0f;
         while (runTime < _duration)
         {

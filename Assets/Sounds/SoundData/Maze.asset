@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257b3c1849b1a794dbb48a0f26d76a87, type: 3}
+  m_Name: Maze
+  m_EditorClassIdentifier: 
+  _walking: []
+  _running: []
+  _impactLow: []
+  _impactHigh: []
+  _destroy: []
+  _soundList:
+  - {fileID: 8300000, guid: 72362232ca1b1194fab8cf91be08cc7a, type: 3}
+  - {fileID: 8300000, guid: a8c3cb734254c0141a7ffc57386066f4, type: 3}
+  - {fileID: 8300000, guid: 5872585630e31b347a90c6ce0251e31e, type: 3}
+  - {fileID: 8300000, guid: 92f9a9a3226c23d4eaee3318f6a47df3, type: 3}
+  - {fileID: 8300000, guid: b3331b46d64cb9344a1b471c367516ab, type: 3}
+  - {fileID: 8300000, guid: 03f0ac8757d9beb4db056f7679f4cbbc, type: 3}
+  - {fileID: 8300000, guid: e6262d0d8ae4a9b4a9bd22f5d1088c83, type: 3}
+  - {fileID: 8300000, guid: 6fbd89e5f7ceadd4189660557190cad3, type: 3}
+  - {fileID: 8300000, guid: df73447a7748dee458f4c17d2c52ef51, type: 3}
+  - {fileID: 8300000, guid: 85c9a85bc0e2cf74d8bc514b2747db98, type: 3}
+  - {fileID: 8300000, guid: 0f5be4ddfd0b1db44a24ad3e6a597637, type: 3}

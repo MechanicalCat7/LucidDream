@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533951a94a24ee043b6610b6cbf6b27c, type: 3}
   m_Name: Glass
   m_EditorClassIdentifier: 
-  _walking: []
-  _running: []
-  _impact: []
-  _breaking: []
+  _walking:
+  - {fileID: 0}
+  _running:
+  - {fileID: 0}
+  _impact:
+  - {fileID: 8300000, guid: e48f36540d97c484aaba3ca157a3f0bf, type: 3}
+  _impactHigh:
+  - {fileID: 8300000, guid: e48f36540d97c484aaba3ca157a3f0bf, type: 3}
+  _breaking:
+  - {fileID: 8300000, guid: 20dab2d390258da4f8ed596f1c26523c, type: 3}

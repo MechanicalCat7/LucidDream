@@ -75,6 +75,7 @@ public class PlayerHand : MonoBehaviour
     private Animator _animator;
     private Renderer _renderer;
     private ActionBasedController _actionController;
+    public ActionBasedController actionController => _actionController;
     private Collider[] _handColliders;
     private float _handMoveSpeed;
     private float _handRotateSpeed;

@@ -131,10 +131,9 @@ public class PlayerBody : MonoBehaviour
     {
         if (Physics.Raycast(_player.characterPosInWorldSpace, Vector3.down, out var hit, 2f, _collisionLayer))
         {
-            if (hit.transform.TryGetComponent(out TerrainData terrain))
+            if (hit.transform.TryGetComponent(out NewObject terrain))
             {
-                _audioSource.PlayOneShot(terrain.Sound.walking, speed);
-                Debug.Log("Walk");
+                _audioSource.PlayOneShot(terrain.sound.walking, speed);
             }
         }
         _footstepTime = 0;

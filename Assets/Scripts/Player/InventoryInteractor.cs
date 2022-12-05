@@ -87,25 +87,33 @@ public class InventoryInteractor : XRSocketInteractor
 
     public override bool CanHover(IXRHoverInteractable interactable)
     {
-        return base.CanHover(interactable) && interactable.transform.gameObject.layer == Support.GrabbedLayerIndex;
+        // return base.CanHover(interactable) && interactable.transform.gameObject.layer == Support.GrabbedLayerIndex;
+        return base.CanHover(interactable) && interactable.transform.TryGetComponent(out IGrabbable _);
     }
 
     public override bool CanSelect(IXRSelectInteractable interactable)
     {
-        // 프롭만 인벤토리에 넣을 수 있음
-        if (interactable.transform.TryGetComponent(out GrabbableProp prop))
-            return base.CanSelect(interactable) &&
-                   Support.CompareLayer(interactable.transform.gameObject.layer, _storableLayer) && prop.storable;
+        if (!interactable.transform.TryGetComponent(out IGrabbable grabbable))
+            return false;
+
+        return base.CanSelect(interactable) && grabbable.storable &&
+               Support.CompareLayer(interactable.transform.gameObject.layer, _storableLayer);
         
-        return false;
+        // 프롭만 인벤토리에 넣을 수 있음
+        // if (interactable.transform.TryGetComponent(out GrabbableProp prop))
+        //     return base.CanSelect(interactable) &&
+        //            Support.CompareLayer(interactable.transform.gameObject.layer, _storableLayer) && prop.storable;
+        //
+        // return false;
     }
 
     protected override void OnHoverEntering(HoverEnterEventArgs args)
     {
         base.OnHoverEntering(args);
-        
-        args.interactableObject.transform.TryGetComponent(out GrabbableProp prop);
-        if (hasSelection || !prop.storable)
+
+        args.interactableObject.transform.TryGetComponent(out IGrabbable grabbable);
+        // args.interactableObject.transform.TryGetComponent(out GrabbableProp prop);
+        if (hasSelection || !grabbable.storable)
         {
             ChangeColor(_invalidColor);
         }
@@ -127,10 +135,13 @@ public class InventoryInteractor : XRSocketInteractor
         base.OnSelectEntering(args);
     
         // 인벤토리 등록
-        args.interactableObject.transform.TryGetComponent(out GrabbableProp prop);
-        _hand.storedItem = prop.transform;
+        // args.interactableObject.transform.TryGetComponent(out GrabbableProp prop);
+        // _hand.storedItem = prop.transform;
+        
+        var interactable = args.interactableObject as XRGrabInteractable;
+        interactable.movementType = XRBaseInteractable.MovementType.Instantaneous;
 
-        Support.ChangeLayer(_hand.storedItem, Support.InventoryLayerIndex);
+        Support.ChangeLayer(args.interactableObject.transform, Support.InventoryLayerIndex);
         ChangeColor(_defaultColor);
     }
 
@@ -139,7 +150,10 @@ public class InventoryInteractor : XRSocketInteractor
         base.OnSelectExiting(args);
         
         // 인벤토리 제거
-        _hand.storedItem = null;
+        // _hand.storedItem = null;
+        
+        var interactable = args.interactableObject as XRGrabInteractable;
+        interactable.movementType = XRBaseInteractable.MovementType.VelocityTracking;
     }
     
     // ==================================================

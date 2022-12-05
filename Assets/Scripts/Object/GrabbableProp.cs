@@ -26,7 +26,7 @@ public class GrabbableProp : Prop
     //  Variables
     // ==================================================
 
-    private XRGrabInteractable _interactable;
+    protected XRGrabInteractable _interactable;
 
     private HandType _stored;               // 인벤토리에 저장된 손의 위치
     private Coroutine _coroutine;           // 코루틴

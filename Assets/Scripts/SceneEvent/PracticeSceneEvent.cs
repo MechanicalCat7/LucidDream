@@ -1,6 +1,7 @@
 using System.Collections;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PracticeSceneEvent : BaseSceneEvent
 {
@@ -15,30 +16,45 @@ public class PracticeSceneEvent : BaseSceneEvent
     //  Editor-assigned Variables
     // ==================================================
 
+    [SerializeField] private SoundData _sound;
+    [SerializeField] private Slender _slender;
+    
+    [Header("Player")]
     [SerializeField] private Renderer _fadeScreen;
-
     [SerializeField] private ControllerHint _leftHint;
     [SerializeField] private ControllerHint _rightHint;
-
+    
+    [Header("Elevator")]
     [SerializeField] private Transform _elevatorButtonKey;
-    [SerializeField] private Transform _elevatorButton;
+    [SerializeField] private GameObject _elevatorButton;
     [SerializeField] private Rigidbody _elevatorDoorLeft;
     [SerializeField] private Rigidbody _elevatorDoorRight;
 
     // ==================================================
     //  Variables
     // ==================================================
+
+    private AudioSource _audioSource;
     
     // 이벤트 발동 여부
     private bool _isNewGame = true;
     private bool _checkInventoryInfo;
     private bool _checkElevatorButton;
+    private bool _checkRoomEnter;
+    private bool _coroutineCheck;
 
     private PlayerManager _player;
 
     // ==================================================
     //  Unity Functions
     // ==================================================
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     protected override void Start()
     {
@@ -142,6 +158,7 @@ public class PracticeSceneEvent : BaseSceneEvent
     {
         _checkElevatorButton = true;
         Destroy(_elevatorButtonKey.gameObject);
+        _elevatorButton.SetActive(true);
         StartCoroutine(ElevatorOpenEventCoroutine());
     }
 
@@ -154,7 +171,8 @@ public class PracticeSceneEvent : BaseSceneEvent
         var rightInitPos = _elevatorDoorRight.position;
         var leftTargetX = (leftInitPos + _elevatorDoorLeft.transform.right * 0.45f).x;
         var rightTargetX = (rightInitPos - _elevatorDoorRight.transform.right * 0.45f).x;
-
+        
+        _audioSource.PlayOneShot(_sound.soundList[1]);
         var runTime = 0.0f;
         var duration = 2f;
         
@@ -170,6 +188,75 @@ public class PracticeSceneEvent : BaseSceneEvent
             yield return null;
         }
 
+    }
+
+    public void NextStageEvent()
+    {
+        StartCoroutine(NextStageEventCoroutine());
+    }
+    
+    private IEnumerator NextStageEventCoroutine()
+    {
+        var leftInitPos = _elevatorDoorLeft.position;
+        var rightInitPos = _elevatorDoorRight.position;
+        var leftTargetX = (leftInitPos - _elevatorDoorLeft.transform.right * 0.45f).x;
+        var rightTargetX = (rightInitPos + _elevatorDoorRight.transform.right * 0.45f).x;
+        
+        var runTime = 0.0f;
+        var duration = 2f;
+        _audioSource.PlayOneShot(_sound.soundList[1]);
+        
+        while (runTime < duration)
+        {
+            runTime += Time.deltaTime;
+            var t = runTime / duration;
+
+            _elevatorDoorLeft.position = new Vector3(Mathf.SmoothStep(leftInitPos.x, leftTargetX, t), leftInitPos.y,
+                leftInitPos.z);
+            _elevatorDoorRight.position = new Vector3(Mathf.SmoothStep(rightInitPos.x, rightTargetX, t), rightInitPos.y,
+                rightInitPos.z);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Maze");
+    }
+    
+    /// <summary>
+    /// 효과음 재생
+    /// </summary>
+    public void PlaySceneSound(int index)
+    {
+        _audioSource.PlayOneShot(_sound.soundList[index]);
+    }
+
+    public void RoomEnterCheck()
+    {
+        _checkRoomEnter = true;
+    }
+
+    public void SlenderShowEvent()
+    {
+        if (_checkRoomEnter)
+        {
+            _slender.visible = true;
+        }
+    }
+
+    public void SlenderMoveEvent()
+    {
+        if (_checkRoomEnter && !_coroutineCheck)
+        {
+            _coroutineCheck = true;
+            StartCoroutine(MoveCoroutine());
+        }
+    }
+
+    private IEnumerator MoveCoroutine()
+    {
+        _slender.state = 1;
+        yield return new WaitForSeconds(1f);
+        _slender.moveState = true;
     }
 
     // ==================================================

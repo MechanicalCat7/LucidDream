@@ -19,4 +19,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ee7f8d6ce0305f643af30310b33b8b64, type: 3}
   _running: []
   _impact: []
+  _impactHigh: []
   _breaking: []

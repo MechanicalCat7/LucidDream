@@ -17,14 +17,14 @@ public class BaseSceneEvent : MonoBehaviour
     protected virtual void Awake()
     {
         GameManager.instance.RegisterSceneEvent(this);
-        DataManager.instance.GetObjects();
+        // DataManager.instance.GetObjects();
     }
 
     protected virtual void Start()
     {
-        // 게임 불러오기 상태일 경우 계속 수행
-        if (DataManager.instance.isLoadingGame)
-            DataManager.instance.LoadStateProcess();
+        // // 게임 불러오기 상태일 경우 계속 수행
+        // if (DataManager.instance.isLoadingGame)
+        //     DataManager.instance.LoadStateProcess();
     }
 
     // ==================================================

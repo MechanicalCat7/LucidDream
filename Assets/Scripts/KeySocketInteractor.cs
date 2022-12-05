@@ -25,6 +25,6 @@ public class KeySocketInteractor : XRSocketInteractor
     // Select 가능 여부 판단
     public override bool CanSelect(IXRSelectInteractable interactable)
     {
-        return base.CanSelect(interactable) && interactable.transform.name == keyName;
+        return base.CanSelect(interactable) && interactable.transform.name.Contains(keyName);
     }
 }

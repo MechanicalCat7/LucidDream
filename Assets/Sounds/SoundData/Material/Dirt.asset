@@ -17,8 +17,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9595d428b7bd4374d8f8d021b39c7017, type: 3}
   - {fileID: 8300000, guid: 89e96f7a0cea837478d90e8c9f300541, type: 3}
   - {fileID: 8300000, guid: 2a6c6b4cea2a5b24ea043866f9a7108e, type: 3}
-  _running: []
+  _running:
+  - {fileID: 8300000, guid: 9d51fa93ea12c2c4f9d315f34216f134, type: 3}
   _impact:
+  - {fileID: 8300000, guid: 712b860e467b0434f8aa1b1dfa3f27ac, type: 3}
+  - {fileID: 8300000, guid: 674658279e1e38e4e817b812ef599432, type: 3}
+  _impactHigh:
   - {fileID: 8300000, guid: 712b860e467b0434f8aa1b1dfa3f27ac, type: 3}
   - {fileID: 8300000, guid: 674658279e1e38e4e817b812ef599432, type: 3}
   _breaking:

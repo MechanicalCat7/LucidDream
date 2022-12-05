@@ -24,6 +24,11 @@ public class MaterialSoundData : ScriptableObject
     [SerializeField] private List<AudioClip> _impact;
     
     /// <summary>
+    /// 강한 충격을 받았을 때 소리 리스트
+    /// </summary>
+    [SerializeField] private List<AudioClip> _impactHigh;
+    
+    /// <summary>
     /// 파괴될 때 소리 리스트
     /// </summary>
     [SerializeField] private List<AudioClip> _breaking;
@@ -46,6 +51,11 @@ public class MaterialSoundData : ScriptableObject
     /// 충격을 받았을 때 소리를 무작위로 출력
     /// </summary>
     public AudioClip impact => _impact[Random.Range(0, _impact.Count - 1)];
+    
+    /// <summary>
+    /// 강한 충격을 받았을 때 소리를 무작위로 출력
+    /// </summary>
+    public AudioClip impactHigh => _impactHigh[Random.Range(0, _impactHigh.Count - 1)];
     
     /// <summary>
     /// 파괴될 때 소리를 무작위로 출력
